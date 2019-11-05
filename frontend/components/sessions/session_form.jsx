@@ -32,6 +32,10 @@ class SessionForm extends React.Component {
         if (this.props.formType === 'login') title = "login";
         return (
             <div className="study">
+                <div className="slogan">
+                    <div>Work Smart  Learn Well</div>
+                </div>
+
                 <form onSubmit={this.handleSubmit}>
 
                     {/* <header>Please
@@ -39,20 +43,20 @@ class SessionForm extends React.Component {
                     </header> */}
 
                     <br />
-                    <div>
-                        <label>Email
+                    <div className='form'>
+                        <label>EMAIL: 
                             <input onChange={this.update('email')} type="text" value={this.state.email} />
                         </label>
                     </div>
 
 
-                    <div>
-                        <label>Password
+                    <div className='form'>
+                        <label>PASSWORD: 
                             <input onChange={this.update('password')} type="password" value={this.state.password} />
                         </label>
                     </div>
 
-                    <button>{title}</button>
+                    <button className="button">{title.toUpperCase()}</button>
                 </form>
             </div>
         )

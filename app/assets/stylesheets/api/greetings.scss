@@ -1,30 +1,21 @@
 body{
-    background-color: lightgrey;
+    background-color: #E9E9E9;
     //background-image: image_url("study.jpg");
     // background-size: cover;
     // background-repeat: no-repeat;
     // overflow: hidden;  
 }
 
-.study{
-    display: flex;
-    background-color: blue;
-    // position: absolute;
-    height: 1000px;
-    width: 100%;
-    // flex-grow: 100%;
-    background: image_url("desk.jpg");
-    background-size: 100%;
-    background-repeat: no-repeat;
 
-}
-// .studyimg > img {
-//    height: 1000px;
-//    width: 1200px;
-//    margin: 0 auto;
-//    text-align: center;
+.home {
+    // display: flex;
+    width: 100vw;
+    height:100vh;
+    background: image_url("desk.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
     
-// }
+}
 
 .navbar{
     display: flex;
@@ -35,10 +26,13 @@ body{
     height: 100px;
     color: #E4E3E0;
     opacity: 0.95;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
   
 }
 .navbar > h2 {
     align-self: center;
+    margin: 10px;
 }
 
 .cheese {
@@ -62,13 +56,19 @@ body{
     
  }
 
- .greetings > .login {
-    //  display: flex;
-    //  border: 1px solid black;  
-    //  flex-direction: row;
+.footer {
+    display: flex;
+    // flex-direction: row;
+    justify-content: space-between;
     // align-content: center;
-    color: silver !important 
- }
+    background-color: #250808;
+    height: 100px;
+    color: #E4E3E0;
+    opacity: 0.95;
+};
 
+i {
+    padding-right: 20px;
+}
 
 

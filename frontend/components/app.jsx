@@ -7,21 +7,21 @@ import { AuthRoute } from '../util/route_util'
 
 const App = () => (
     <div className="home">
+        
         <header className="navbar">
             <h2> <i className="fa fa-lightbulb-o"></i>Learn.It</h2>
             <GreetingContainer />
         </header>
 
-        {/* <div className="study">
-            <div></div>
-        </div> */}
-
         <div className="body">
             {/* switch statements */}
         </div>
-
         <AuthRoute path="/login" component={LoginFormContainer} />
         <AuthRoute path="/signup" component={SignUpFormContainer} />
+
+        {/* <div className="footer">
+            
+        </div> */}
     </div>
     
 );
