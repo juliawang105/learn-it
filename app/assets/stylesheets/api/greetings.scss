@@ -1,45 +1,52 @@
 body{
     background-color: #E9E9E9;
-    //background-image: image_url("study.jpg");
-    // background-size: cover;
-    // background-repeat: no-repeat;
-    // overflow: hidden;  
 }
 
-
-.home {
-    // display: flex;
+.boss{
+    display: flex;
     width: 100vw;
     height:100vh;
+}
+.home {
+    margin: 0px;
+    width: 100vw;
+    height: 100vh;
     background: image_url("desk.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    overflow-y: hidden;
     
 }
 
 .navbar{
     display: flex;
-    // flex-direction: row;
     justify-content: space-between;
-    // align-content: center;
     background-color: #250808;
     height: 100px;
     color: #E4E3E0;
     opacity: 0.95;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    
-  
+    // font-size: 20px; 
 }
-.navbar > h2 {
-    align-self: center;
+.name {
+    flex-direction: row;
+    // justify-content: center;
+    align-items: center;
     margin: 10px;
+    vertical-align: middle;
+    // font-size: 20px;
+}
+
+.name2{
+   font-size: 30px;
+   align-self: flex-end;
 }
 
 .cheese {
     display: flex;
     justify-content: center;
-    align-items: center;
-    // background-color: yellow;
+    align-items: flex-end;
+    margin-bottom: 20px;
     
 }
 .greetings {
@@ -47,28 +54,19 @@ body{
     justify-content: center;
     align-items: center;
     height: 20px;
+    padding: 10px; 
     
     
 }
 .nav {
     color: silver;
-    padding-right: 10px;
-    
+    padding-right: 10px;  
+    display: flex;
  }
 
-.footer {
-    display: flex;
-    // flex-direction: row;
-    justify-content: space-between;
-    // align-content: center;
-    background-color: #250808;
-    height: 100px;
-    color: #E4E3E0;
-    opacity: 0.95;
-};
-
 i {
-    padding-right: 20px;
+    padding: 5px;
+    background-size: 50px;
 }
 
 

@@ -18,7 +18,7 @@ class Greeting extends React.Component {
         const display = logged ? (
                 <div className="greetings">
                     <h2>Welcome {logged.email}</h2>
-                    <button onClick={this.handleSubmit}>Log Out</button>
+                    <button className="button" onClick={this.handleSubmit}>LOG OUT</button>
                 </div>
             ) : (
                 <div className="greetings">
