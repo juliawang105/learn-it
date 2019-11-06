@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 class LoginForm extends React.Component {
     constructor(props) {
@@ -34,14 +35,14 @@ class LoginForm extends React.Component {
 
     handleDemo(e) {
         // e.preventDefault();
-        this.setState({ email: 'demo', password: 'password' })
-        this.handleSubmit; 
+        this.setState({ email: 'demo@gmail.com', password: 'password', first_name: 'demo', last_name: 'demo' })
+        //this.handleSubmit.then(this.props.closeModal);
     }
 
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.login(user);
+        this.props.login(user).then(this.props.closeModal);
     }
 
     update(input) {
@@ -54,33 +55,40 @@ class LoginForm extends React.Component {
     render() {
         let title = this.props.formType;
         return (
-            <div className="study">
-                
+            <div className="loginformmaster">
+                 <div onClick={this.props.closeModal} className="close-x">X</div>
                 <form onSubmit={this.handleSubmit}>
-                    <div className="errors">
-                        <span>{this.renderErrors()}</span>
-                    </div>
+                    
+                    
 
-                    <div classForm="masterform">
+                    <div className="masterform">
+                        
                         <div className='form'>
-                            <label>EMAIL:
+                            <div className="loginform">Login</div>
+                            <br />
+                            <div className="inputbox">
                             <input onChange={this.update('email')}
                                     type="text"
-                                    value={this.state.email} />
-                            </label>
-                        </div>
-                        <div className='form'>
-                            <label>PASSWORD:
+                                    value={this.state.email} 
+                                    placeholder='you@email.com'/>
+                            </div>
+                                <br/>
+                            <div className="inputbox">
                             <input onChange={this.update('password')}
                                     type="password"
-                                    value={this.state.password} />
-                            </label>
+                                    value={this.state.password} 
+                                    placeholder='password'/>
+                            </div>
                         </div>
+                        
                     </div>
-                    <button className="button">{title.toUpperCase()}</button>
-                    <button onClick={this.handleDemo} className="button">DEMO USER</button>
-                    <div className="slogan">
-                        <h2>Work Smart and Learn It</h2>
+                    <div className="masterbutton">
+                        <button onClick={this.handleSubmit} className="button">{title.toUpperCase()}</button>
+                        <br/>
+                        <button onClick={this.handleDemo} className="button">DEMO USER</button>
+                    </div>
+                    <div className="errors">
+                        <span>{this.renderErrors()}</span>
                     </div>
                 </form>
             </div>
@@ -88,4 +96,4 @@ class LoginForm extends React.Component {
     }
 }
 
-export default LoginForm;
+export default withRouter(LoginForm);

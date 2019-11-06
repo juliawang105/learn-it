@@ -4,15 +4,17 @@ import { Route, Switch, Link, NavLink } from 'react-router-dom';
 import SignUpFormContainer from './sessions/signup_form_container';
 import LoginFormContainer from './sessions/login_form_container';
 import HomeFormContainer from './home_container'
+import ModalContainer from './modal'
 
 import { AuthRoute } from '../util/route_util'
 
 const App = () => (
     <div className='boss'>
         <div className="home">
+            <ModalContainer />
             <header className="navbar">
                 <div className="name"> 
-                    <i className="fa fa-lightbulb-o fa-4x">
+                    <i className="fa fa-lightbulb-o fa-3x">
                     </i>
                     <span className="name2"> <NavLink className="nav2" to={"/"}>Learn It</NavLink>
                     </span>
@@ -26,8 +28,8 @@ const App = () => (
             
             <Switch>
                 
-                <AuthRoute path="/login" component={LoginFormContainer} />
-                <AuthRoute path="/signup" component={SignUpFormContainer} />
+                {/* <AuthRoute path="/login" component={LoginFormContainer} />
+                <AuthRoute path="/signup" component={SignUpFormContainer} /> */}
                 <Route exact path='/' component={HomeFormContainer} />
             </Switch>
                

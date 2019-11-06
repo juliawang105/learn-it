@@ -17,17 +17,17 @@ class Greeting extends React.Component {
         let logged = this.props.currentUser
         const display = logged ? (
                 <div className="greetings">
-                    <h2>Welcome {logged.email}</h2>
-                    <button className="button" onClick={this.handleSubmit}>LOG OUT</button>
+                    <h2>Welcome {logged.first_name}</h2>
+                    <button id='logoutbutton' onClick={this.handleSubmit}>LOG OUT</button>
                 </div>
             ) : (
                 <div className="greetings">
                     <div className="signup">
-                        <NavLink className="nav" to="/signup">Sign Up</NavLink>
+                        <p onClick={() => this.props.openModal('signup')} className="nav">Sign Up</p>
                     </div>
                     <br/>
                     <div className="login">
-                        <NavLink className="nav" to="/login">Log In</NavLink> 
+                        <p onClick={() => this.props.openModal('login')} className="nav">Log In</p>
                     </div>
                 </div>
             )

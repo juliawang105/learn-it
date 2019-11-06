@@ -3,12 +3,15 @@ import { Link } from 'react-router-dom';
 import signup_form_container from './signup_form_container';
 
 
+
 class SignupForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             email: "",
-            password: ""
+            password: "",
+            first_name: "",
+            last_name: ""
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -35,7 +38,7 @@ class SignupForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.signup(user);
+        this.props.signup(user).then(this.props.closeModal);
     }
 
     update(input) {
@@ -49,33 +52,51 @@ class SignupForm extends React.Component {
         let title = this.props.formType;
         return (
             
-                <div className="study">
+                <div className="signupformmaster">
 
                     <form onSubmit={this.handleSubmit}>
+                        <div onClick={this.props.closeModal} className="close-x">X</div>
+                        
+                    <div className="masterform">
+                        
+                        <br/>
+                        <div className='form'>
+                            <div className="loginform">Signup</div>
+                            <br />
+                            <div className="inputbox">
+                                <input onChange={this.update('first_name')}
+                                    type="text"
+                                    value={this.state.first_name}
+                                    placeholder='first name'
+                                    required />
+                            </div>
+                            <br />
+                            <div className="inputbox">
+                                <input onChange={this.update('last_name')}
+                                    type="text"
+                                    value={this.state.last_name}
+                                    placeholder='last name'
+                                    required />
+                            </div>
+                            <br />
+                            <div className="inputbox">
+                                <input onChange={this.update('email')}
+                                    type="text"
+                                    value={this.state.email}
+                                    placeholder='you@email.com' />
+                            </div>
+                            <br />
+                            <div className="inputbox">
+                                <input onChange={this.update('password')}
+                                    type="password"
+                                    value={this.state.password}
+                                    placeholder='password' />
+                            </div>
+                        </div>
+                    </div>
+                        <button className="button">{title.toUpperCase()}</button>
                         <div className="errors">
                             <span>{this.renderErrors()}</span>
-                        </div>
-
-                        <div classForm="masterform">
-                            <div className='form'>
-                                <label>EMAIL:
-                            <input onChange={this.update('email')}
-                                        type="text"
-                                        value={this.state.email} />
-                                </label>
-                            </div>
-                            <div className='form'>
-                                <label>PASSWORD:
-                            <input onChange={this.update('password')}
-                                        type="password"
-                                        value={this.state.password} />
-                                </label>
-                            </div>
-                        </div>
-                        <button className="button">{title.toUpperCase()}</button>
-                        
-                        <div className="slogan">
-                            <h2>Work Smart and Learn It</h2>
                         </div>
                     </form>
                 </div>

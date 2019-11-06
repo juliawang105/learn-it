@@ -11,7 +11,7 @@ body{
     margin: 0px;
     width: 100vw;
     height: 100vh;
-    background: image_url("desk.jpg");
+    background: image_url("notetaker.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     overflow-y: hidden;
@@ -21,9 +21,9 @@ body{
 .navbar{
     display: flex;
     justify-content: space-between;
-    background-color: #250808;
-    height: 100px;
-    color: #E4E3E0;
+    background-color: #575C61;
+    height: 80px;
+    color: #CCDDED;
     opacity: 0.95;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     // font-size: 20px; 
