@@ -8,8 +8,16 @@ class HomeForm extends React.Component{
 
     render(){
         return (
-            <div className="slogan">
-               
+            <div className="homepage" >
+                <div className="notes">
+                   <h2>Personalized Notes</h2>
+                    <br></br>
+                   <h2>Effective Learning</h2>
+                    <br></br>
+                   <h2>Maximized Time</h2>
+                </div>
+        
+                
             </div>
         )
     }

@@ -1,6 +1,6 @@
 import React from "react";
 import GreetingContainer from './greetings/greeting_container'
-import { Route } from 'react-router-dom';
+import { Route, Switch, Link, NavLink } from 'react-router-dom';
 import SignUpFormContainer from './sessions/signup_form_container';
 import LoginFormContainer from './sessions/login_form_container';
 import HomeFormContainer from './home_container'
@@ -12,8 +12,9 @@ const App = () => (
         <div className="home">
             <header className="navbar">
                 <div className="name"> 
-                    <i className="fa fa-lightbulb-o fa-4x"></i>
-                    <span className="name2">Learn It
+                    <i className="fa fa-lightbulb-o fa-4x">
+                    </i>
+                    <span className="name2"> <NavLink className="nav2" to={"/"}>Learn It</NavLink>
                     </span>
                 </div>
                 <GreetingContainer />
@@ -22,12 +23,14 @@ const App = () => (
             <div className="body">
                 {/* switch statements */}
             </div>
-            <Route exact path='/' component={HomeFormContainer} />
-            <AuthRoute path="/login" component={LoginFormContainer} />
-            <AuthRoute path="/signup" component={SignUpFormContainer} />
             
-
-            
+            <Switch>
+                
+                <AuthRoute path="/login" component={LoginFormContainer} />
+                <AuthRoute path="/signup" component={SignUpFormContainer} />
+                <Route exact path='/' component={HomeFormContainer} />
+            </Switch>
+               
         </div>
     </div>
     

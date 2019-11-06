@@ -30,16 +30,16 @@ body{
 }
 .name {
     flex-direction: row;
-    // justify-content: center;
     align-items: center;
     margin: 10px;
     vertical-align: middle;
-    // font-size: 20px;
+    
 }
 
 .name2{
    font-size: 30px;
    align-self: flex-end;
+   color: #E4E3E0;
 }
 
 .cheese {
@@ -67,6 +67,10 @@ body{
 i {
     padding: 5px;
     background-size: 50px;
+}
+
+.nav2{
+    color: #E4E3E0;
 }
 
 

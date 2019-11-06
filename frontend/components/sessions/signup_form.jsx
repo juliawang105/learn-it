@@ -48,33 +48,38 @@ class SignupForm extends React.Component {
     render() {
         let title = this.props.formType;
         return (
-            <div className="study">
-                <div className="slogan">
-                    <div>Work Smart  Learn Well</div>
+            
+                <div className="study">
+
+                    <form onSubmit={this.handleSubmit}>
+                        <div className="errors">
+                            <span>{this.renderErrors()}</span>
+                        </div>
+
+                        <div classForm="masterform">
+                            <div className='form'>
+                                <label>EMAIL:
+                            <input onChange={this.update('email')}
+                                        type="text"
+                                        value={this.state.email} />
+                                </label>
+                            </div>
+                            <div className='form'>
+                                <label>PASSWORD:
+                            <input onChange={this.update('password')}
+                                        type="password"
+                                        value={this.state.password} />
+                                </label>
+                            </div>
+                        </div>
+                        <button className="button">{title.toUpperCase()}</button>
+                        
+                        <div className="slogan">
+                            <h2>Work Smart and Learn It</h2>
+                        </div>
+                    </form>
                 </div>
-
-                <form onSubmit={this.handleSubmit}>
-                    <div className="errors">
-                        <span>{this.renderErrors()}</span>
-                    </div>
-                    
-                    <div className='form'>
-                        <label>EMAIL: 
-                            <input onChange={this.update('email')} type="text" value={this.state.email} />
-                        </label>
-                    </div>
-
-
-                    <div className='form'>
-                        <label>PASSWORD: 
-                            <input onChange={this.update('password')} type="password" value={this.state.password} />
-                        </label>
-                    </div>
-
-                    <button className="button">{title.toUpperCase()}</button>
-                  
-                </form>
-            </div>
+            
         )
     }
 }

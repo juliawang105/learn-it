@@ -1,0 +1,20 @@
+.homepage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    width: 500px;
+    // border: 1px solid black;
+    margin-left: 350px;
+    margin-top: 200px;
+};
+
+.notes > h2{
+    flex-direction: row;
+    justify-content: center;
+    font-size: 40px;
+    color:  #250808;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 45px;
+    
+}
