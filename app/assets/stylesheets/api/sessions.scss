@@ -16,7 +16,7 @@
     justify-content: center;
     align-items: center;
     height: 340px;
-    width: 500px;
+    width: 436px;
     background-color: #FFFFFF;
     border-radius: 1px;  
 };
@@ -29,7 +29,7 @@
      align-items: center;
      font-family: Verdana, Geneva, Tahoma, sans-serif;
      font-size: 12px;
-     color: #250808;
+     color: red ;
  }
 
  .masterform {
@@ -53,17 +53,21 @@
 .loginform {
     align-self: center;
     color: #F18C4B;
-    margin-left: 43px;
-    font-size: 25px;
-}
+    margin-left: 53px;
+    font-size: 20px;
+};
 
 
 .inputbox > input {
-    width: 180px;
-    height: 25px;
+    width: 200px;
+    height: 37px;
     margin: 5px;
-    margin-left: -13px;
-}
+    margin-left: -19px;
+    margin-bottom: -5px;
+    background-color: #F2F2F2;
+    border: 0;
+    font-size: 10pt;
+};
 
 .button {
     margin: 10px;
@@ -89,20 +93,40 @@
 .masterbutton {
     display: block;
     
-}
+};
 
 
 .close-x {
     position: absolute;
-    top: -10px;
-    right: -10px;
+    top: -15px;
+    right: -14px;
     cursor: pointer;
     border: 2.5px solid #4CA5DB;
     border-radius: 60%;
-    padding: 2px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 10pt;
+    font-size: 12pt;
     color: #4CA5DB;
     background: #000000;
-}
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+};
+
+.close-x-login {
+    position: absolute;
+    top: -15px;
+    right: -14px;
+    cursor: pointer;
+    border: 2.5px solid #4CA5DB;
+    border-radius: 60%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12pt;
+    color: #4CA5DB;
+    background: #000000;
+    padding-left: 5px;
+    padding-right: 6px;
+    padding-bottom: 5px;
+    padding-top: 4px;
+};
 

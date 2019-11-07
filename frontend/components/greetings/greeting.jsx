@@ -20,7 +20,7 @@ class Greeting extends React.Component {
                     <h2>Welcome {logged.first_name}</h2>
                     <button id='logoutbutton' onClick={this.handleSubmit}>LOG OUT</button>
                 </div>
-            ) : (
+                ) : (
                 <div className="greetings">
                     <div className="signup">
                         <p onClick={() => this.props.openModal('signup')} className="nav">Sign Up</p>
@@ -30,7 +30,7 @@ class Greeting extends React.Component {
                         <p onClick={() => this.props.openModal('login')} className="nav">Log In</p>
                     </div>
                 </div>
-            )
+            );
         
 
         return (
@@ -38,7 +38,7 @@ class Greeting extends React.Component {
                 {display}
             </div>
         )
-    }
-}
+    };
+};
 
 export default Greeting;

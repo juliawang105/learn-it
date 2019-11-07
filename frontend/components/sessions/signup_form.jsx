@@ -15,7 +15,7 @@ class SignupForm extends React.Component {
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
-        // this.handleDemo = this.handleDemo.bind(this);
+        this.escFunction = this.escFunction.bind(this);
     }
 
     renderErrors() {
@@ -33,6 +33,19 @@ class SignupForm extends React.Component {
 
     componentDidMount() {
         this.props.clearErrors();
+        document.addEventListener('keydown', this.escFunction)
+    };
+
+    componentWillUnmount() {
+        document.removeEventListener("keydown", this.escFunction);
+    }
+
+    escFunction(e) {
+        // e.preventDefault();
+        console.log(e.keyCode)
+        if (e.keyCode === 27) {
+            this.props.closeModal()
+        } 
     };
 
     handleSubmit(e) {
@@ -42,7 +55,10 @@ class SignupForm extends React.Component {
     }
 
     update(input) {
+        console.log('no')
+        // e.preventDefault();
         return (e) => {
+            
             this.setState({ [input]: e.target.value })
         };
 
@@ -55,11 +71,12 @@ class SignupForm extends React.Component {
                 <div className="signupformmaster">
 
                     <form onSubmit={this.handleSubmit}>
-                        <div onClick={this.props.closeModal} className="close-x">X</div>
+                    <div onClick={this.props.closeModal} className="close-x">×</div>
+                    <div tabIndex="0" onKeyDown={this.escFunction}></div>
                         
-                    <div className="masterform">
+                        <div className="masterform">
                         
-                        <br/>
+                            <br/>
                         <div className='form'>
                             <div className="loginform">Signup</div>
                             <br />
