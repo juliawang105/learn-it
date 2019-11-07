@@ -78,7 +78,13 @@
     margin-left: 48px;
     font-size: 10pt;
     color: #F2FAFD;
+    cursor: pointer;
 }
+
+.button:hover{
+  background-color: #53AFDF;
+ 
+};
 
 .masterbutton {
     display: block;

@@ -27,6 +27,7 @@ body{
     opacity: 0.95;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     // font-size: 20px; 
+    
 }
 .name {
     flex-direction: row;
@@ -62,7 +63,9 @@ body{
     color: silver;
     padding-right: 10px;  
     display: flex;
+    cursor: pointer;
  }
+ 
 
 i {
     padding: 5px;
@@ -71,6 +74,15 @@ i {
 
 .nav2{
     color: #E4E3E0;
+    cursor: pointer;
 }
+
+.nav:hover{
+     color: #4CA5DB 
+ };
+
+ .nav2:hover{
+     color: #4CA5DB 
+ };
 
 
