@@ -2,29 +2,35 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .loginformmaster{
+    padding-top: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 340px;
+    height: 282px;
     width: 270px;
     background-color: #FFFFFF;
     border-radius: 1px;  
+    text-align: center;
+    padding-bottom: 16px;
 };
 
-.signupformmaster{
+.signupformmaster {
+    padding-top: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 340px;
-    width: 436px;
+    min-height: 340px;
+    width: 296px;
     background-color: #FFFFFF;
-    border-radius: 1px;  
+    border-radius: 1px;
+    padding-bottom: 22px;
+    text-align: center;
 };
 
  .errors {
      display: flex;
-     padding: 0;
-     margin: 0;
+     padding: 4px;
+     margin: 2px;
     //  justify-content: center;
      align-items: center;
      font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -49,28 +55,40 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     
 }
-
 .loginform {
     align-self: center;
     color: #F18C4B;
     margin-left: 53px;
     font-size: 20px;
-};
+    padding-top: 14px;
+    margin-bottom: -2px;
+    margin-top:-23px;
+}
+
+.signupform {
+    align-self: center;
+    color: #F18C4B;
+    margin-left: 47px;
+    font-size: 20px;
+    padding-top: 14px;
+    margin-bottom: -2px;
+    margin-top:-23px;
+}
 
 
 .inputbox > input {
     width: 200px;
-    height: 37px;
+    height: 49px;
     margin: 5px;
     margin-left: -19px;
-    margin-bottom: -5px;
+    margin-bottom: -3px;
     background-color: #F2F2F2;
     border: 0;
     font-size: 10pt;
 };
 
 .button {
-    margin: 10px;
+    margin: 1px;
     top: 250px;
     right: 10px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -79,7 +97,9 @@
     width: 83px;
     border-radius: 5px;
     padding: 0px;
-    margin-left: 48px;
+    margin-top: 14px;
+    padding-top: -2px;
+    margin-left: 0px;
     font-size: 10pt;
     color: #F2FAFD;
     cursor: pointer;

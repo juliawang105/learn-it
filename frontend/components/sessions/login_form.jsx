@@ -79,7 +79,7 @@ class LoginForm extends React.Component {
                                     <input onChange={this.update('email')}
                                         type="text"
                                         value={this.state.email} 
-                                        placeholder='you@email.com'/>
+                                        placeholder='  you@email.com'/>
                                 </div>
                                 <br/>
 
@@ -87,7 +87,7 @@ class LoginForm extends React.Component {
                                     <input onChange={this.update('password')}
                                             type="password"
                                             value={this.state.password} 
-                                            placeholder='password'/>
+                                            placeholder='  password'/>
                                 </div>
                             </div>
                         
@@ -99,7 +99,7 @@ class LoginForm extends React.Component {
                                 </div>
 
                                 <div className="errors">
-                                    <span>{this.renderErrors()}</span>
+                                    <div>{this.renderErrors()}</div>
                         </div>
 
                     </form>
