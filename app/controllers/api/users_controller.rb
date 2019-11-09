@@ -10,6 +10,11 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def show 
+    @user = User.includes(:saves).find(params[:id])
+    render :show 
+  end
+
   private 
   
   def user_params

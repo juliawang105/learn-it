@@ -6,10 +6,21 @@ class User < ApplicationRecord
     after_initialize :ensure_session_token 
     attr_reader :password
 
-    # has_many :decks 
-    #     primary_key: :id,
-    #     foreign_key: :creator_id,
-    #     class_name: 'Decks'
+    has_many :created_decks,
+        primary_key: :id,
+        foreign_key: :creator_id,
+        class_name: 'Deck'
+    
+    has_many :saves,
+        primary_key: :id, 
+        foreign_key: :learner_id, 
+        class_name: 'Save'
+    
+    has_many :saved_decks,
+        through: :saves, 
+        source: :deck
+    
+    
     
    
     def self.find_by_credentials(email, password)

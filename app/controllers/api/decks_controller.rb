@@ -7,15 +7,16 @@ class Api::DecksController < ApplicationController
     end
 
     def show
-        @deck = Deck.find(params[:id])
+        @deck = Deck.includes(:learners).find(params[:id])
         render :show 
     end
 
     def create
         @deck = Deck.new(deck_params)
-        @deck.creator_id = current_user.id 
+        @deck.creator_id = current_user.id
 
         if @deck.save 
+            # Save.create(@deck.id, current_user.id)
             render :show
         else 
             render json: @deck.errors.full_messages, status: 422 
@@ -34,7 +35,7 @@ class Api::DecksController < ApplicationController
 
     def destroy
          @deck = current_user.decks.find(params[:id])
-         @deck.destroy 
+         @deck.destroy
          render :show 
     end
 

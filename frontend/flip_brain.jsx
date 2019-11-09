@@ -2,13 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
-import { login, logout, signup } from './actions/session_actions'
+import { login, logout, signup } from './actions/session_actions';
+import { fetchDeck, fetchDecks, createDeck, updateDeck, deleteDeck } from './actions/deck_actions';
+import { saveDeck, unsaveDeck } from './actions/save_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("root");
-    window.login = login;
-    window.logout = logout;
-    window.signup = signup;
+    
+
     let store;
     if (window.currentUser) {
         const preloadedState = {
@@ -23,7 +24,17 @@ document.addEventListener("DOMContentLoaded", () => {
         store = configureStore();
     }
     // window.store = store; 
+    window.login = login;
+    window.logout = logout;
+    window.signup = signup;
+    window.fetchDeck = fetchDeck;
+    window.fetchDecks = fetchDecks;
+    window.createDeck = createDeck;
+    window.updateDeck = updateDeck;
+    window.deleteDeck = deleteDeck;
     window.getState = store.getState;
     window.dispatch = store.dispatch;
+    window.unsaveDeck = unsaveDeck;
+    window.saveDeck = saveDeck;
     ReactDOM.render(< Root store={store} />, root)
 });
