@@ -5,6 +5,7 @@ import SignUpFormContainer from './sessions/signup_form_container';
 import LoginFormContainer from './sessions/login_form_container';
 import HomeFormContainer from './home_container'
 import ModalContainer from './modal'
+import DeckIndexContainer from './decks/deck_index_container';
 
 import { AuthRoute } from '../util/route_util'
 
@@ -30,6 +31,7 @@ const App = () => (
                 
                 {/* <AuthRoute path="/login" component={LoginFormContainer} />
                 <AuthRoute path="/signup" component={SignUpFormContainer} /> */}
+                <Route exact path='/decks' component={DeckIndexContainer} />
                 <Route exact path='/' component={HomeFormContainer} />
             </Switch>
                

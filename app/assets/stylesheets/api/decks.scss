@@ -1,3 +1,33 @@
 // Place all the styles related to the api/decks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.deck_index{
+    display: flex;
+    background-color: #F2F2F2;
+    height: 100%;
+    width: inherit;
+    overflow: scroll;
+}
+
+.browse > h2 {
+    background-color: green;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.decks_list{
+    background-color: yellow;
+    height: 20000px;
+};
+
+.deck_item{
+    border: 1px solid black;
+    margin: 10px;
+}
+
+.fa.fa-sticky-note-o {
+    padding-right: 0px;
+}

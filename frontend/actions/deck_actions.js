@@ -6,10 +6,12 @@ export const REMOVE_DECK = 'REMOVE_DECK';
 // export const SAVE_DECK = 'SAVE_DECK';
 // export const UNSAVE_DECK = 'UNSAVE_DECK';
 
-const receiveAllDecks = decks => ({
+const receiveAllDecks = decks => {
+    // debugger
+    return {
     type: RECEIVE_ALL_DECKS,
     decks
-});
+}};
 
 const receiveDeck = deck => ({
     type: RECEIVE_DECK,

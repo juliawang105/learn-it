@@ -6,8 +6,8 @@ export const decksReducer = (state = {}, action) => {
 
     switch(action.type) {
         case RECEIVE_ALL_DECKS:
+            // debugger
             return action.decks;
-
         case RECEIVE_DECK:
             newState[action.deck.id] = action.deck;
             return newState;
