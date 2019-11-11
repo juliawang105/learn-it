@@ -36,7 +36,6 @@ class DeckShow extends React.Component{
                         <div>
                             {deck.name}
                             <button onClick={this.handleClick}>Save to Study!</button>
-                            
                         </div>
                 </div>
             )

@@ -15,11 +15,9 @@ class Api::SavesController < ApplicationController
 
     def destroy
         @save = Save.find(params[:id])
-
-        if @save.learner_id === current_user.id 
-            @save.destroy
+         if @save.destroy
             render json: 'deleted!'
-        else 
+         else
             render json: @save.errors.full_message
         end
   
