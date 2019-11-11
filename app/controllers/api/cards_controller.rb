@@ -5,7 +5,7 @@ class Api::CardsController < ApplicationController
         @card = Card.new(card_params)
 
         if @card.save
-            redirect_to deck_show 
+            render json: 'success!'
         else 
             render json: @card.errors.full_messages,  status: 422 
         end
@@ -15,7 +15,7 @@ class Api::CardsController < ApplicationController
         @card = current_user.decks.cards.find(params[:id])
         
         if @card.update(card_params)
-            redirect_to deck_show 
+            render json: 'success!'
         else 
             render json: @card.errors.full_messages,  status: 422 
         end
@@ -24,8 +24,6 @@ class Api::CardsController < ApplicationController
     def destroy
         @card = current_user.decks.cards.find(params[:id])
         @card.destroy
-
-        redirect_to deck_show
     end 
 
     private 
