@@ -1,12 +1,16 @@
 .homepage{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    height: 500px;
-    width: 500px;
+    height: 101%;
+    width: 101%;
     // border: 1px solid black;
-    margin-left: 150px;
-    margin-top: 30px;
+    margin-left: -3px;
+    margin-top: -79px;
+    background: image_url("notetaker.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow-y: hidden;
 };
 
 .notes > h2{

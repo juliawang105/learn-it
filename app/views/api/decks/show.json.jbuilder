@@ -10,11 +10,7 @@
 #     end
 # end
 
-    
-
-    json.extract! @deck, :id, :name, :learners 
-
-   
+json.extract! @deck, :id, :name, :learners 
 
 json.saves do 
     @deck.saves.each do |save| 
