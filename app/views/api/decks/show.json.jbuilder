@@ -1,14 +1,20 @@
-json.deck do 
-    json.partial! 'api/decks/deck', deck: @deck 
-end
+# json.deck do 
+#     json.partial! 'api/decks/deck', deck: @deck 
+# end
 
-json.cards do 
-    @deck.cards.each do |card| 
-        json.set! card.id do 
-            json.extract! card, :id, :question, :answer, :deck_id 
-        end
-    end
-end
+# json.cards do 
+#     @deck.cards.each do |card| 
+#         json.set! card.id do 
+#             json.extract! card, :id, :question, :answer, :deck_id 
+#         end
+#     end
+# end
+
+    
+
+    json.extract! @deck, :id, :name, :learners 
+
+   
 
 json.saves do 
     @deck.saves.each do |save| 
