@@ -3,14 +3,17 @@ import { RECEIVE_ALL_DECKS, REMOVE_DECK, RECEIVE_DECK} from '../actions/deck_act
 export const decksReducer = (state = {}, action) => {
     Object.freeze(state);
     let newState = Object.assign({}, state)
+    // let nextState = {};
 
+    let deck
     switch(action.type) {
         case RECEIVE_ALL_DECKS:
             // debugger
-            return action.decks;
-        case RECEIVE_DECK:
-            newState = action.deck;
+            newState = action.decks
             return newState;
+        case RECEIVE_DECK:
+            deck = action.payload.deck;
+            return Object.assign({}, state, { [deck.id]: deck })
         case REMOVE_DECK:
             delete newState[action.deckId];
             return newState;

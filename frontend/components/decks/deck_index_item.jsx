@@ -9,10 +9,14 @@ class DeckIndexItem extends React.Component {
     };
 
     render(){
+        // let deck = this.props.match.params.deckId
+    //    debugger
         return(
-        <div className="deck_item">
-            <i className="fa fa-sticky-note-o fa-4x" aria-hidden="true"></i>{this.props.deck.name}
            
+        <div className="deck_item">
+            {/* <i className="fa fa-sticky-note-o fa-4x" aria-hidden="true"></i>{this.props.deck.name} */}
+            
+                <Link to={`/decks/${this.props.deck.id}`}>{this.props.deck.name}</Link>
         </div>
         )
     };

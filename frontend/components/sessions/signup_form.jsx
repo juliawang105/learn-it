@@ -55,7 +55,7 @@ class SignupForm extends React.Component {
     }
 
     update(input) {
-        console.log('no')
+        // console.log('no')
         // e.preventDefault();
         return (e) => {
             

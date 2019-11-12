@@ -13,9 +13,9 @@ const receiveAllDecks = decks => {
     decks
 }};
 
-const receiveDeck = deck => ({
+const receiveDeck = payload => ({
     type: RECEIVE_DECK,
-    deck
+    payload
 });
 
 const removeDeck = deckId => ({

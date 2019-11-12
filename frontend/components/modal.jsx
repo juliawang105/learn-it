@@ -2,7 +2,8 @@ import React from 'react';
 import { closeModal } from '../actions/modal_actions';
 import { connect } from 'react-redux';
 import LoginFormContainer from './sessions/login_form_container';
-import SignupFormContainer from './sessions/signup_form_container'
+import SignupFormContainer from './sessions/signup_form_container';
+import CreateDeckContainer from './decks/create_deck_container'
 
 
 class ModalForm extends React.Component{
@@ -15,6 +16,7 @@ class ModalForm extends React.Component{
         return null;
     }
     let component;
+    // debugger
     switch (this.props.modal) {
         case 'login':
             component = <LoginFormContainer/>;
@@ -22,11 +24,14 @@ class ModalForm extends React.Component{
         case 'signup':
             component = <SignupFormContainer />;
             break;
+        case 'deck':
+            component = <CreateDeckContainer />
+            break;
         default:
             return null;
     }
     return (
-        <div className="modal-background" onClick={this.propscloseModal}>
+        <div className="modal-background" onClick={this.props.closeModal}>
             <div className="modal-child" onClick={e => e.stopPropagation()}>
                 {component}
             </div>

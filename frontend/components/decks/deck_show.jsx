@@ -8,14 +8,16 @@ class DeckShow extends React.Component{
         // this.state = this.props;
 
         this.handleClick = this.handleClick.bind(this);
-        // this.fetchDeck = this.props.fetchDeck.bind(this)
+        this.fetchDeck = this.props.fetchDeck.bind(this)
         
     }
 
     componentDidMount(){
-        this.props.fetchDeck(this.props.match.params.deckId);
-        // this.props.fetchCard();
-        
+        this.props.fetchDeck(this.props.match.params.deckId)
+        console.log("deck mount")
+            // .then(this.props.selectDeckCards(this.props.cards, this.props.match.params.deckId));
+        // this.props.fetchCard();    
+
     };
 
     componentDidUpdate(oldProps) {
@@ -25,7 +27,7 @@ class DeckShow extends React.Component{
             this.props.fetchDeck(this.props.match.params.deckId)
         }
     };
-
+   
     handleClick(e) {
         e.preventDefault();
         let save = {deck_id: this.props.deck.id, learner_id: this.props.user}
@@ -35,27 +37,30 @@ class DeckShow extends React.Component{
     render(){
         
         let deck = this.props.deck;
-        // debugger;
-        let cards = this.props.cards.map( (card) => {
+
+        if(!deck) return null;
+        
+        let cards = this.props.cards;
+        if (!cards) return null
+        console.log(cards);
+        let deck_cards = cards.map( (card) => {
             return < CardItem 
                 key={card.id}
                 card={card}
                 fetchCard={this.props.fetchCard } />
         });
-        if(!deck){
-            return null
-        } else {
-                return(
-                <div className="deck_show">
-                        <div>
-                            {deck.name}
-                            {cards}
-                            <button onClick={this.handleClick}>Save to Study!</button>
-                        </div>
-                </div>
+    
+        return(
+            <div className="deck_show">
+                <div>
+                    <div className="deck_title">{deck.name}</div>
+                        {deck_cards}
+                        <button onClick={this.handleClick}>Save to Study!</button>
+                    </div>
+            </div>
             )
         }
     };
-};
+
 
 export default withRouter(DeckShow);

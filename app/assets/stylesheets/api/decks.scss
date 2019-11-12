@@ -9,35 +9,158 @@
     height: 100%;
     width: 100%;
     overflow: scroll;
-    flex-flow: wrap;
+    // flex-direction: row;
+    // flex-flow: wrap;
+    // justify-content: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
 }
 .browse {
-    display: flex;
-    flex-flow: wrap;
+    // display: flex;
+    // // justify-content: center;
 }
 .browse > h2 {
-    background-color: green;
+    // background-color: green;
     width: 100vw;
+    height: 100px;
     display: flex;
     justify-content: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .decks_list{
-    background-color: yellow;
-    height: 20000px;
+    // background-color: yellow;
+    height: 3000px;
+    // display: flex;
+    // // flex-direction: row;
+    // justify-content: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
 };
 
 .deck_item{
     border: 1px solid black;
-    margin: 10px;
+    display: flex;
+    height: 100px;
     width: 300px;
+    padding: 0px;
+    margin-bottom: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    justify-content: flex-start;
+    align-items: center;
+    color: #6DC0E7;
+    box-shadow: 7px 10px 7px #888888;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.deck_item:hover {
+    background-color: #CCDDED;
+    cursor: pointer;
+}
 .fa.fa-sticky-note-o {
-    padding-right: 0px;
+    padding-right: 5px;
+    
 }
 
 .deck_show{
     background-color: #F2F2F2;
     height: inherit;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.deck_title {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    height: 100px;
+    text-align: center;
+    font-size: 36pt;
+    color: #4B4B4B;
+    padding-top: 15px;
+    
+};
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+.modal-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.deck-x {
+    position: absolute;
+    top: 300px;
+    right: 300px;
+    cursor: pointer;
+    border: 2.5px solid #4CA5DB;
+    border-radius: 60%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12pt;
+    color: #4CA5DB;
+    background: #000000;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-bottom: 6px;
+    padding-top: 5px;
+};
+
+.deck_form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFFF; 
+    height: 181px;
+    width: 300px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.deck_create{
+    align-self: center;
+    color: #F18C4B;
+    margin-left: 53px;
+    font-size: 20px;
+    padding-top: 14px;
+    margin-bottom: -2px;
+    margin-top:-23px;
+    text-align: center; 
+    // display: flex;
+    // align-items: center;
+}
+.deck_form > h2 {
+    padding-top: 20px;
+    
+}
+.deck_form > input {
+    margin-top: 20px;
+    height: 29px;
+    width: 200px;
+    font-size: 12pt;
+    text-align: center;
+};
+
+.deck_form > button{
+    margin: 1px;
+    top: 250px;
+    right: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: #4CA5DB;
+    height: 39px;
+    width: 83px;
+    border-radius: 5px;
+    padding: 0px;
+    margin-top: 14px;
+    padding-top: -2px;
+    margin-left: 0px;
+    font-size: 10pt;
+    color: #F2FAFD;
+    cursor: pointer;
 }
