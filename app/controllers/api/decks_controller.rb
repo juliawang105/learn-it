@@ -7,7 +7,7 @@ class Api::DecksController < ApplicationController
     end
 
     def show
-        @deck = Deck.includes(:learners).includes(:creator).find(params[:id])
+        @deck = Deck.includes(:learners).includes(:creator).includes(:cards).includes(:saves).find(params[:id])
         render :show 
     end
 

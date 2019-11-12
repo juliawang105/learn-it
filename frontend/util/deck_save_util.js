@@ -12,3 +12,10 @@ export const unsaveDeck = saveId => (
         method: `DELETE`
     })
 );
+
+export const fetchSave = (saveId) => (
+    $.ajax({
+        url: `api/saves/${saveId}`,
+        method: `GET`
+    })
+);

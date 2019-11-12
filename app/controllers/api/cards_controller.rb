@@ -5,17 +5,23 @@ class Api::CardsController < ApplicationController
         @card = Card.new(card_params)
 
         if @card.save
-            render json: 'success!'
+            render json: ['success!']
         else 
             render json: @card.errors.full_messages,  status: 422 
         end
+    end
+
+    def show 
+        @card = Card.includes(:deck).find(params[:id])
+        render :show 
+
     end
 
     def update 
         @card = current_user.decks.cards.find(params[:id])
         
         if @card.update(card_params)
-            render json: 'success!'
+            render json: ['success!']
         else 
             render json: @card.errors.full_messages,  status: 422 
         end

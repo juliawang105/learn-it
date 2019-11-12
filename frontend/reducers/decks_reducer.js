@@ -9,7 +9,7 @@ export const decksReducer = (state = {}, action) => {
             // debugger
             return action.decks;
         case RECEIVE_DECK:
-            newState[action.deck.id] = action.deck;
+            newState = action.deck;
             return newState;
         case REMOVE_DECK:
             delete newState[action.deckId];

@@ -4,13 +4,11 @@ import { saveDeck, unsaveDeck } from '../../actions/save_actions';
 import DeckIndex from './deck_index';
 
 const mSTP = state => ({
-    decks: Object.values(state.entities.decks),
+    decks: Object.values(state.entities.decks)
 });
 
 const mDTP = dispatch => ({
-    fetchDecks: () => dispatch(fetchDecks()),
-    // saveDeck: save => dispatch(saveDeck(save)),
-    // unsaveDeck: saveId => dispatch(unsaveDeck(saveId))
+    fetchDecks: () => dispatch(fetchDecks())
 });
 
-export default connect(mSTP,mDTP)(DeckIndex);
+export default connect(mSTP, mDTP)(DeckIndex)

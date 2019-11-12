@@ -7,10 +7,14 @@
     display: flex;
     background-color: #F2F2F2;
     height: 100%;
-    width: inherit;
+    width: 100%;
     overflow: scroll;
+    flex-flow: wrap;
 }
-
+.browse {
+    display: flex;
+    flex-flow: wrap;
+}
 .browse > h2 {
     background-color: green;
     width: 100vw;
@@ -26,6 +30,7 @@
 .deck_item{
     border: 1px solid black;
     margin: 10px;
+    width: 300px;
 }
 
 .fa.fa-sticky-note-o {

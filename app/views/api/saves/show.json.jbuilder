@@ -1,0 +1,1 @@
+json.extract! @save, :id, :deck_id, :learner_id

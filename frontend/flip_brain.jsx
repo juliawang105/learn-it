@@ -5,6 +5,7 @@ import configureStore from './store/store';
 import { login, logout, signup } from './actions/session_actions';
 import { fetchDeck, fetchDecks, createDeck, updateDeck, deleteDeck } from './actions/deck_actions';
 import { saveDeck, unsaveDeck } from './actions/save_actions';
+import { createCard, updateCard, deleteCard } from './actions/card_actions'
 
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("root");
@@ -14,9 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (window.currentUser) {
         const preloadedState = {
             entities: {
-                users: { [window.currentUser.id]: window.currentUser }
+                users:  window.currentUser.users,
+                saves:  window.currentUser.saves 
             },
-            session: { id: window.currentUser.id }
+            session: { id: Object.keys(window.currentUser.users)[0]}
         };
         store = configureStore(preloadedState);
         delete window.currentUser;
@@ -36,5 +38,8 @@ document.addEventListener("DOMContentLoaded", () => {
     window.dispatch = store.dispatch;
     window.unsaveDeck = unsaveDeck;
     window.saveDeck = saveDeck;
+    window.createCard = createCard;
+    window.updateCard = updateCard;
+    window.deleteCard = deleteCard; 
     ReactDOM.render(< Root store={store} />, root)
 });
