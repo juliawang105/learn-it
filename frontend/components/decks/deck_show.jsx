@@ -1,6 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import CardItem from './card_item'
+import CardItem from '../cards/card_item';
+import CreateCardContainer from '../cards/create_card_container';
+
 
 class DeckShow extends React.Component{
     constructor(props){
@@ -8,7 +10,8 @@ class DeckShow extends React.Component{
         // this.state = this.props;
 
         this.handleClick = this.handleClick.bind(this);
-        this.fetchDeck = this.props.fetchDeck.bind(this)
+        this.fetchDeck = this.props.fetchDeck.bind(this);
+       
         
     }
 
@@ -56,8 +59,11 @@ class DeckShow extends React.Component{
                     <div className="deck_title">{deck.name}</div>
                         {deck_cards}
                         <button onClick={this.handleClick}>Save to Study!</button>
+                    
+                    <button onClick={() => this.props.openModal('card', deck.id)}>Create Card</button>
+                        </div>
                     </div>
-            </div>
+           
             )
         }
     };

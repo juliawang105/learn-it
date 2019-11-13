@@ -5,7 +5,9 @@
 
 .deck_index{
     display: flex;
-    background-color: #F2F2F2;
+    background-color: #1F5173;
+    flex-direction: column;
+    align-items: center;
     height: 100%;
     width: 100%;
     overflow: scroll;
@@ -15,10 +17,7 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     
 }
-.browse {
-    // display: flex;
-    // // justify-content: center;
-}
+
 .browse > h2 {
     // background-color: green;
     width: 100vw;
@@ -47,12 +46,19 @@
     margin-bottom: 20px;
     margin-right: auto;
     margin-left: auto;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    color: #6DC0E7;
+    background-color: #FEFEFE;
     box-shadow: 7px 10px 7px #888888;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
+    
+};
+
+.deck_item > span a {
+    color: #6DC0E7;   
+};
+
+
 
 .deck_item:hover {
     background-color: #CCDDED;
@@ -98,8 +104,8 @@
 
 .deck-x {
     position: absolute;
-    top: 300px;
-    right: 300px;
+    top: -26px;
+    right: -16px;
     cursor: pointer;
     border: 2.5px solid #4CA5DB;
     border-radius: 60%;
@@ -123,6 +129,8 @@
     width: 300px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+
 .deck_create{
     align-self: center;
     color: #F18C4B;
@@ -135,8 +143,15 @@
     // display: flex;
     // align-items: center;
 }
-.deck_form > h2 {
+.deck-browse{
     padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    width: 100%;
+    height: 150px;
+    text-align: center;
+    background-color: #364654;
+    color: #FF8A47;
     
 }
 .deck_form > input {
@@ -163,4 +178,10 @@
     font-size: 10pt;
     color: #F2FAFD;
     cursor: pointer;
+}
+
+.deck-create{
+    height: 30px;
+    width: 100px;
+    border: 1px solid black;
 }

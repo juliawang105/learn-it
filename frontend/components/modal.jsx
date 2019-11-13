@@ -3,7 +3,8 @@ import { closeModal } from '../actions/modal_actions';
 import { connect } from 'react-redux';
 import LoginFormContainer from './sessions/login_form_container';
 import SignupFormContainer from './sessions/signup_form_container';
-import CreateDeckContainer from './decks/create_deck_container'
+import CreateDeckContainer from './decks/create_deck_container';
+import CreateCardContainer from './cards/create_card_container';
 
 
 class ModalForm extends React.Component{
@@ -17,7 +18,7 @@ class ModalForm extends React.Component{
     }
     let component;
     // debugger
-    switch (this.props.modal) {
+    switch (this.props.modal.modal) {
         case 'login':
             component = <LoginFormContainer/>;
             break;
@@ -26,6 +27,9 @@ class ModalForm extends React.Component{
             break;
         case 'deck':
             component = <CreateDeckContainer />
+            break;
+        case 'card':
+            component = <CreateCardContainer />
             break;
         default:
             return null;

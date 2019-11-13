@@ -1,4 +1,5 @@
 import { RECEIVE_ALL_DECKS, REMOVE_DECK, RECEIVE_DECK} from '../actions/deck_actions';
+import { RECEIVE_CARD } from '../actions/card_actions'
 
 export const decksReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -11,6 +12,10 @@ export const decksReducer = (state = {}, action) => {
             // debugger
             newState = action.decks
             return newState;
+        
+        // case RECEIVE_CARD: 
+        //     const { card } = action;
+        //     newState[card.deck_id].
         case RECEIVE_DECK:
             deck = action.payload.deck;
             return Object.assign({}, state, { [deck.id]: deck })

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import signup_form_container from './signup_form_container';
+import { withRouter } from 'react-router-dom';
 
 
 
@@ -51,7 +52,9 @@ class SignupForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.signup(user).then(this.props.closeModal);
+        this.props.signup(user).then(() => this.props.history.push('/decks'))
+        this.props.closeModal();
+     
     }
 
     update(input) {
@@ -123,4 +126,4 @@ class SignupForm extends React.Component {
     }
 }
 
-export default SignupForm;
+export default withRouter(SignupForm);

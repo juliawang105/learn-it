@@ -5,9 +5,9 @@ export const fetchCard = cardId => (
     })
 );
 
-export const createCard = (deckId, card) => (
+export const createCard = (card) => (
     $.ajax({
-        url: `/api/decks/${deckId}/cards`,
+        url: `/api/decks/${card.deck_id}/cards`,
         method: `POST`,
         data: { card }
     })

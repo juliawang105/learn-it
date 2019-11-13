@@ -2,8 +2,9 @@ import { connect } from 'react-redux';
 import { fetchDeck,  } from '../../actions/deck_actions';
 import {saveDeck, unsaveDeck, fetchSave } from '../../actions/save_actions'
 import DeckShow from './deck_show';
-import { fetchCard } from '../../actions/card_actions'
-import { selectDeckCards } from '../../reducers/selectors'
+import { fetchCard } from '../../actions/card_actions';
+import { selectDeckCards } from '../../reducers/selectors';
+import { closeModal, openModal } from '../../actions/modal_actions';
 
 
 const mSTP = (state, ownProps) => {
@@ -28,7 +29,8 @@ const mDTP = dispatch => ({
     saveDeck: save => dispatch(saveDeck(save)),
     unsaveDeck: saveId => dispatch(unsaveDeck(saveId)),
     fetchCard: cardId => dispatch(fetchCard(cardId)),
-    // selectDeckCards: (cards, deckId) => dispatch(selectDeckCards(cards, deckId))
+    closeModal: () => dispatch(closeModal()),
+    openModal: (modal, data) => dispatch(openModal(modal, data))
 });
 
 export default connect(mSTP, mDTP)(DeckShow);

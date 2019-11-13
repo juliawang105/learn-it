@@ -2,8 +2,8 @@ class Api::CardsController < ApplicationController
     before_action :require_login 
 
     def create
+        # debugger
         @card = Card.new(card_params)
-
         if @card.save
             render json: ['success!']
         else 

@@ -1,6 +1,7 @@
 import GreetingContainer from './greeting_container';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 class Greeting extends React.Component {
     constructor(props) {
@@ -11,12 +12,20 @@ class Greeting extends React.Component {
 
     handleSubmit(e) {
         this.props.logout();
+        this.props.history.push('/')
     }
+
+    // handleClick(field){
+    //     this.props.openModal([field]);
+    //     // this.props.history.push('/decks')
+    // }
 
     render() {
         let logged = this.props.currentUser
         const display = logged ? (
                 <div className="greetings">
+                    <NavLink  to={"/decks"}>View All Decks</NavLink>
+                    <div onClick={() => this.props.openModal('deck')} className="create-deck">Create New Deck!</div>
                     <h2>Welcome {logged.first_name}</h2>
                     <button id='logoutbutton' onClick={this.handleSubmit}>LOG OUT</button>
                 </div>
@@ -41,4 +50,4 @@ class Greeting extends React.Component {
     };
 };
 
-export default Greeting;
+export default withRouter(Greeting);

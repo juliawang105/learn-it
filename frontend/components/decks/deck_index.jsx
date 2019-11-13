@@ -44,20 +44,12 @@ class DeckIndex extends React.Component{
 
         return (
             <div className="deck_index">
-                    
-                    
-                        
-                        <div tabIndex="0" onKeyDown={this.escFunction}></div>
-                            <p onClick={() => this.props.openModal('deck')} className="nav">Create New Deck!</p>
-                   
-                   
-                    <h2>Browse the flashcards created by top learners and educators! </h2>
+               
+                    <div className="deck-browse">Browse the flashcards created by top learners and educators! </div>
                     <div className="decks_list">
                         {decks}
                     </div> 
-                
-                   
-                     
+                       
             </div>
         )};
 };

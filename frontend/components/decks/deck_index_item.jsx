@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class DeckIndexItem extends React.Component {
     constructor(props){
@@ -9,15 +9,10 @@ class DeckIndexItem extends React.Component {
     };
 
     render(){
-        // let deck = this.props.match.params.deckId
-    //    debugger
         return(
-           
-        <div className="deck_item">
-            {/* <i className="fa fa-sticky-note-o fa-4x" aria-hidden="true"></i>{this.props.deck.name} */}
-            
-                <Link to={`/decks/${this.props.deck.id}`}>{this.props.deck.name}</Link>
-        </div>
+            <div className="deck_item">
+                <span> <NavLink to={`/decks/${this.props.deck.id}`}>{this.props.deck.name}</NavLink> </span>
+            </div>
         )
     };
 };
