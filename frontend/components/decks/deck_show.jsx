@@ -17,10 +17,6 @@ class DeckShow extends React.Component{
 
     componentDidMount(){
         this.props.fetchDeck(this.props.match.params.deckId)
-        console.log("deck mount")
-            // .then(this.props.selectDeckCards(this.props.cards, this.props.match.params.deckId));
-        // this.props.fetchCard();    
-
     };
 
     componentDidUpdate(oldProps) {
@@ -28,8 +24,15 @@ class DeckShow extends React.Component{
         // debugger
         if (oldProps.match.params.deckId !== this.props.match.params.deckId) {
             this.props.fetchDeck(this.props.match.params.deckId)
-        }
+        };
+
+        // this.props.fetchDeck(this.props.match.params.deckId)
     };
+
+    // shouldComponentUpdate(nextProps, nextState){
+    //     nextProps.match.params.deckId === this.props.match.params.deckId
+         
+    // }
    
     handleClick(e) {
         e.preventDefault();
@@ -45,7 +48,7 @@ class DeckShow extends React.Component{
         
         let cards = this.props.cards;
         if (!cards) return null
-        console.log(cards);
+        // console.log(cards);
         let deck_cards = cards.map( (card) => {
             return < CardItem 
                 key={card.id}

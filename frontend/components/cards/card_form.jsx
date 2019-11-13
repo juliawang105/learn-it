@@ -17,8 +17,9 @@ class CardForm extends React.Component{
 
     handleSubmit(e) {
         e.preventDefault();
-        debugger
+        // debugger
         this.props.action(this.state).then(this.props.closeModal)
+        this.props.fetchDeck(this.props.card.deck_id)
     }
 
     render(){

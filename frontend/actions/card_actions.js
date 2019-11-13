@@ -18,14 +18,14 @@ export const fetchCard = cardId => dispatch => (
         .then( res => dispatch(receiveCard(res)))
 ); 
 
-export const createCard = (deckId, card) => dispatch => (
-    CardUtil.createCard(deckId, card)
-        .then(res => receiveCard(res))
+export const createCard = (card) => dispatch => (
+    CardUtil.createCard(card)
+        .then(res => dispatch(receiveCard(res)))
 );
 
-export const updateCard = card => dispatch(
+export const updateCard = card => dispatch => (
     CardUtil.updateCard(card)
-        .then( res => (receiveCard(res)))
+        .then(res => dispatch(receiveCard(res)))
 );
 
 export const deleteCard = cardId => dispatch => (

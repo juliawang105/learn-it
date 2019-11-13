@@ -12,8 +12,12 @@ export const cardsReducer = (state = {}, action ) => {
                 newState[action.payload.cards[i].id] = action.payload.cards[i]
             };
             return newState;
+            // debugger
+            // newState = Object.assign({}, state, action.payload.cards);
+            return newState; 
 
         case RECEIVE_CARD:
+            debugger
             newState[action.card.id] = action.card 
             return newState;
     

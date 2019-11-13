@@ -5,4 +5,8 @@ class Card < ApplicationRecord
         primary_key: :id, 
         foreign_key: :deck_id,
         class_name: 'Deck'
+    
+    has_one :creator,
+        through: :deck, 
+        source: :creator
 end

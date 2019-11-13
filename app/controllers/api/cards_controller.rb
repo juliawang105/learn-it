@@ -4,8 +4,9 @@ class Api::CardsController < ApplicationController
     def create
         # debugger
         @card = Card.new(card_params)
-        if @card.save
-            render json: ['success!']
+
+        if @card.save && @card.creator.id == current_user.id 
+            render json: @card
         else 
             render json: @card.errors.full_messages,  status: 422 
         end
@@ -21,7 +22,7 @@ class Api::CardsController < ApplicationController
         @card = current_user.decks.cards.find(params[:id])
         
         if @card.update(card_params)
-            render json: ['success!']
+            render json: @card
         else 
             render json: @card.errors.full_messages,  status: 422 
         end
