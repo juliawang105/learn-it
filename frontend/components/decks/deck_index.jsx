@@ -39,7 +39,9 @@ class DeckIndex extends React.Component{
             key={deck.id} 
             deck={deck} 
             saveDeck={this.props.saveDeck} 
-            unSaveDeck={this.props.unSaveDeck} />
+            unSaveDeck={this.props.unSaveDeck} 
+            deleteDeck={this.props.deleteDeck}
+            />
         ))
 
         return (

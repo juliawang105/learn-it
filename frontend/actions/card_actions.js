@@ -29,7 +29,7 @@ export const updateCard = card => dispatch => (
 );
 
 export const deleteCard = cardId => dispatch => (
-    Card.CardUtil.deleteCard(cardId)
+    CardUtil.deleteCard(cardId)
         .then( ()=> dispatch(removeCard(cardId)))
 ); 
 

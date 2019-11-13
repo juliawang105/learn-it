@@ -24,9 +24,9 @@ class Api::DecksController < ApplicationController
     end
 
     def update
-        @deck = current_user.decks.find(params[:id])
+        @deck = Deck.find(params[:id])
 
-        if @deck.update(deck_params)
+        if @deck.update(deck_params) && @deck.creator_id == current_user.id
             render :show 
         else 
             render json: @deck.errors.full_messages
@@ -34,9 +34,14 @@ class Api::DecksController < ApplicationController
     end
 
     def destroy
-         @deck = current_user.decks.find(params[:id])
-         @deck.destroy
-         render :show 
+         @deck = Deck.find(params[:id])
+         
+         if @deck.creator_id == current_user.id
+            @deck.destroy
+            render :show 
+         else 
+            render json: @deck.errors.full_messages, status: 422 
+         end
     end
 
     private 

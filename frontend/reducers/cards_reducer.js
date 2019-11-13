@@ -14,10 +14,10 @@ export const cardsReducer = (state = {}, action ) => {
             return newState;
             // debugger
             // newState = Object.assign({}, state, action.payload.cards);
-            return newState; 
+            // return newState; 
 
         case RECEIVE_CARD:
-            debugger
+            // debugger
             newState[action.card.id] = action.card 
             return newState;
     
@@ -25,12 +25,16 @@ export const cardsReducer = (state = {}, action ) => {
             delete newState[action.cardId]
             return newState;
 
-        case REMOVE_DECK:
-            for (let i = 0; i < action.deck.cards.length; i++) {
-                delete newState[action.deck.cards[i].id]
-            };
-
-            return newState; 
+        // case REMOVE_DECK:
+        //     debugger;
+        //     if (!action.deck.cards){
+        //         return null;
+        //     } else {
+        //         for (let i = 0; i < action.deck.cards.length; i++) {
+        //             delete newState[action.deck.cards[i].id]
+        //         }
+        //         return newState; 
+        //     }
 
         default:
             return state;

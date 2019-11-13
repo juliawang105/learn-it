@@ -19,9 +19,8 @@ class Api::CardsController < ApplicationController
     end
 
     def update 
-        @card = current_user.decks.cards.find(params[:id])
-        
-        if @card.update(card_params)
+        @card = Card.find(params[:id])
+        if @card.update(card_params) && @card.creator.id == current_user.id
             render json: @card
         else 
             render json: @card.errors.full_messages,  status: 422 
@@ -29,8 +28,12 @@ class Api::CardsController < ApplicationController
     end
 
     def destroy
-        @card = current_user.decks.cards.find(params[:id])
-        @card.destroy
+        @card = Card.find(params[:id])
+        if @card.creator.id == current_user.id
+             @card.destroy
+        else
+            render json: @card.errors.full_messages, status: 422 
+        end
     end 
 
     private 

@@ -15,7 +15,7 @@ class Deck < ApplicationRecord
         through: :saves,
         source: :learner
 
-    has_many :cards,
+    has_many :cards, dependent: :destroy,
         primary_key: :id, 
         foreign_key: :deck_id,
         class_name: 'Card'
