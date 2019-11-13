@@ -41,6 +41,7 @@ class DeckIndex extends React.Component{
             saveDeck={this.props.saveDeck} 
             unSaveDeck={this.props.unSaveDeck} 
             deleteDeck={this.props.deleteDeck}
+            session={this.props.session}
             />
         ))
 

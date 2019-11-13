@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { createCard } from '../../actions/card_actions';
 import CardForm from './card_form';
 import { closeModal, openModal } from '../../actions/modal_actions';
-import { fetchDeck } from '../../actions/deck_actions'
+import { fetchDeck } from '../../actions/deck_actions';
 
 const mSTP = (state) => {
     const deckId = state.ui.modal.data;

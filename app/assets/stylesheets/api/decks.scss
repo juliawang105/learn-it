@@ -78,10 +78,12 @@
 .deck_title {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     height: 100px;
-    text-align: center;
+    text-align: justify;
     font-size: 36pt;
-    color: #4B4B4B;
+    color: #317096;
     padding-top: 15px;
+    padding-left: 32px;
+    
     
 };
 
@@ -190,3 +192,8 @@
     display: flex;
     flex: flex-end;
 }
+
+// .delete-deck{
+//     position: relative;
+//     top: 50px;
+// }

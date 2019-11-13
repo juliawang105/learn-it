@@ -42,8 +42,7 @@ class SignupForm extends React.Component {
     }
 
     escFunction(e) {
-        // e.preventDefault();
-        console.log(e.keyCode)
+
         if (e.keyCode === 27) {
             this.props.closeModal()
         } 
@@ -52,9 +51,8 @@ class SignupForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.signup(user).then(() => this.props.history.push('/decks'))
-        this.props.closeModal();
-     
+        this.props.signup(user).then(() => this.props.history.push('/decks')).then(this.props.closeModal)
+    
     }
 
     update(input) {

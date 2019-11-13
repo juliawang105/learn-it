@@ -1,5 +1,5 @@
 import React from 'react';
-// import { deleteCard } from '../../actions/card_actions'
+import UpdateCardContainer from '../cards/update_card'
 
 
 class CardItem extends React.Component{
@@ -17,20 +17,23 @@ class CardItem extends React.Component{
     }
 
     render(){
-        // debugger
-        return(
-            <div className="cards">
-                <button onClick={()=> this.handleClick()}>Delete Card</button>
-                <label>Question
-                    <div className="questions"> {this.props.card.question} </div>
-                </label>
-                
-                <label>Answer
-                    <div className="answers"> {this.props.card.answer} </div>
-                </label>
-                
-            </div>
-        )
+        let button
+
+        if(this.props.deck.creator_id === parseInt(this.props.user)){
+            button = <button className='card-delete' onClick={() => this.handleClick()}>Delete Card</button> }
+            return(
+                <div className="cards">
+                    {button}
+                    <label>Question
+                        <div className="questions"> {this.props.card.question} </div>
+                    </label>
+                    
+                    <label>Answer
+                        <div className="answers"> {this.props.card.answer} </div>
+                    </label>
+                    
+                </div>
+            )
     }
 };
 

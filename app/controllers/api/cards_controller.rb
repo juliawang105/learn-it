@@ -15,7 +15,6 @@ class Api::CardsController < ApplicationController
     def show 
         @card = Card.includes(:deck).find(params[:id])
         render :show 
-
     end
 
     def update 

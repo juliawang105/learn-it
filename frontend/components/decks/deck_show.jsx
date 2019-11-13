@@ -54,7 +54,9 @@ class DeckShow extends React.Component{
                 key={card.id}
                 card={card}
                 fetchCard={this.props.fetchCard }
-                deleteCard={this.props.deleteCard} />
+                deleteCard={this.props.deleteCard} 
+                user={this.props.user}
+                deck={deck}/>
         });
     
         return(

@@ -4,9 +4,14 @@ import { saveDeck, unsaveDeck } from '../../actions/save_actions';
 import DeckIndex from './deck_index';
 import { closeModal, openModal } from '../../actions/modal_actions';
 
-const mSTP = state => ({
-    decks: Object.values(state.entities.decks)
-});
+const mSTP = state => {
+    // debugger
+    return {
+        decks: Object.values(state.entities.decks),
+        session: state.session.id,
+    }
+    
+};
 
 const mDTP = dispatch => ({
     fetchDecks: () => dispatch(fetchDecks()),

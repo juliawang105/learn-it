@@ -17,9 +17,11 @@
     align-items: center;
     justify-content: center;
     margin-right: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    margin-top: 5px;
     color: #4B4B4B;
     box-shadow: 7px 10px 7px lightskyblue;
+    
 };
 
 .answers {
@@ -31,7 +33,22 @@
     align-items: center;
     justify-content: center;
     padding-left: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    margin-top: 5px;
     color: #4B4B4B;
     box-shadow: 7px 10px 7px lightskyblue;
 };
+
+.card-delete{
+    height: 31px;
+    width: 100px;
+    // border: 1px solid black;
+    border-radius: 7px;
+    padding: 0px;
+    margin: 0px;
+    margin-right: 20px;
+    position: relative;
+    top: 53px;
+    color: #FFFFFF;
+    background-color: #4CA5DB;
+}
