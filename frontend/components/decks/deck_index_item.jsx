@@ -26,7 +26,7 @@ class DeckIndexItem extends React.Component {
                     <div className="deck_item">
                         <span> <NavLink to={`/decks/${this.props.deck.id}`}>{this.props.deck.name}</NavLink> </span>
                     </div>
-                    <button className="delete-deck" onClick={() => this.handleClick()}>Delete Deck</button>
+                    <p className="delete-deck" onClick={() => this.handleClick()}>Delete Deck</p>
                 </div>
             )
         } else {

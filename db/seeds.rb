@@ -8,6 +8,7 @@
 User.destroy_all
 Deck.destroy_all
 Card.destroy_all
+Save.destroy_all
 
 #users
 user1 = User.create!(

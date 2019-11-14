@@ -7,6 +7,7 @@ class Api::SavesController < ApplicationController
     # end
 
     def create 
+        # debugger
         @save = Save.create(save_params)
         # @save.learner_id = current_user.id 
         # @save.deck_id = params[:id]
@@ -19,9 +20,10 @@ class Api::SavesController < ApplicationController
     end
 
     def destroy
+        # debugger
         @save = Save.find(params[:id])
          if @save.destroy
-            render json: ['deleted!']
+            render json: ['yay']
          else
             render json: @save.errors.full_message
         end

@@ -40,9 +40,13 @@
   transform: translate(-50%, -50%);
 }
 
-.greetings > h2 {
-  font-size: 16pt;
-  padding: 0;
+.welcome > h2 {
+    margin-left: -14px;
+    font-size: 16pt;
+    padding-right: 33px;
+    padding-left: 6px;
+    position: relative;
+    left: 5px;
 }
 
 #logoutbutton{
@@ -56,6 +60,7 @@
     border-radius: 5px;
     padding: 0px;
     margin-left: 10px;
+    margin: 16px;
     font-size: 10pt;
     color: #F2FAFD;
     cursor: pointer;
@@ -65,4 +70,34 @@
 #logoutbutton:hover {
   background-color: #53AFDF;
  
+}
+
+#view-deck{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #CCDDED;
+  padding: 10px;
+  border: 1px solid #CEDEED;
+  border-radius: 5%;
+  position: relative;
+  left: -100px
+}
+
+#view-deck:hover{
+  background-color: grey;
+}
+
+
+.create-deck{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #CCDDED;
+  padding: 10px;
+  border: 1px solid #CEDEED;
+  border-radius: 5%;
+  position: relative;
+  left: -50px;
+  cursor: pointer;
+}
+
+.create-deck:hover{
+  background-color: grey;
 }

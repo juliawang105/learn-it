@@ -9,6 +9,7 @@ export const savesReducer = (state = {}, action) => {
             newState[action.save.id] = action.save;
             return newState;
         case UNFOLLOW_DECK:
+            // debugger
             delete newState[action.saveId];
             return newState;
         default:

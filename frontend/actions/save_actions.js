@@ -21,18 +21,15 @@ const receiveSave = saveId => ({
 
 export const saveDeck = save => dispatch => (
     DECKSAVEAPIUTIL.saveDeck(save)
-        .then(
-            res => {console.log(res); dispatch(followDeck(res))},
-            error => {console.log("error"); console.log(error)}
-        )
+        .then((res) => dispatch(followDeck(res)))
 );
 
-export const unsaveDeck = saveId => (
+export const unsaveDeck = saveId => dispatch => (
     DECKSAVEAPIUTIL.unsaveDeck(saveId)
         .then(() => dispatch(unfollowDeck(saveId)))
 );
 
-export const fetchSave = saveId => (
+export const fetchSave = saveId => dispatch => (
     DECKSAVEAPIUTIL.fetchSave(saveId)
-        .then( (res) => dispatchEvent(receiveSave(res)))
+        .then( (res) => dispatch(receiveSave(res)))
 );

@@ -7,7 +7,10 @@ import CreateCardContainer from '../cards/create_card_container';
 class DeckShow extends React.Component{
     constructor(props){
         super(props);
-        // this.state = this.props;
+
+        this.state = {
+            following: false
+        };
 
         this.handleClick = this.handleClick.bind(this);
         this.fetchDeck = this.props.fetchDeck.bind(this);
@@ -20,25 +23,38 @@ class DeckShow extends React.Component{
     };
 
     componentDidUpdate(oldProps) {
-        // this.handleClick
-        // debugger
         if (oldProps.match.params.deckId !== this.props.match.params.deckId) {
             this.props.fetchDeck(this.props.match.params.deckId)
         };
-
-        // this.props.fetchDeck(this.props.match.params.deckId)
+ 
     };
 
-    // shouldComponentUpdate(nextProps, nextState){
-    //     nextProps.match.params.deckId === this.props.match.params.deckId
-         
+    // changeButton(){
+    //     if (this.state.)
     // }
    
     handleClick(e) {
         e.preventDefault();
-        let save = {deck_id: this.props.deck.id, learner_id: this.props.user}
+        let save = {deck_id: this.props.deck.id, learner_id: this.props.user};
+        let saves = Object.values(this.props.saves);
+
+        if (saves.length <= 0){
+            this.props.saveDeck(save).then(() => this.setState({following: true}))
+            return; 
+        } 
+        
+        for (let i = 0; i < saves.length; i ++ ) {
+            let saved = saves[i]; //saved = pojo 
+            if(saved.deck_id === this.props.deck.id){
+                this.props.unsaveDeck(saved.id).then(() => this.setState({ following: false }))
+                return    
+            }          
+        } 
         this.props.saveDeck(save); 
-    }
+        
+    };
+       
+
 
     render(){
         
@@ -48,7 +64,6 @@ class DeckShow extends React.Component{
         
         let cards = this.props.cards;
         if (!cards) return null
-        // console.log(cards);
         let deck_cards = cards.map( (card) => {
             return < CardItem 
                 key={card.id}
@@ -58,15 +73,22 @@ class DeckShow extends React.Component{
                 user={this.props.user}
                 deck={deck}/>
         });
+
+        let createButton;
+        if(deck.creator_id === parseInt(this.props.user)){
+            createButton = <button className='card-button' onClick={() => this.props.openModal('card', deck.id)}>Create Card</button>
+        } else if (this.state.following === false) {
+            createButton = <button className='card-button' onClick={this.handleClick}>Save Deck</button>
+        } else if (this.state.following === true) {
+            createButton = <button className='card-button' onClick={this.handleClick}>Unsave Deck</button>
+        };
     
         return(
             <div className="deck_show">
                 <div>
                     <div className="deck_title">{deck.name}</div>
+                        {createButton}
                         {deck_cards}
-                        <button onClick={this.handleClick}>Save to Study!</button>
-                    
-                    <button onClick={() => this.props.openModal('card', deck.id)}>Create Card</button>
                         </div>
                     </div>
            

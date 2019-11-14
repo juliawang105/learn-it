@@ -9,12 +9,7 @@ import { closeModal, openModal } from '../../actions/modal_actions';
 
 
 const mSTP = (state, ownProps) => {
-    // debugger
-    // let deck = state.entities.decks[ownProps.match.params.deckId];
-
-    // if (!deck){
-    //     return null;
-    // };
+  
     let test = selectDeckCards(state.entities.cards, ownProps.match.params.deckId);
     return {
         deck: state.entities.decks[ownProps.match.params.deckId],
