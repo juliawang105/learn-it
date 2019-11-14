@@ -18,6 +18,7 @@ class Api::CardsController < ApplicationController
     end
 
     def update 
+        
         @card = Card.find(params[:id])
         if @card.update(card_params) && @card.creator.id == current_user.id
             render json: @card

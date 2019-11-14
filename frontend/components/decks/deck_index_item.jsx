@@ -24,7 +24,7 @@ class DeckIndexItem extends React.Component {
             return (
                 <div className="decks">
                     <div className="deck_item">
-                        <span> <NavLink to={`/decks/${this.props.deck.id}`}>{this.props.deck.name}</NavLink> </span>
+                        <span className="card-name"> <NavLink to={`/decks/${this.props.deck.id}`}>{this.props.deck.name}</NavLink> </span>
                     </div>
                     <p className="delete-deck" onClick={() => this.handleClick()}>Delete Deck</p>
                 </div>
@@ -33,9 +33,8 @@ class DeckIndexItem extends React.Component {
             return (
                 <div className="decks">
                     <div className="deck_item">
-                        <span> <NavLink to={`/decks/${this.props.deck.id}`}>{this.props.deck.name}</NavLink> </span>
+                        <span className="card-name"> <NavLink to={`/decks/${this.props.deck.id}`}>{this.props.deck.name}</NavLink> </span>
                     </div>
-                    {/* <button className="delete-deck" onClick={() => this.handleClick()}>Delete Deck</button> */}
                 </div>
             )
         }

@@ -29,9 +29,6 @@ class DeckShow extends React.Component{
  
     };
 
-    // changeButton(){
-    //     if (this.state.)
-    // }
    
     handleClick(e) {
         e.preventDefault();
@@ -71,12 +68,15 @@ class DeckShow extends React.Component{
                 fetchCard={this.props.fetchCard }
                 deleteCard={this.props.deleteCard} 
                 user={this.props.user}
-                deck={deck}/>
+                deck={deck}
+                openModal={this.props.openModal}
+                fetchDeck={this.props.fetchDeck}/>
         });
 
         let createButton;
         if(deck.creator_id === parseInt(this.props.user)){
-            createButton = <button className='card-button' onClick={() => this.props.openModal('card', deck.id)}>Create Card</button>
+            createButton = <button className='card-button' 
+                onClick={() => this.props.openModal('card', deck.id)}><i className="fas fa-plus-circle"></i>Add New Card</button>
         } else if (this.state.following === false) {
             createButton = <button className='card-button' onClick={this.handleClick}>Save Deck</button>
         } else if (this.state.following === true) {

@@ -58,9 +58,9 @@
 
 
 
-.deck_item:hover {
-    background-color: #CCDDED;
+.card-name:hover {
     cursor: pointer;
+    text-decoration: underline #6DC0E7
 }
 .fa.fa-sticky-note-o {
     padding-right: 5px;
@@ -102,6 +102,24 @@
   transform: translate(-50%, -50%);
 }
 
+.card-x {
+    position: absolute;
+    top: -17px;
+    right: -16px;
+    cursor: pointer;
+    border: 2.5px solid #4CA5DB;
+    border-radius: 60%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12pt;
+    color: #4CA5DB;
+    background: #000000;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-bottom: 6px;
+    padding-top: 5px;
+};
+
+
 .deck-x {
     position: absolute;
     top: -26px;
@@ -118,15 +136,14 @@
     padding-bottom: 6px;
     padding-top: 5px;
 };
-
 .deck_form{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #FFFFFF; 
-    height: 181px;
-    width: 300px;
+    height: 226px;
+    width: 341px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -140,8 +157,6 @@
     margin-bottom: -2px;
     margin-top:-23px;
     text-align: center; 
-    // display: flex;
-    // align-items: center;
 }
 .deck-browse{
     padding-top: 20px;
@@ -149,11 +164,15 @@
     margin-bottom: 30px;
     width: 100%;
     height: 150px;
-    text-align: center;
     background-color: #364654;
     color: #FF8A47;
-    
+    font-size: 16pt;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+    
+
 .deck_form > input {
     margin-top: 20px;
     height: 29px;
@@ -172,7 +191,7 @@
     width: 83px;
     border-radius: 5px;
     padding: 0px;
-    margin-top: 14px;
+    margin-top: 19px;
     padding-top: -2px;
     margin-left: 0px;
     font-size: 10pt;
@@ -205,8 +224,17 @@
     padding-left: 5px;
 }
 
+.delete-deck:hover{
+    cursor: pointer;
+    text-decoration: underline #6DC0E7
+}
 
 
 .decks{
     margin: 0px;
+}
+
+.deck_form > h2 {
+    color: #FF8A47;
+    padding-top: 5px;
 }

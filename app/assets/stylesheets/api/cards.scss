@@ -10,34 +10,41 @@
 
 .questions {
     display: flex;
-    height: 100px;
-    width: 300px;
-    border: 1px solid black ;
-    // text-align: center;
+    height: 200px;
+    width: 400px;
+    border: 1px solid #4CA5DB ;
+    border-radius: 5%;
     align-items: center;
     justify-content: center;
-    margin-right: 20px;
+    margin-right: 48px;
     margin-bottom: 25px;
-    margin-top: 5px;
+    margin-top: 8px;
     color: #4B4B4B;
-    box-shadow: 7px 10px 7px lightskyblue;
+    box-shadow: 4px 5px 7px #4CA5DB;
     
 };
 
 .answers {
     display: flex;
-    height: 100px;
-    width: 300px;
-    border: 1px solid black ;
-    // text-align: center;
+    height: 200px;
+    width: 400px;
+    border: 1px solid #4CA5DB ;
+    border-radius: 5%;
     align-items: center;
     justify-content: center;
     padding-left: 20px;
     margin-bottom: 25px;
-    margin-top: 5px;
+    margin-top: 8px;
     color: #4B4B4B;
-    box-shadow: 7px 10px 7px lightskyblue;
+    box-shadow: 4px 5px 7px #4CA5DB;
 };
+
+.card-controls{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 20px;
+}
 
 .card-delete{
     height: 31px;
@@ -46,9 +53,42 @@
     border-radius: 7px;
     padding: 0px;
     margin: 0px;
-    margin-right: 20px;
-    position: relative;
-    top: 53px;
+    margin-bottom: 10px;
     color: #FFFFFF;
     background-color: #4CA5DB;
+    cursor: pointer;
+}
+
+.edit-close{
+    height: 31px;
+    width: 100px;
+    // border: 1px solid black;
+    border-radius: 7px;
+    padding: 0px;
+    margin: 0px;
+    // margin-right: 20px;
+    // position: relative;
+    // top: 107px;
+    background-color: #FFFFFF;
+    color: #4CA5DB;
+    cursor: pointer;
+}
+
+.card-button{
+    position: relative;
+    margin: 1px;
+    top: -55px;
+    right: -39px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: #4CA5DB;
+    height: 39px;
+    width: 164px;
+    border-radius: 5px;
+    padding: 0px;
+    margin-top: 14px;
+    padding-top: -2px;
+    margin-left: 0px;
+    font-size: 10pt;
+    color: #F2FAFD;
+    cursor: pointer;
 }

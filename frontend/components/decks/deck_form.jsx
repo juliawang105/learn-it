@@ -8,6 +8,7 @@ class DeckForm extends React.Component{
 
         this.state = this.props.deck; 
         this.handleSubmit= this.handleSubmit.bind(this);
+        this.escFunction = this.escFunction.bind(this)
     };
 
     update(field){
@@ -16,13 +17,40 @@ class DeckForm extends React.Component{
         };
     };
 
+    escFunction(e) {
+        // e.preventDefault();
+        if (e.keyCode === 27) {
+            this.props.closeModal()
+        };
+    };
+
+    componentDidMount() {
+        // this.props.fetchDecks();
+        document.addEventListener('keydown', this.escFunction)
+    };
+
+    componentWillUnmount() {
+        document.removeEventListener("keydown", this.escFunction);
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         this.props.action(this.state).then(this.props.closeModal)
     }
 
     render(){
+        debugger
+        
+        let button;
+        if (this.props.formType === 'Create Deck') {
+            button = <button>Create Deck!</button>
+        } else if (this.props.formType === 'Update Card') {
+            button = <button>Edit Deck</button>
+        }
+        
         return (
+
+            
             <form onSubmit={this.handleSubmit}>
                 <div className="deck_create">
                     <div onClick={this.props.closeModal} className="deck-x">×</div>
@@ -31,7 +59,7 @@ class DeckForm extends React.Component{
                     <h2>{this.props.formType}</h2>
                     <input onChange={this.update('name')} type="text" value={this.state.name}
                     placeholder="Deck Name"/>
-                    <button>Create Deck!</button>
+                    {button}
                     </div>
                 </div>
             </form>

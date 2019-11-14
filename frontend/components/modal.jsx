@@ -5,6 +5,8 @@ import LoginFormContainer from './sessions/login_form_container';
 import SignupFormContainer from './sessions/signup_form_container';
 import CreateDeckContainer from './decks/create_deck_container';
 import CreateCardContainer from './cards/create_card_container';
+import UpdateCardContainer from './cards/update_card';
+import EditDeckContainer from './decks/edit_deck';
 
 
 class ModalForm extends React.Component{
@@ -31,6 +33,13 @@ class ModalForm extends React.Component{
         case 'card':
             component = <CreateCardContainer />
             break;
+        case 'edit-card':
+            component = <UpdateCardContainer />
+            break;
+        case 'edit-deck':
+            component =<EditDeckContainer />
+            break;
+
         default:
             return null;
     }

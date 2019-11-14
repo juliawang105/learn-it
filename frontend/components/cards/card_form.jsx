@@ -7,6 +7,7 @@ class CardForm extends React.Component{
 
         this.state = this.props.card;
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleClose = this.handleClose.bind(this);
     };
 
     update(field) {
@@ -17,17 +18,35 @@ class CardForm extends React.Component{
 
     handleSubmit(e) {
         e.preventDefault();
-        // debugger
+       
         this.props.action(this.state).then(this.props.closeModal)
        
     }
 
-    render(){
+    componentWillMount(){
+        this.props.fetchDeck(this.props.card.deck_id)
+    }
+
+    handleClose() {
         // debugger
+        event.preventDefault();
+        this.props.closeModal().then(this.props.fetchDeck(this.props.card.deck_id))
+    }
+   
+
+    render(){
+        let button;
+        // debugger
+        if(this.props.formType === 'Create Card'){
+            button = <button>Create Card!</button>
+        } else if (this.props.formType === 'Update Card'){
+            button = <button>Update Card</button>
+        }
+        
         return(
             <form onSubmit={this.handleSubmit}>
                 <div className="card-create">
-                <div onClick={this.props.closeModal} className="deck-x">×</div>
+                <div onClick={this.handleClose} className="card-x">×</div>
                 <div tabIndex="0" onKeyDown={this.escFunction}></div>
                 <div className="deck_form">
                     <h2>{this.props.formType}</h2>
@@ -35,7 +54,7 @@ class CardForm extends React.Component{
                         placeholder="Question" />
                     <input onChange={this.update('answer')} type="text" value={this.state.answer}
                         placeholder="Answer" />
-                    <button>Create Card!</button>
+                    { button }
                 </div>
 
                 </div>
