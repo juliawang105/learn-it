@@ -69,7 +69,6 @@
 
 .deck_show{
     background-color: #F2F2F2;
-    height: inherit;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -142,8 +141,8 @@
     justify-content: center;
     align-items: center;
     background-color: #FFFFFF; 
-    height: 226px;
-    width: 341px;
+    height: 304px;
+    width: 500px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -174,9 +173,9 @@
     
 
 .deck_form > input {
-    margin-top: 20px;
-    height: 29px;
-    width: 200px;
+    margin-top: 11px;
+    height: 75px;
+    width: 400px;
     font-size: 12pt;
     text-align: center;
 };
@@ -237,4 +236,7 @@
 .deck_form > h2 {
     color: #FF8A47;
     padding-top: 5px;
+    position: relative;
+    bottom: 7px;
+    font-size: 14pt;
 }
