@@ -23,14 +23,15 @@ class CardForm extends React.Component{
        
     }
 
-    componentWillMount(){
-        this.props.fetchDeck(this.props.card.deck_id)
-    }
+    // componentDidMount(){
+    //     this.props.fetchDeck(this.props.card.deck_id)
+    // }
 
     handleClose() {
         // debugger
         event.preventDefault();
-        this.props.closeModal().then(this.props.fetchDeck(this.props.card.deck_id))
+        this.props.closeModal()
+        this.props.fetchDeck(this.props.card.deck_id)
     }
    
 

@@ -16,10 +16,10 @@ class CardItem extends React.Component{
         this.props.deleteCard(cardId)
     }
 
-    componentDidMount(){
-        this.props.fetchDeck(this.props.deck.id)
+    // componentDidMount(){
+    //     this.props.fetchDeck(this.props.deck.id)
        
-    };
+    // };
 
     render(){
         let button;
