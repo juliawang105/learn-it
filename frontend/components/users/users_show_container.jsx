@@ -4,7 +4,7 @@ import { fetchSave } from '../../actions/save_actions';
 import { fetchDecks } from '../../actions/deck_actions';
 
 const mSTP = state => ({
-    user: state.users,
+    user: state.session,
     saves: Object.values(state.entities.saves),
     decks: state.entities.decks
 });

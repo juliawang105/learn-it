@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { withRouter } from 'react-router'
+import { withRouter } from 'react-router';
+import DeckIndexItem from '../decks/deck_index_item'
 
 class SaveItem extends React.Component {
     constructor(props){
@@ -28,15 +29,15 @@ class SaveItem extends React.Component {
                 let deck = decks[i];
                 if(deck.id === this.props.save.deck_id){
                     display.push(deck)
-                }
-        };
-        // debugger
+                } 
+            };
+        
         if(display.length === 0){
             return null;
         }
 
         let displays = display.map( (display) => {
-            return  display.name
+            return  <DeckIndexItem deck={display}/>
         });
 
         return (

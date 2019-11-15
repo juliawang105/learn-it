@@ -26,21 +26,22 @@ class UserShow extends React.Component{
             if(!save){
                 return null;
             }
-            return (<li>
+            return (<div>
                 <SaveItem 
                 key={save.id}
                 save={save}
                 fetchSave={this.props.fetchSave} 
                 fetchDecks={this.props.fetchDecks}
-                decks={this.props.decks}/>
-            </li>
+                decks={this.props.decks}
+                user={this.props.user}/>
+            </div>
         )
          });
 
         return(
-            
-            <div>
-                {saves}
+            <div className="user-show">
+                <div className="saved">Your Saved Decks</div>
+                <div className="save-list">{saves}</div>
             </div>
         )
         

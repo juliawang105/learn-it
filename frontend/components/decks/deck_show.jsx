@@ -8,9 +8,9 @@ class DeckShow extends React.Component{
     constructor(props){
         super(props);
 
-        this.state = {
-            following: false
-        };
+        // this.state = {
+        //     following: false
+        // };
 
         this.handleClick = this.handleClick.bind(this);
         this.fetchDeck = this.props.fetchDeck.bind(this);
@@ -36,14 +36,16 @@ class DeckShow extends React.Component{
         let saves = Object.values(this.props.saves);
 
         if (saves.length === 0){
-            this.props.saveDeck(save).then(() => this.setState({following: true}))
+            this.props.saveDeck(save)
+            // .then(() => this.setState({following: true}))
             return; 
         } 
         
         for (let i = 0; i < saves.length; i ++ ) {
             let saved = saves[i]; //saved = pojo 
             if(saved.deck_id === this.props.deck.id){
-                this.props.unsaveDeck(saved.id).then(() => this.setState({ following: false }))
+                this.props.unsaveDeck(saved.id)
+                // .then(() => this.setState({ following: false }))
                 return    
             }          
         } 
@@ -74,15 +76,23 @@ class DeckShow extends React.Component{
                 openModal={this.props.openModal}
                 fetchDeck={this.props.fetchDeck}/>
         });
-
+        
+        let save_array = Object.values(this.props.saves);
+            save_array = save_array.map( (save) => {
+                return save.deck_id
+            })
         let createButton;
+        
         if(deck.creator_id === parseInt(this.props.user)){
             createButton = <button className='card-button' 
                 onClick={() => this.props.openModal('card', deck.id)}><i className="fas fa-plus-circle"></i>Add New Card</button>
-        } else if (this.state.following === false) {
-            createButton = <button className='card-button' onClick={this.handleClick}>Save Deck</button>
-        } else if (this.state.following === true) {
-            createButton = <button className='card-button' onClick={this.handleClick}>Unsave Deck</button>
+        }
+        
+        let saveButton;
+        if (!save_array.includes(this.props.deck.id)) {
+            saveButton = <button className='card-button' onClick={this.handleClick}>Save Deck</button>
+        } else if (save_array.includes(this.props.deck.id)) {
+            saveButton = <button className='card-button' onClick={this.handleClick}>Unsave Deck</button>
         };
     
         return(
@@ -90,6 +100,8 @@ class DeckShow extends React.Component{
                 <div>
                     <div className="deck_title">{deck.name}</div>
                         {createButton}
+                        <br/>
+                        {saveButton}
                         {deck_cards}
                         </div>
                     </div>

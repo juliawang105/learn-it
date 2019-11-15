@@ -1,3 +1,31 @@
 // Place all the styles related to the api/users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.user-show{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    background-color: #235173;
+    height: 100vw;
+
+}
+
+.saved{
+    height: 150px;
+    width: 100%;
+    // border: 1px solid black;
+    text-align: center;
+    color: #F18C4B;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16pt;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+};
+
+.save-list{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}

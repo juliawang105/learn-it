@@ -40,13 +40,15 @@
   transform: translate(-50%, -50%);
 }
 
-.welcome > h2 {
-    margin-left: -14px;
-    font-size: 16pt;
-    padding-right: 33px;
-    padding-left: 6px;
-    position: relative;
-    left: 5px;
+.user-page{
+  color: #CBDAE9;
+  margin-left: -14px;
+  font-size: 16pt;
+  padding-right: 33px;
+  padding-left: 6px;
+  position: relative;
+  left: -14px;
+  cursor: pointer;
 }
 
 #logoutbutton{
