@@ -67,5 +67,10 @@ It is crucial that users do not have ability to edit or delete decks and cards t
     };
 };
     
+```
 
-
+## Future Features 
+* Studying a deck of cards 
+* Tracking how well users know each card
+* Deck tags 
+* Search by tags 
