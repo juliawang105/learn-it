@@ -19,9 +19,14 @@ class Api::SavesController < ApplicationController
         end
     end
 
+    def show 
+        @save = Save.includes(:learner).includes(:deck).find(params[:id])
+        render :show 
+    end
+
     def destroy
         # debugger
-        @save = Save.find(params[:id])
+        @save = Save.includes(:learner).includes(:deck).find(params[:id])
          if @save.destroy
             render json: ['yay']
          else

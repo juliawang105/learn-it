@@ -13,6 +13,8 @@ end
 
 json.extract! @deck, :cards 
 
+json.extract! @deck, :saves 
+
    
 
     

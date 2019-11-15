@@ -13,13 +13,13 @@ class Api::CardsController < ApplicationController
     end
 
     def show 
-        @card = Card.includes(:deck).find(params[:id])
+        @card = Card.includes(:deck).includes(:creator).find(params[:id])
         render :show 
     end
 
     def update 
         
-        @card = Card.find(params[:id])
+        @card = Card.includes(:deck).includes(:creator).find(params[:id])
         if @card.update(card_params) && @card.creator.id == current_user.id
             render json: @card
         else 
@@ -28,7 +28,7 @@ class Api::CardsController < ApplicationController
     end
 
     def destroy
-        @card = Card.find(params[:id])
+        @card = Card.includes(:deck).includes(:creator).find(params[:id])
         if @card.creator.id == current_user.id
              @card.destroy
         else

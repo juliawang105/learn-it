@@ -2,6 +2,7 @@ import React from 'react';
 // import DeckIndexContainer from './deck_index_container';
 import DeckIndexItem from './deck_index_item';
 
+
 class DeckIndex extends React.Component{
     constructor(props){
         super(props)
@@ -52,7 +53,7 @@ class DeckIndex extends React.Component{
                     <div className="decks_list">
                         {decks}
                     </div> 
-                       
+                
             </div>
         )};
 };

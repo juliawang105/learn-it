@@ -27,7 +27,9 @@ class Greeting extends React.Component {
                
                     <NavLink id="view-deck" to={"/decks"}>View Decks</NavLink>
                     <div onClick={() => this.props.openModal('deck')} className="create-deck">Create New Deck</div>
-                    <div className="welcome"><h2>Welcome {logged.first_name}</h2></div>
+                    <div >
+                    <NavLink className="welcome" to={`/users/${logged.id}`}><h2>Welcome {logged.first_name}</h2></NavLink>
+                    </div>
                     <div><button id='logoutbutton' onClick={this.handleSubmit}>LOG OUT</button></div>  
                 </div>
                 ) : (

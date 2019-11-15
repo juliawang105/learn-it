@@ -9,6 +9,7 @@ const mSTP = state => {
     return {
         decks: Object.values(state.entities.decks),
         session: state.session.id,
+        saves: Object.values(state.entities.saves)
     }
     
 };

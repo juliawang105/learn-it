@@ -7,10 +7,10 @@ import HomeFormContainer from './home_container'
 import ModalContainer from './modal'
 import DeckIndexContainer from './decks/deck_index_container';
 import DeckShowContainer from './decks/deck_show_container'
-
 import { AuthRoute } from '../util/route_util'
-// import DeckShow from "./decks/deck_show";
-import CreateDeckContainer from './decks/create_deck_container'
+import CreateDeckContainer from './decks/create_deck_container';
+import UsersShowContainer from './users/users_show_container'
+
 
 const App = () => (
     <div className='boss'>
@@ -36,6 +36,7 @@ const App = () => (
                 <AuthRoute path="/signup" component={SignUpFormContainer} /> */}
                 <Route exact path='/decks' component={DeckIndexContainer} />
                 <Route exact path="/decks/:deckId" component={DeckShowContainer} />
+                <Route exact path="/users/:id" component={UsersShowContainer} />
                 <Route exact path="/new" component={CreateDeckContainer } />
                 <Route exact path='/' component={HomeFormContainer} />
             </Switch>
