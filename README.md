@@ -20,4 +20,52 @@ Using technologies such as Rails, PostgreSQL, React.js, and Redux, Learn It was 
 * Saves 
   * Logged in users can save decks to their study stack. The information is displayed on their user profile paged. 
   
-## 
+## Decks 
+
+When creating decks, one of the challenges that I ran into was during the rendering of the deck's show page. At first, I was not able to pull all the cards associated with that deck when the deck itself mounted. In order to optimize efficiency, I edited my payload so that when a fetch deck action was called, the cards themselves would be fetched simultaneously. 
+
+## Cards 
+
+I chose for my cards edit form to exist as a modal to allow for a cleaner, more user friendly interface. Since my cards are nested under specific decks, I cleaned up my modal code to allow data to be passed through. 
+
+## Restricting Access 
+
+It is crucial that users do not have ability to edit or delete decks and cards that are not created by them. My backend code restricted this access, but I also wanted to eliminate potential errors on the frontend and achieved this by writing code that providing conditionals for the appearance of certain functional buttons. 
+
+``` javascript 
+
+  render(){
+        let button;
+        let editButton;
+
+        if(this.props.deck.creator_id === parseInt(this.props.user)){
+            button = <button className='card-delete' 
+                        onClick={() => this.handleClick()}>Delete Card
+                    </button> 
+            editButton = <button className="edit-close" 
+                        onClick={() => this.props.openModal('edit-card', this.props.card)}>Edit Card
+                    </button>
+            };
+
+        return( 
+            <div className="cards">
+                <div className='card-controls'>
+                    {button}
+                    {editButton}
+                </div>
+                    
+                <label>Question
+                    <div className="questions"> {this.props.card.question} </div>
+                </label>
+                    
+                <label>Answer
+                    <div className="answers"> {this.props.card.answer} </div>
+                </label>
+                    
+            </div>
+        );
+    };
+};
+    
+
+
