@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import CardItem from '../cards/card_item';
 import CreateCardContainer from '../cards/create_card_container';
+import StudyCards from '../study/study_cards';
 
 
 class DeckShow extends React.Component{
@@ -60,6 +61,7 @@ class DeckShow extends React.Component{
     render(){
         
         let deck = this.props.deck;
+        // debugger
 
         if(!deck) return null;
         
@@ -104,7 +106,8 @@ class DeckShow extends React.Component{
                         {saveButton}
                         {deck_cards}
                         </div>
-                    </div>
+                {/* <StudyCards cards={this.props.cards} /> */}
+            </div>
            
             )
         }
