@@ -12,10 +12,12 @@ class StudyCards extends React.Component{
 
 
     render(){
-        // debugger
+        let array = Object.values(this.props.cards)
+        
         return(
-            <div>hello
-                {console.log(Object.values(this.props.cards))}
+            <div>
+                {/* {Object.values(this.props.cards)[0].question} */}
+                {console.log(array[1].question)}
             </div>
         )
     }
