@@ -60,8 +60,11 @@ class StudyCards extends React.Component{
         };
 
         return(
-            <div onClick={this.handleClick}>
-                {currCard}
+            <div className="study" onClick={this.handleClick}>
+                <div className="study-card">
+                    {currCard}
+                </div>
+                
                
             </div>
         )
