@@ -55,17 +55,18 @@ class StudyCards extends React.Component{
         };
         
         // debugger
-        let currCard;
-        let className;
+        let currCard1;
+        let currCard2;
+        // let className;
 
         if(this.state.flipped === false){
-            currCard = this.state.currentCard.question;
-            className = 'study-card front'
+            currCard1 = this.state.currentCard.question;
+            // className = 'study-card'
         } else if (this.state.flipped === true) {
-            currCard = this.state.currentCard.answer
-            className = "study-card back";
+            currCard2 = this.state.currentCard.answer
+            //className = "study-card";
         } else if (this.state.flipped === null){
-            currCard = (
+            currCard1 = (
                 <div>
                     You've reached the end of this study pack.
                 </div>
@@ -74,8 +75,13 @@ class StudyCards extends React.Component{
 
         return(
             <div className="study" onClick={this.handleClick}>
-                <div className={className}>
-                    {currCard}
+                <div className="study-card">
+                    <div className="front">
+                        {currCard1} 
+                    </div>
+                    <div className="back">
+                        {currCard2}
+                    </div>
                 </div>
             
             </div>

@@ -13,6 +13,7 @@
     display: flex;
     height: 500px;
     width: 800px;
+    perspective: 600px;
     border: 1px solid #4CA5DB ;
     border-radius: 5%;
     align-items: center;
@@ -24,17 +25,20 @@
     box-shadow: 4px 5px 7px #4CA5DB;
     text-align: center;
     font-size: 20pt; 
-    // -webkit-backface-visibility: hidden;
-    // backface-visibility: hidden;
-   transition: transform 1s;
-   transform-style: preserve-3d;
-//    transform: scale(1, 1)
+    
 };
 
-.back{
-   transition: transform 1s;
-   transform-style: preserve-3d;
-}
+// .study-card:active{
+//   animation-name: flipInX;
+//     animation-duration: 1s; 
+// }
+
+
+
+
+
+  
+
 
 
 
