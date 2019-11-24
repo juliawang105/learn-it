@@ -31,7 +31,11 @@ class StudyCards extends React.Component{
         let i = this.state.cards.indexOf(this.state.currentCard); 
         let flipStatus = this.state.flipped;
 
-        if (flipStatus === false) {
+        if(this.state.cards[i+1] === undefined){
+            this.setState({
+                flipped: null
+            })
+        } else if (flipStatus === false) {
             this.setState({
                 flipped: true
             })
@@ -52,20 +56,28 @@ class StudyCards extends React.Component{
         
         // debugger
         let currCard;
+        let className;
 
         if(this.state.flipped === false){
-            currCard = this.state.currentCard.question
-        } else {
+            currCard = this.state.currentCard.question;
+            className = 'study-card front'
+        } else if (this.state.flipped === true) {
             currCard = this.state.currentCard.answer
-        };
+            className = "study-card back";
+        } else if (this.state.flipped === null){
+            currCard = (
+                <div>
+                    You've reached the end of this study pack.
+                </div>
+            )
+        }
 
         return(
             <div className="study" onClick={this.handleClick}>
-                <div className="study-card">
+                <div className={className}>
                     {currCard}
                 </div>
-                
-               
+            
             </div>
         )
     }
