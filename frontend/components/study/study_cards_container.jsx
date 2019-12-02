@@ -3,23 +3,25 @@ import StudyCard from './study_cards';
 import { fetchDeck, } from '../../actions/deck_actions';
 import { fetchCard} from '../../actions/card_actions';
 import { selectDeckCards } from '../../reducers/selectors';
+import { createScore, updateScore } from '../../actions/score_actions'
 
-// const mSTP = (state, ownProps)=> {
-//     let test = selectDeckCards(state.entities.cards, ownProps.match.params.deckId);
-//     //debugger
-//     return {
-//         deck: state.entities.decks[ownProps.match.params.deckId],
-//         user: state.session.id,
-//         cards: test,
-//         saves: state.entities.saves
-//     };
+const mSTP = (state, ownProps)=> {
+    let test = selectDeckCards(state.entities.cards, ownProps.match.params.deckId);
+    //debugger
+    return {
+        deck: state.entities.decks[ownProps.match.params.deckId],
+        user: state.session.id,
+        cards: test,
+        saves: state.entities.saves
+    };
     
-// };
+};
 
 const mDTP = dispatch => ({
     fetchDeck: deckId => dispatch(fetchDeck(deckId)),
-    
-    fetchCard: cardId => dispatch(fetchCard(cardId)),  
+    fetchCard: cardId => dispatch(fetchCard(cardId)), 
+    createScore: score => dispatch(createScore(score)), 
+    updateScore: score => dispatch(updateScore(score)) 
 });
 
-export default connect(null, mDTP)(StudyCard)
+export default connect(mSTP, mDTP)(StudyCard)

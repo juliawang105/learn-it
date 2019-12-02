@@ -7,7 +7,15 @@ class ScoreBar extends React.Component{
 
     render(){
         return(
-            <div>12345</div>
+            <div className='scorebar'>
+                <div className='score'>1</div>
+                <div className='score'>2</div>
+                <div className='score'>3</div>
+                <div className='score'>4</div>
+                <div className='score'>5</div> 
+            </div>
         )
     }
 }
+
+export default ScoreBar

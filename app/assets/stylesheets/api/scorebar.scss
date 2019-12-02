@@ -1,0 +1,15 @@
+.scorebar{
+    display: flex;
+    height: 100px;
+    width: 500px;
+    border: 1px solid black;
+    justify-content: space-around;
+}
+
+.score{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid blue;
+    width: 100px;
+}

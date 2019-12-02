@@ -1,5 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import ScoreBar from '../scores/scorebar'
+
 
 class StudyCards extends React.Component{
     constructor(props){
@@ -54,7 +56,7 @@ class StudyCards extends React.Component{
             return null
         };
         
-        debugger
+        // debugger
         let currCard1;
         let currCard2;
         // let className;
@@ -83,7 +85,13 @@ class StudyCards extends React.Component{
                         {currCard2}
                     </div>
                 </div>
-            
+                <div> <ScoreBar
+                    deck={this.props.deck}
+                    cards={this.props.cards}
+                    createScore={this.props.createScore}
+                    updateScore={this.props.updateScore}
+                />
+                </div>
             </div>
         )
     }
