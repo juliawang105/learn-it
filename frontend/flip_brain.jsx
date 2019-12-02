@@ -5,7 +5,8 @@ import configureStore from './store/store';
 import { login, logout, signup } from './actions/session_actions';
 import { fetchDeck, fetchDecks, createDeck, updateDeck, deleteDeck } from './actions/deck_actions';
 import { saveDeck, unsaveDeck } from './actions/save_actions';
-import { createCard, updateCard, deleteCard } from './actions/card_actions'
+import { createCard, updateCard, deleteCard } from './actions/card_actions';
+import { saveScore, fetchScore, updateScore } from './actions/score_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("root");
@@ -41,5 +42,8 @@ document.addEventListener("DOMContentLoaded", () => {
     window.createCard = createCard;
     window.updateCard = updateCard;
     window.deleteCard = deleteCard; 
+    window.saveScore = saveScore;
+    window.fetchScore = fetchScore;
+    window.updateScore = updateScore;
     ReactDOM.render(< Root store={store} />, root)
 });

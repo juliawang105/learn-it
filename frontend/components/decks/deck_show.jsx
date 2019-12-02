@@ -1,18 +1,14 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import CardItem from '../cards/card_item';
 import CreateCardContainer from '../cards/create_card_container';
 import StudyCards from '../study/study_cards';
 
 
+
 class DeckShow extends React.Component{
     constructor(props){
         super(props);
-
-        // this.state = {
-        //     following: false
-        // };
-
         this.handleClick = this.handleClick.bind(this);
         this.fetchDeck = this.props.fetchDeck.bind(this);
           
@@ -28,17 +24,14 @@ class DeckShow extends React.Component{
         };
  
     };
-
    
     handleClick(e) {
         e.preventDefault();
-        // debugger
         let save = {deck_id: this.props.deck.id, learner_id: this.props.user};
         let saves = Object.values(this.props.saves);
 
         if (saves.length === 0){
             this.props.saveDeck(save)
-            // .then(() => this.setState({following: true}))
             return; 
         } 
         
@@ -50,10 +43,7 @@ class DeckShow extends React.Component{
                 return    
             }          
         } 
-
-        // let follow = this.state.following
         this.props.saveDeck(save).then( () => this.setState({following: true})); 
-        
     };
        
 
@@ -104,8 +94,12 @@ class DeckShow extends React.Component{
                         {createButton}
                         <br/>
                         {saveButton}
+                    <div>
+                        <button className='card-button'> <Link to={`/decks/${this.props.deck.id}/study`}>Study</Link></button>
+                    </div>
                         {deck_cards}
-                        </div>
+                        
+                </div>
                 {/* <StudyCards cards={this.props.cards} /> */}
             </div>
            
