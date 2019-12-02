@@ -12,6 +12,11 @@ export const fetchScore = scoreId => dispatch => (
         .then(res => dispatch(receiveScore(res)))
 );
 
+export const createScore = score => dispatch => (
+    ScoreUtil.createScore(score)
+        .then(res => dispatch(receiveScore(res)))
+);
+
 export const updateScore = score => dispatch => (
     ScoreUtil.updateScore(score)
         .then(res => dispatch(receiveScore(res)))

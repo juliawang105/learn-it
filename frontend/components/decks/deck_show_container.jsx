@@ -5,6 +5,7 @@ import DeckShow from './deck_show';
 import { fetchCard, deleteCard } from '../../actions/card_actions';
 import { selectDeckCards } from '../../reducers/selectors';
 import { closeModal, openModal } from '../../actions/modal_actions';
+import { createScore, updateScore } from '../../actions/score_actions';
 
 
 
@@ -28,6 +29,7 @@ const mDTP = dispatch => ({
     closeModal: () => dispatch(closeModal()),
     openModal: (modal, data) => dispatch(openModal(modal, data)),
     deleteCard: cardId => dispatch(deleteCard(cardId))
+
 });
 
 export default connect(mSTP, mDTP)(DeckShow);

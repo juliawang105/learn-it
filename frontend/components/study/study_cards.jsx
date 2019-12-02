@@ -54,7 +54,7 @@ class StudyCards extends React.Component{
             return null
         };
         
-        // debugger
+        debugger
         let currCard1;
         let currCard2;
         // let className;

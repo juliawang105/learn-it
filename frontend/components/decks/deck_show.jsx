@@ -6,6 +6,7 @@ import StudyCards from '../study/study_cards';
 
 
 
+
 class DeckShow extends React.Component{
     constructor(props){
         super(props);
@@ -45,9 +46,6 @@ class DeckShow extends React.Component{
         } 
         this.props.saveDeck(save).then( () => this.setState({following: true})); 
     };
-       
-
-
     render(){
         
         let deck = this.props.deck;
@@ -95,12 +93,12 @@ class DeckShow extends React.Component{
                         <br/>
                         {saveButton}
                     <div>
-                        <button className='card-button'> <Link to={`/decks/${this.props.deck.id}/study`}>Study</Link></button>
+                        <Link id='study' to={`/decks/${this.props.deck.id}/study`}>Study this Deck!</Link>
                     </div>
                         {deck_cards}
                         
                 </div>
-                {/* <StudyCards cards={this.props.cards} /> */}
+
             </div>
            
             )
