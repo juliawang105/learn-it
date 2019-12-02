@@ -19,6 +19,8 @@ class User < ApplicationRecord
     has_many :saved_decks,
         through: :saves, 
         source: :deck
+
+    has_many :scores
     
     
     

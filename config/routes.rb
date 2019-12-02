@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
     resources :cards, only: [:update, :show, :destroy]
     resources :saves, only: [:destroy, :create, :show]
+    resources :scores, only: [:create, :show, :update]
   end
 
 end

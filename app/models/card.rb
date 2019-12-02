@@ -9,4 +9,6 @@ class Card < ApplicationRecord
     has_one :creator,
         through: :deck, 
         source: :creator
+    
+    has_many :scores
 end
