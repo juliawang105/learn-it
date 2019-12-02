@@ -14,6 +14,3 @@ export const selectDeckCards = (state, deck_id) => {
     return cards; 
 }
     
-// export const selectPokemonItem = (state, id) => {
-//     return state.entities.items[id];
-// };
