@@ -1,1 +1,1 @@
-json.extract! @score :id, :card_id, :learner_id, 
+json.extract! @score, :id, :card_id, :learner_id

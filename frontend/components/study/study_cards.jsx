@@ -88,8 +88,10 @@ class StudyCards extends React.Component{
                 <div> <ScoreBar
                     deck={this.props.deck}
                     cards={this.props.cards}
-                    createScore={this.props.createScore}
+                    currCard={this.state.currentCard}
+                    saveScore={this.props.saveScore}
                     updateScore={this.props.updateScore}
+                    user={this.props.user}
                 />
                 </div>
             </div>

@@ -42,8 +42,8 @@ document.addEventListener("DOMContentLoaded", () => {
     window.createCard = createCard;
     window.updateCard = updateCard;
     window.deleteCard = deleteCard; 
-    window.saveScore = saveScore;
     window.fetchScore = fetchScore;
     window.updateScore = updateScore;
+    window.saveScore = saveScore;
     ReactDOM.render(< Root store={store} />, root)
 });

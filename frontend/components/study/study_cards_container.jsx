@@ -3,7 +3,7 @@ import StudyCard from './study_cards';
 import { fetchDeck, } from '../../actions/deck_actions';
 import { fetchCard} from '../../actions/card_actions';
 import { selectDeckCards } from '../../reducers/selectors';
-import { createScore, updateScore } from '../../actions/score_actions'
+import {saveScore, updateScore } from '../../actions/score_actions'
 
 const mSTP = (state, ownProps)=> {
     let test = selectDeckCards(state.entities.cards, ownProps.match.params.deckId);
@@ -20,7 +20,7 @@ const mSTP = (state, ownProps)=> {
 const mDTP = dispatch => ({
     fetchDeck: deckId => dispatch(fetchDeck(deckId)),
     fetchCard: cardId => dispatch(fetchCard(cardId)), 
-    createScore: score => dispatch(createScore(score)), 
+    saveScore: score => dispatch(saveScore(score)), 
     updateScore: score => dispatch(updateScore(score)) 
 });
 

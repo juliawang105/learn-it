@@ -12,8 +12,8 @@ export const fetchScore = scoreId => dispatch => (
         .then(res => dispatch(receiveScore(res)))
 );
 
-export const createScore = score => dispatch => (
-    ScoreUtil.createScore(score)
+export const saveScore = score => dispatch => (
+    ScoreUtil.saveScore(score)
         .then(res => dispatch(receiveScore(res)))
 );
 

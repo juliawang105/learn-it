@@ -7,7 +7,7 @@ class Api::ScoresController < ApplicationController
         if @score.save 
             render :show
         else 
-            render json: @show.errors.full_messages, status: 422
+            render json: @score.errors.full_messages, status: 422
         end
     end
 
@@ -22,7 +22,7 @@ class Api::ScoresController < ApplicationController
         if @score.update(score_params)
             render :show 
         else 
-            render json: @deck.errors.full_messages
+            render json: @score.errors.full_messages, status: 422
         end
     end
 
