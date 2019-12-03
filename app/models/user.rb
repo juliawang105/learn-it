@@ -20,8 +20,10 @@ class User < ApplicationRecord
         through: :saves, 
         source: :deck
 
-    has_many :scores
-    
+    has_many :scores,
+        primary_key: :id,
+        foreign_key: :learner_id,
+        class_name: 'Score'
     
     
    

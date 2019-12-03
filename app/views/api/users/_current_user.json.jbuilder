@@ -13,3 +13,11 @@ json.saves do
         end
     end
 end
+
+json.scores do
+    current_user.scores.each do |score|
+        json.set! score.id do 
+            json.extract! score, :id, :card_id, :learner_id, :score  
+        end
+    end
+end

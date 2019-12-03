@@ -11,7 +11,7 @@ class Api::UsersController < ApplicationController
   end
 
   def show 
-    @user = User.includes(:saves).includes(:created_decks).includes(:saved_decks).find(params[:id])
+    @user = User.includes(:scores).includes(:saves).includes(:created_decks).includes(:saved_decks).find(params[:id])
     render :show 
   end
 
