@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import ScoreBar from '../scores/scorebar'
+import ScoreBar from '../scores/scorebar';
+import ProgressBar from '../progressbar/progressbar'
 
 
 class StudyCards extends React.Component{
@@ -77,17 +78,17 @@ class StudyCards extends React.Component{
         }
         // debugger
         
-        return(
-            <div className="study" onClick={this.handleClick}>
+        return (
+          <div>
+              <ProgressBar />
+                <div className="study" onClick={this.handleClick}>
                 <div className="study-card">
-                    <div className="front">
-                        {currCard1} 
-                    </div>
-                    <div className="back">
-                        {currCard2}
-                    </div>
+                    <div className="front">{currCard1}</div>
+                    <div className="back">{currCard2}</div>
                 </div>
-                <div> <ScoreBar
+                <div>
+                    {" "}
+                    <ScoreBar
                     deck={this.props.deck}
                     cards={this.props.cards}
                     currCard={this.state.currentCard}
@@ -96,10 +97,11 @@ class StudyCards extends React.Component{
                     user={this.props.user}
                     scores={this.props.scores}
                     fetchDeck={this.props.fetchDeck}
-                />
+                    />
                 </div>
-            </div>
-        )
+                </div>
+          </div>
+        );
     }
 };
 

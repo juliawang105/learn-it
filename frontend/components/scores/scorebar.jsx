@@ -40,9 +40,9 @@ class ScoreBar extends React.Component{
         console.log(total);
 
       
-        if(this.props.cards)
+        // if(this.props.cards)
         //this.props.saveScore(score)
-    };
+    }
 
     render(){
         // if(!this.props.scores){

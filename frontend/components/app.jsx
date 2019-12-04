@@ -11,6 +11,7 @@ import { AuthRoute } from '../util/route_util'
 import CreateDeckContainer from './decks/create_deck_container';
 import UsersShowContainer from './users/users_show_container';
 import StudyCardsContainer from './study/study_cards_container';
+import ProgressBarContainer from './progressbar/progressbar_container';
 
 
 const App = () => (
@@ -45,6 +46,8 @@ const App = () => (
                 <Route exact path ="/decks/:deckId/study" component={StudyCardsContainer} />
                 <Route exact path="/users/:id" component={UsersShowContainer} />
                 <Route exact path="/new" component={CreateDeckContainer } />
+                <Route exact path="/decks/:deckId/progress" component={ ProgressBarContainer} />
+
                 <Route exact path='/' component={HomeFormContainer} />
             </Switch>
                

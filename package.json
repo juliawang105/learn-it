@@ -30,6 +30,7 @@
     "animate.css": "^3.7.2",
     "babel-loader": "^8.0.6",
     "react": "^16.11.0",
+    "react-circular-progressbar": "^2.0.3",
     "react-dom": "^16.11.0",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.1.2",
