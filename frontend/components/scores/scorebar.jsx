@@ -1,5 +1,4 @@
 import React from 'react';
-import { parse } from 'path';
 
 class ScoreBar extends React.Component{
     constructor(props){
@@ -13,11 +12,12 @@ class ScoreBar extends React.Component{
 
     };
 
+    // componentDidMount(){
+    //     this.props.fetchDeck(this.props.match.params.deckId)
+    // }
+
     handleClick(e){
         e.preventDefault();
-
-        // debugger
-        
         this.setState({score: e.target.value});
         let score = {
             learner_id: this.props.user,
@@ -26,12 +26,29 @@ class ScoreBar extends React.Component{
             
         };
         
-        debugger
+       
+        console.log(Object.values(this.props.scores))
+        console.log(this.props.cards)
+        let sum = 0;
+
+        let cardScores = Object.values(this.props.scores)
+        for(let i = 0; i < cardScores.length; i ++ ){
+            sum += cardScores[i].score;
+        }
+
+        let total = ((sum) / (5 * this.props.cards.length)) * 100
+        console.log(total);
+
       
-        this.props.saveScore(score)
+        if(this.props.cards)
+        //this.props.saveScore(score)
     };
 
     render(){
+        // if(!this.props.scores){
+        //     return null;
+        // }
+
         // debugger
        
         return(

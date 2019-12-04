@@ -13,4 +13,22 @@ export const selectDeckCards = (state, deck_id) => {
 
     return cards; 
 }
+
+export const selectScores = (state, deck_id) => {
+    let deckScores = [];
+
+    let arr = Object.values(state);
+    console.log(arr)
+
+    for(let i = 0; i < arr.length ; i ++ ){
+        //debugger
+        if(arr[i].deck.id === parseInt(deck_id)){
+            console.log("here")
+            console.log(i);
+            deckScores.push(arr[i])
+        }
+    };
+
+    return deckScores 
+};
     

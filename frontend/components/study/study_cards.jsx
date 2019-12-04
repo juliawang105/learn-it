@@ -9,6 +9,7 @@ class StudyCards extends React.Component{
         this.state = {
             cards:[],
             currentCard: "",
+            scores: this.props.scores,
             flipped: false
         };
 
@@ -48,15 +49,15 @@ class StudyCards extends React.Component{
             })
         };
 
-    };
 
+    };
 
     render(){
         if(this.state.cards.length === 0 ){
             return null
         };
         
-        // debugger
+    //    console.log(this.props.scores)
         let currCard1;
         let currCard2;
         // let className;
@@ -74,7 +75,8 @@ class StudyCards extends React.Component{
                 </div>
             )
         }
-
+        // debugger
+        
         return(
             <div className="study" onClick={this.handleClick}>
                 <div className="study-card">
@@ -92,6 +94,8 @@ class StudyCards extends React.Component{
                     saveScore={this.props.saveScore}
                     updateScore={this.props.updateScore}
                     user={this.props.user}
+                    scores={this.props.scores}
+                    fetchDeck={this.props.fetchDeck}
                 />
                 </div>
             </div>

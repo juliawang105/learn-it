@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
             entities: {
                 users:  window.currentUser.users,
                 saves:  window.currentUser.saves,
-                scores: window.currentUser.scores
+                // scores: window.currentUser.scores
             },
             session: { id: Object.keys(window.currentUser.users)[0]}
         };

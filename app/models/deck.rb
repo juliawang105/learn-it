@@ -19,4 +19,8 @@ class Deck < ApplicationRecord
         primary_key: :id, 
         foreign_key: :deck_id,
         class_name: 'Card'
+
+    has_many :scores,
+        through: :cards,
+        source: :scores 
 end

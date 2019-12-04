@@ -8,12 +8,14 @@ json.extract! @deck, :id, :name, :creator_id
 
 json.deck do 
     json.extract! @deck, :id, :name, :creator_id
+    
 end
-
 
 json.extract! @deck, :cards 
 
 json.extract! @deck, :saves 
+
+json.extract! @deck, :scores 
 
    
 

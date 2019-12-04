@@ -2,17 +2,19 @@ import { connect } from 'react-redux';
 import StudyCard from './study_cards';
 import { fetchDeck, } from '../../actions/deck_actions';
 import { fetchCard} from '../../actions/card_actions';
-import { selectDeckCards } from '../../reducers/selectors';
+import { selectDeckCards, selectScores } from '../../reducers/selectors';
 import {saveScore, updateScore } from '../../actions/score_actions'
 
 const mSTP = (state, ownProps)=> {
     let test = selectDeckCards(state.entities.cards, ownProps.match.params.deckId);
-    //debugger
+    // let scores = selectScores(state.entities.scores, ownProps.match.params.deckId);
+    
     return {
         deck: state.entities.decks[ownProps.match.params.deckId],
         user: state.session.id,
         cards: test,
-        saves: state.entities.saves
+        saves: state.entities.saves,
+        scores: state.entities.scores,
     };
     
 };
