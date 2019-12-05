@@ -24,7 +24,7 @@ class ScoreBar extends React.Component{
           card_id: this.props.currCard.id,
           score: parseInt(e.target.value)
         };
-        
+        this.props.saveScore(score);
        
         console.log(Object.values(this.props.scores))
         console.log(Object.keys(this.props.cards))
@@ -38,24 +38,18 @@ class ScoreBar extends React.Component{
         // let total = ((sum) / (5 * this.props.cards.length)) * 100
         // console.log(total);
 
-        let cards = Object.values(this.props.cards)//array of pojos 
-        debugger
+        // let cards = Object.values(this.props.cards)//array of pojos 
+        // debugger
 
-        for(let i = 0; i < cards.length; i ++){
-            let card = cards[i].id
-            if (card === score.card_id) {
-              this.props.updateScore(score)
-            } else {
-              // let scoreId = Object.values(this.props.scores)[index].id;
-              // score = {
-              //   id: scoreId,
-              //   learner_id: this.props.user,
-              //   card_id: this.props.currCard.id,
-              //   score: parseInt(e.target.value)
-              // };
-              // this.props.updateScore(score)
-            }
-        }
+        // for(let i = 0; i < cards.length; i ++){
+        //     let card = cards[i].id
+        //     if (card === score.card_id) {
+        //       this.props.updateScore(score)
+        //     } else {
+             
+         
+        //     }
+        // }
         
         
     }
