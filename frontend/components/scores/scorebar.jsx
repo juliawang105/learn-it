@@ -1,4 +1,5 @@
 import React from 'react';
+// import { withRouter }
 
 class ScoreBar extends React.Component{
     constructor(props){

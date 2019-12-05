@@ -4,23 +4,47 @@ import { CircularProgressbar, CircularProgressbarWithChildren, buildStyles } fro
 import { withRouter } from "react-router-dom";
 
 class ProgressBar extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      scores: this.props.scores
+    }
+  }
+
+  componentDidMount(){
+    // debugger
+    this.props.fetchDeck(this.props.match.params.deckId).then(res => {
+      // debugger
+      this.setState({
+        scores: res.payload.scores
+      });
+    });
+  }
+  
     render(){
       // const percentage = 10;
       let sum = 0;
-      debugger
-      let cardScores = Object.values(this.props.scores)
-        for(let i = 0; i < cardScores.length; i ++ ){
-            sum += cardScores[i].score;
-          }
+      let total;
+      // debugger
 
-      let total = ((sum) / (5 * cardScores.length)) * 100
-      console.log(total);
-      debugger;
+      if(!Object.keys(this.state.scores).length){
+        debugger
+        total = 0;
+        // return null;
+      } else {
+        let cardScores = Object.values(this.state.scores);
+        for (let i = 0; i < cardScores.length; i++) {
+          sum += cardScores[i].score;
+        }
+        total = (sum / (5 * cardScores.length)) * 100;
+      }
+
+      // debugger;
       return (
         <div className="progress">
           <CircularProgressbar
             value={total}
-            text={`${total}%`}
+            text={`${Math.floor(total)}%`}
             styles={{
               // Customize the root svg element
               root: {},
