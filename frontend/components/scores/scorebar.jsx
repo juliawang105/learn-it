@@ -1,17 +1,32 @@
 import React from 'react';
-// import { withRouter }
+import {
+  CircularProgressbar,
+  CircularProgressbarWithChildren,
+  buildStyles
+} from "react-circular-progressbar";
+import { withRouter } from 'react-router-dom';
 
 class ScoreBar extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      score: ""
+      score: "",
+      scores: this.props.scores,
     };
 
     this.handleClick = this.handleClick.bind(this);
   }
 
+  componentDidMount() {
+    // debugger
+    this.props.fetchDeck(this.props.match.params.deckId).then(res => {
+      // debugger
+      this.setState({
+        scores: res.payload.scores
+      });
+    });
+  }
 
   handleClick(e) {
     e.preventDefault();
@@ -36,6 +51,8 @@ class ScoreBar extends React.Component {
     if (scores.includes(score.card_id)) {
       this.props.updateScore(score);
     }
+    // debugger
+    this.props.rerenderParent()
   }
 
   render() {
@@ -61,4 +78,4 @@ class ScoreBar extends React.Component {
   }
 }
 
-export default ScoreBar
+export default withRouter(ScoreBar)
