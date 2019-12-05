@@ -27,17 +27,6 @@ class StudyCards extends React.Component {
     });
   }
 
-//   componentDidUpdate(oldProps) {
-//       //debugger
-//        if (oldProps.match.params.deckId !== this.props.match.params.deckId) {
-//             this.props.fetchDeck(this.props.match.params.deckId).then( res => {
-//                 this.setState({
-//                     scores: res.payload.scores
-//                 })
-//             })
-//         };
-//   }
-
   handleClick() {
     event.preventDefault();
     // debugger
@@ -87,7 +76,7 @@ class StudyCards extends React.Component {
             updateScore={this.props.updateScore}
             fetchScore={this.props.fetchScore}
             user={this.props.user}
-            scores={this.props.scores}
+            scores={this.state.scores}
             fetchDeck={this.props.fetchDeck}
           />
         </div>
