@@ -18,11 +18,11 @@ class Api::ScoresController < ApplicationController
 
     def update 
         #@score = Score.includes(:card).includes(:learner).find_by(card_id: params[:card_id])
-        @score = current_user.scores.find_by(card_id: params[:card_id])
-
+        @score = current_user.scores.find_by(card_id: params[:score][:card_id])
+        # debugger 
 
         if @score.update(score_params)
-            render :show 
+            render :show
         else 
             render json: @score.errors.full_messages, status: 422
         end
