@@ -35,16 +35,20 @@ class ScoreBar extends React.Component{
         // let total = ((sum) / (5 * this.props.cards.length)) * 100
         // console.log(total);
 
-        let cards = Object.values(this.props.cards).map( card => {
+        let scores = Object.values(this.props.scores).map( score => {
             return (
-                card.id
+                score.card_id
             );
         })
-        debugger
-
-        if(!cards.includes(score.card_id)){
-            this.props.saveScore(score)
-        } else {
+        // debugger
+        if ( Object.keys(this.props.scores).length === 0){
+            this.props.saveScore(score);
+        }
+        if(!scores.includes(score.card_id)){
+            this.props.saveScore(score);  
+        } 
+        
+        if (scores.includes(score.card_id)) {
             this.props.updateScore(score)
         }
         

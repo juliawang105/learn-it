@@ -3,7 +3,7 @@ class Api::ScoresController < ApplicationController
 
     def create 
         @score = Score.create(score_params)
-
+       
         if @score.save 
             render :show
         else 
