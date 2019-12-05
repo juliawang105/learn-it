@@ -99,7 +99,8 @@ class StudyCards extends React.Component{
         
         return (
           <div>
-              <ProgressBar />
+              <ProgressBar 
+              scores={this.props.scores} />
                 <div className="study" onClick={this.handleClick}>
                 <div className="study-card">
                     <div className="front">{currCard1}</div>

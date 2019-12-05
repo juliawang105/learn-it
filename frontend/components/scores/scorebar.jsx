@@ -25,16 +25,6 @@ class ScoreBar extends React.Component{
           score: parseInt(e.target.value)
         };
     
-        // let sum = 0;
-
-        // let cardScores = Object.values(this.props.scores)
-        // for(let i = 0; i < cardScores.length; i ++ ){
-        //     sum += cardScores[i].score;
-        // }
-
-        // let total = ((sum) / (5 * this.props.cards.length)) * 100
-        // console.log(total);
-
         let scores = Object.values(this.props.scores).map( score => {
             return (
                 score.card_id
