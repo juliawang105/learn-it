@@ -20,37 +20,48 @@ class ScoreBar extends React.Component{
         e.preventDefault();
         this.setState({score: e.target.value});
         let score = {
-            learner_id: this.props.user,
-            card_id: this.props.currCard.id,
-            score: parseInt(e.target.value)
-            
+          learner_id: this.props.user,
+          card_id: this.props.currCard.id,
+          score: parseInt(e.target.value)
         };
         
        
         console.log(Object.values(this.props.scores))
-        console.log(this.props.cards)
-        let sum = 0;
+        console.log(Object.keys(this.props.cards))
+        // let sum = 0;
 
-        let cardScores = Object.values(this.props.scores)
-        for(let i = 0; i < cardScores.length; i ++ ){
-            sum += cardScores[i].score;
+        // let cardScores = Object.values(this.props.scores)
+        // for(let i = 0; i < cardScores.length; i ++ ){
+        //     sum += cardScores[i].score;
+        // }
+
+        // let total = ((sum) / (5 * this.props.cards.length)) * 100
+        // console.log(total);
+
+        let cards = Object.values(this.props.cards)//array of pojos 
+        debugger
+
+        for(let i = 0; i < cards.length; i ++){
+            let card = cards[i].id
+            if (card === score.card_id) {
+              this.props.updateScore(score)
+            } else {
+              // let scoreId = Object.values(this.props.scores)[index].id;
+              // score = {
+              //   id: scoreId,
+              //   learner_id: this.props.user,
+              //   card_id: this.props.currCard.id,
+              //   score: parseInt(e.target.value)
+              // };
+              // this.props.updateScore(score)
+            }
         }
-
-        let total = ((sum) / (5 * this.props.cards.length)) * 100
-        console.log(total);
-
-      
-        // if(this.props.cards)
-        //this.props.saveScore(score)
+        
+        
     }
 
     render(){
-        // if(!this.props.scores){
-        //     return null;
-        // }
-
-        // debugger
-       
+      
         return(
             <div className='scorebar'>
                 <button onClick={this.handleClick} className='score' value='1'>1</button>

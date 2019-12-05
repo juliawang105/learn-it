@@ -46,7 +46,7 @@ const App = () => (
                 <Route exact path ="/decks/:deckId/study" component={StudyCardsContainer} />
                 <Route exact path="/users/:id" component={UsersShowContainer} />
                 <Route exact path="/new" component={CreateDeckContainer } />
-                <Route exact path="/decks/:deckId/progress" component={ ProgressBarContainer} />
+                {/* <Route exact path="/decks/:deckId/progress" component={ ProgressBarContainer} /> */}
 
                 <Route exact path='/' component={HomeFormContainer} />
             </Switch>

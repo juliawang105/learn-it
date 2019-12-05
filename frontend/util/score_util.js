@@ -15,7 +15,7 @@ export const fetchScore = (scoreId) => (
 
 export const updateScore = (score) => (
    $.ajax({
-       url: `api/scores/${score.id}`,
+       url: `api/scores/${score.card_id}`,
        method: 'PATCH',
        data: { score }
    }) 

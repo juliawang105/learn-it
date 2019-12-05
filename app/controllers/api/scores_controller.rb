@@ -17,7 +17,9 @@ class Api::ScoresController < ApplicationController
     end
 
     def update 
-        @score = @score = Score.includes(:card).includes(:learner)
+        #@score = Score.includes(:card).includes(:learner).find_by(card_id: params[:card_id])
+        @score = current_user.scores.find_by(card_id: params[:card_id])
+
 
         if @score.update(score_params)
             render :show 

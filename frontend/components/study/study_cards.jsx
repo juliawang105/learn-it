@@ -61,14 +61,34 @@ class StudyCards extends React.Component{
     //    console.log(this.props.scores)
         let currCard1;
         let currCard2;
+        let scoreBar;
         // let className;
 
         if(this.state.flipped === false){
             currCard1 = this.state.currentCard.question;
+            scoreBar = (
+                <div>
+                    Reveal the Answer
+                </div>
+            )
             // className = 'study-card'
         } else if (this.state.flipped === true) {
             currCard2 = this.state.currentCard.answer
-            //className = "study-card";
+            scoreBar = (
+              <div>
+                <ScoreBar
+                  deck={this.props.deck}
+                  cards={this.props.cards}
+                  currCard={this.state.currentCard}
+                  saveScore={this.props.saveScore}
+                  updateScore={this.props.updateScore}
+                  fetchScore={this.props.fetchScore}
+                  user={this.props.user}
+                  scores={this.props.scores}
+                  fetchDeck={this.props.fetchDeck}
+                />
+              </div>
+            );
         } else if (this.state.flipped === null){
             currCard1 = (
                 <div>
@@ -76,7 +96,6 @@ class StudyCards extends React.Component{
                 </div>
             )
         }
-        // debugger
         
         return (
           <div>
@@ -86,19 +105,7 @@ class StudyCards extends React.Component{
                     <div className="front">{currCard1}</div>
                     <div className="back">{currCard2}</div>
                 </div>
-                <div>
-                    {" "}
-                    <ScoreBar
-                    deck={this.props.deck}
-                    cards={this.props.cards}
-                    currCard={this.state.currentCard}
-                    saveScore={this.props.saveScore}
-                    updateScore={this.props.updateScore}
-                    user={this.props.user}
-                    scores={this.props.scores}
-                    fetchDeck={this.props.fetchDeck}
-                    />
-                </div>
+                {scoreBar}
                 </div>
           </div>
         );

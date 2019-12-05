@@ -5,7 +5,7 @@ import { withRouter } from "react-router-dom";
 
 class ProgressBar extends React.Component {
     render(){
-        const percentage = 66
+        const percentage = 10
         return (
           <div className='progress'>
             <CircularProgressbar
