@@ -38,14 +38,26 @@ class ProgressBar extends React.Component {
   // }
 
   componentDidUpdate(oldProps) {
-    if(oldProps.currCard.id !== this.props.currCard.id){
+    debugger;
+    if (
+      oldProps.currCard.id !== this.props.currCard.id
+    ) {
       this.props.fetchDeck(this.props.match.params.deckId).then(res => {
         this.setState({
-        scores: res.payload.scores
+          scores: res.payload.scores
         });
- 
       });
+
+    //   if (this.props.flipped === null) {
+    //     debugger;
+    //     this.props.fetchDeck(this.props.match.params.deckId).then(res => {
+    //       this.setState({
+    //         scores: res.payload.scores
+    //       });
+    //     });
+    //   }
     }
+    
   }
 
   render() {

@@ -125,7 +125,27 @@ class StudyCards extends React.Component {
       );
     } else if (this.state.flipped === null) {
       currCard1 = this.state.currentCard.answer;
-      scoreBar = <div>You've reached the end of this study pack.</div>;
+      scoreBar = (
+        <div>
+          You've reached the end of this study pack.
+          <div className="tracking">
+            <ScoreBar
+              deck={this.props.deck}
+              cards={this.props.cards}
+              currCard={this.state.currentCard}
+              saveScore={this.props.saveScore}
+              updateScore={this.props.updateScore}
+              fetchScore={this.props.fetchScore}
+              user={this.props.user}
+              scores={this.props.scores}
+              fetchDeck={this.props.fetchDeck}
+              update={this.state.update}
+              rerenderParent={this.rerenderParent}
+             
+            />
+          </div>
+        </div>
+      );
     }
 
     return (
@@ -143,7 +163,7 @@ class StudyCards extends React.Component {
           scores={this.props.scores}
           fetchDeck={this.props.fetchDeck}
           update={this.state.update}
-          rerenderParent={this.rerenderParent}
+          flipped={this.state.flipped}
         />
 
         <div className="study" onClick={this.handleClick}>
