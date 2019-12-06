@@ -52,13 +52,8 @@ class ScoreBar extends React.Component {
     if (scores.includes(score.card_id)) {
       this.props.updateScore(score);
     }
-    // debugger
-    // this.props.rerenderParent()
-    //     this.props.fetchDeck(this.props.match.params.deckId).then(res => {
-    //       this.setState({
-    //         scores: res.payload.scores
-    //       });
-    //     });
+    
+    // window.location.reload(true)
     
   }
 
