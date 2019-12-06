@@ -12,11 +12,11 @@ class StudyCards extends React.Component {
       currentCard: "",
       scores: this.props.scores,
       flipped: false,
-    //   update: false
+   
     };
 
     this.handleClick = this.handleClick.bind(this);
-    // this.rerenderParent = this.rerenderParent.bind(this)
+   
   }
 
   componentDidMount() {
@@ -27,44 +27,6 @@ class StudyCards extends React.Component {
       });
     });
   }
-
-//   rerenderParent(){
-//     //   debugger
-//       let boolean = !(this.state.update)
-//       this.setState({update: boolean})
-//     //   this.props.fetchDeck(this.props.match.params.deckId).then(res => {
-//     //    this.setState({
-//     //      scores: res.payload.scores
-//     //    });
-//     //  });
-//   }
-
-//   componentDidUpdate(oldProps) {
-//     debugger;
-//     let old = Object.keys(oldProps.scores);
-//     let curr = Object.keys(this.props.scores);
-
-//     if (old.length !== curr.length) {
-//       this.props.fetchDeck(this.props.match.params.deckId).then(res => {
-//         this.setState({
-//           scores: res.payload.scores
-//         });
-//       });
-//     }
-
-//     if (old.length === curr.length) {
-//       for (let i = 0; i < old.length; i++) {
-//         if (old[i] !== curr[i]) {
-//           this.props.fetchDeck(this.props.match.params.deckId).then(res => {
-//             this.setState({
-//               scores: res.payload.scores
-//             });
-//           });
-//           return;
-//         }
-//       }
-//     }
-//   }
 
   handleClick() {
     event.preventDefault();
@@ -93,17 +55,15 @@ class StudyCards extends React.Component {
     if (this.state.cards.length === 0) {
       return null;
     }
-
-    //    console.log(this.props.scores)
     let currCard1;
     let currCard2;
     let scoreBar;
-    // let className;
+    
 
     if (this.state.flipped === false) {
       currCard1 = this.state.currentCard.question;
       scoreBar = <div>Reveal the Answer</div>;
-      // className = 'study-card'
+      
     } else if (this.state.flipped === true) {
       currCard2 = this.state.currentCard.answer;
       scoreBar = (
@@ -118,8 +78,6 @@ class StudyCards extends React.Component {
             user={this.props.user}
             scores={this.props.scores}
             fetchDeck={this.props.fetchDeck}
-            update={this.state.update}
-            rerenderParent={this.rerenderParent}
           />
         </div>
       );
@@ -149,22 +107,26 @@ class StudyCards extends React.Component {
     }
 
     return (
-      <div>
-        <ProgressBar
-          scores={this.state.scores}
-          fetchDeck={this.props.fetchDeck}
-          deck={this.props.deck}
-          cards={this.props.cards}
-          currCard={this.state.currentCard}
-          saveScore={this.props.saveScore}
-          updateScore={this.props.updateScore}
-          fetchScore={this.props.fetchScore}
-          user={this.props.user}
-          scores={this.props.scores}
-          fetchDeck={this.props.fetchDeck}
-          update={this.state.update}
-          flipped={this.state.flipped}
-        />
+      <div className="progressBar">
+        <div className="mastery">
+          Mastery Score
+         
+          <ProgressBar
+            scores={this.state.scores}
+            fetchDeck={this.props.fetchDeck}
+            deck={this.props.deck}
+            cards={this.props.cards}
+            currCard={this.state.currentCard}
+            saveScore={this.props.saveScore}
+            updateScore={this.props.updateScore}
+            fetchScore={this.props.fetchScore}
+            user={this.props.user}
+            scores={this.props.scores}
+            fetchDeck={this.props.fetchDeck}
+            update={this.state.update}
+            flipped={this.state.flipped}
+          />
+        </div>
 
         <div className="study" onClick={this.handleClick}>
           <div className="study-card">
