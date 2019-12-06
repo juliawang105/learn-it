@@ -31,12 +31,13 @@ class ScoreBar extends React.Component {
   handleClick(e) {
     e.preventDefault();
     this.setState({ score: e.target.value });
+    // debugger
     let score = {
       learner_id: this.props.user,
       card_id: this.props.currCard.id,
       score: parseInt(e.target.value)
     };
-
+    //debugger
     let scores = Object.values(this.props.scores).map(score => {
       return score.card_id;
     });
@@ -52,10 +53,17 @@ class ScoreBar extends React.Component {
       this.props.updateScore(score);
     }
     // debugger
-    this.props.rerenderParent()
+    // this.props.rerenderParent()
+    //     this.props.fetchDeck(this.props.match.params.deckId).then(res => {
+    //       this.setState({
+    //         scores: res.payload.scores
+    //       });
+    //     });
+    
   }
 
   render() {
+    //   debugger
     return (
       <div className="scorebar">
         <button onClick={this.handleClick} className="score" value="1">

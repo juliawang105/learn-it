@@ -12,11 +12,11 @@ class StudyCards extends React.Component {
       currentCard: "",
       scores: this.props.scores,
       flipped: false,
-      update: false
+    //   update: false
     };
 
     this.handleClick = this.handleClick.bind(this);
-    this.rerenderParent = this.rerenderParent.bind(this)
+    // this.rerenderParent = this.rerenderParent.bind(this)
   }
 
   componentDidMount() {
@@ -28,16 +28,16 @@ class StudyCards extends React.Component {
     });
   }
 
-  rerenderParent(){
-    //   debugger
-      let boolean = !(this.state.update)
-      this.setState({update: boolean})
-    //   this.props.fetchDeck(this.props.match.params.deckId).then(res => {
-    //    this.setState({
-    //      scores: res.payload.scores
-    //    });
-    //  });
-  }
+//   rerenderParent(){
+//     //   debugger
+//       let boolean = !(this.state.update)
+//       this.setState({update: boolean})
+//     //   this.props.fetchDeck(this.props.match.params.deckId).then(res => {
+//     //    this.setState({
+//     //      scores: res.payload.scores
+//     //    });
+//     //  });
+//   }
 
 //   componentDidUpdate(oldProps) {
 //     debugger;
@@ -80,6 +80,7 @@ class StudyCards extends React.Component {
       this.setState({
         flipped: true
       });
+      
     } else {
       this.setState({
         currentCard: this.state.cards[i + 1],
@@ -123,7 +124,8 @@ class StudyCards extends React.Component {
         </div>
       );
     } else if (this.state.flipped === null) {
-      currCard1 = <div>You've reached the end of this study pack.</div>;
+      currCard1 = this.state.currentCard.answer;
+      scoreBar = <div>You've reached the end of this study pack.</div>;
     }
 
     return (
@@ -131,6 +133,17 @@ class StudyCards extends React.Component {
         <ProgressBar
           scores={this.state.scores}
           fetchDeck={this.props.fetchDeck}
+          deck={this.props.deck}
+          cards={this.props.cards}
+          currCard={this.state.currentCard}
+          saveScore={this.props.saveScore}
+          updateScore={this.props.updateScore}
+          fetchScore={this.props.fetchScore}
+          user={this.props.user}
+          scores={this.props.scores}
+          fetchDeck={this.props.fetchDeck}
+          update={this.state.update}
+          rerenderParent={this.rerenderParent}
         />
 
         <div className="study" onClick={this.handleClick}>
