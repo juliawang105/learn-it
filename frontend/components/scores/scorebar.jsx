@@ -63,6 +63,8 @@ class ScoreBar extends React.Component {
       <div className="scorebar">
         <button onClick={this.handleClick} className="score" value="1">
           1
+          <br/>
+          Not At All
         </button>
         <button onClick={this.handleClick} className="score" value="2">
           2
@@ -75,6 +77,8 @@ class ScoreBar extends React.Component {
         </button>
         <button onClick={this.handleClick} className="score" value="5">
           5
+          <br />
+          Perfectly
         </button>
       </div>
     );

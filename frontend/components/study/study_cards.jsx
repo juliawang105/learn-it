@@ -72,7 +72,7 @@ class StudyCards extends React.Component {
       currCard2 = this.state.currentCard.answer;
       scoreBar = (
         <div className="tracking">
-          <div>How well did you know this?</div>
+          <div className="tracking-message">How well did you know this?</div>
           <ScoreBar
             deck={this.props.deck}
             cards={this.props.cards}
@@ -90,7 +90,7 @@ class StudyCards extends React.Component {
       currCard1 = this.state.currentCard.answer;
       scoreBar = (
         <div className="tracking">
-          <div>You've reached the end of all the cards</div>
+          <div className="tracking-message">You've reached the end of all the cards</div>
           <ScoreBar
             deck={this.props.deck}
             cards={this.props.cards}

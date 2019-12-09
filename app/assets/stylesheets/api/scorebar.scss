@@ -25,10 +25,38 @@
     cursor: pointer;
 }
 
+.tracking-message{
+    position: relative;
+    bottom: 78px;
+    color: #4B4B4B
+}
+
 .score{
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid blue;
-    width: 100px;
+    width: 160px;
+    height: 100%;
+    color: #F2FAFD;
+    font-size: 12pt;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.score:first-child{
+    background-color: #AA0080
+}
+
+.score:nth-child(2){
+    background-color: #F08A47
+}
+
+.score:nth-child(3){
+    background-color: #F6DD03
+}
+
+.score:nth-child(4){
+    background-color: #7FAE2E
+}
+.score:nth-child(5){
+    background-color: #4DA8D8
 }
