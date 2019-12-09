@@ -24,9 +24,9 @@ class Deck < ApplicationRecord
         through: :cards,
         source: :scores 
 
-    has_many :deck_tags
-        primary_key: :id  
-        foreign_key: :deck_id 
+    has_many :deck_tags,
+        primary_key: :id,  
+        foreign_key: :deck_id, 
         class_name: 'DeckTag'
     
     has_many :tags,
