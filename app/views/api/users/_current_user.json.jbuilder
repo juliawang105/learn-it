@@ -1,6 +1,6 @@
 json.users do
     json.set! current_user.id do 
-        json.extract! current_user, :id, :first_name, :last_name 
+        json.extract! current_user, :id, :first_name, :last_name
     end
 end 
 
