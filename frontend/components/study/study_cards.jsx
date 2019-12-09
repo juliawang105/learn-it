@@ -62,12 +62,17 @@ class StudyCards extends React.Component {
 
     if (this.state.flipped === false) {
       currCard1 = this.state.currentCard.question;
-      scoreBar = <div>Reveal the Answer</div>;
+      scoreBar = <div className="tracking">
+                    <div className="scorebar">
+                      Reveal the Answer
+                    </div>
+                </div>;
       
     } else if (this.state.flipped === true) {
       currCard2 = this.state.currentCard.answer;
       scoreBar = (
         <div className="tracking">
+          <div>How well did you know this?</div>
           <ScoreBar
             deck={this.props.deck}
             cards={this.props.cards}
@@ -84,24 +89,19 @@ class StudyCards extends React.Component {
     } else if (this.state.flipped === null) {
       currCard1 = this.state.currentCard.answer;
       scoreBar = (
-        <div>
-          You've reached the end of this study pack.
-          <div className="tracking">
-            <ScoreBar
-              deck={this.props.deck}
-              cards={this.props.cards}
-              currCard={this.state.currentCard}
-              saveScore={this.props.saveScore}
-              updateScore={this.props.updateScore}
-              fetchScore={this.props.fetchScore}
-              user={this.props.user}
-              scores={this.props.scores}
-              fetchDeck={this.props.fetchDeck}
-              update={this.state.update}
-              rerenderParent={this.rerenderParent}
-             
-            />
-          </div>
+        <div className="tracking">
+          <div>You've reached the end of all the cards</div>
+          <ScoreBar
+            deck={this.props.deck}
+            cards={this.props.cards}
+            currCard={this.state.currentCard}
+            saveScore={this.props.saveScore}
+            updateScore={this.props.updateScore}
+            fetchScore={this.props.fetchScore}
+            user={this.props.user}
+            scores={this.props.scores}
+            fetchDeck={this.props.fetchDeck}
+          />
         </div>
       );
     }

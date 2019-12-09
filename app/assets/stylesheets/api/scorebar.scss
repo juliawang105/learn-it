@@ -1,14 +1,28 @@
 .tracking{
     height: 300px;
     width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .scorebar{
     display: flex;
+    align-items: center;
     height: 100px;
-    width: 500px;
-    border: 1px solid black;
+    width: 800px;
     justify-content: space-around;
+    position: relative;
+    right: 20px;
+    bottom: 51px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: #4CA5DB;
+    border-radius: 5px;
+    color: #F2FAFD;
+    font-size: 16pt;
+    cursor: pointer;
 }
 
 .score{
