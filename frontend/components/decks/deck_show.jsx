@@ -92,9 +92,9 @@ class DeckShow extends React.Component{
                         {createButton}
                         <br/>
                         {saveButton}
-                    <div>
+                    
                         <Link id='study' to={`/decks/${this.props.deck.id}/study`}>Study this Deck!</Link>
-                    </div>
+                    
                         {deck_cards}
                         
                 </div>
