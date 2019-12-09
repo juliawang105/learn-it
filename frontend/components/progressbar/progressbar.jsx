@@ -12,8 +12,6 @@ class ProgressBar extends React.Component {
       total: 0,
       update: false
     };
-
-    // this.rerenderParent = this.rerenderParent.bind(this);
   }
 
   componentDidMount() {
@@ -25,17 +23,6 @@ class ProgressBar extends React.Component {
       });
     });
   }
-
-  //  rerenderParent(){
-  //   //   debugger
-  //     let boolean = !(this.state.update)
-  //     this.setState({update: boolean})
-  //   //   this.props.fetchDeck(this.props.match.params.deckId).then(res => {
-  //   //    this.setState({
-  //   //      scores: res.payload.scores
-  //   //    });
-  //   //  });
-  // }
 
   componentDidUpdate(oldProps) {
     // debugger;
@@ -72,23 +59,12 @@ class ProgressBar extends React.Component {
       total = (sum / (5 * cardScores.length)) * 100;
     
     }
-    // debugger
+    
     return (
       <div className="progress">
-         {/* <ScoreBar
-            deck={this.props.deck}
-            cards={this.props.cards}
-            currCard={this.props.currCard.id}
-            saveScore={this.props.saveScore}
-            updateScore={this.props.updateScore}
-            fetchScore={this.props.fetchScore}
-            user={this.props.user}
-            scores={this.props.scores}
-            fetchDeck={this.props.fetchDeck}
-            update={this.state.update}
-            rerenderParent={this.rerenderParent}
-          /> */}
-        
+        <div className="mastery-title">
+          Mastery Score
+          </div>
         <CircularProgressbar
           value={total}
           text={` ${Math.floor(total)}%`}

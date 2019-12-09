@@ -1,6 +1,8 @@
 .progress{
     width: 200px;
     height: 200px;
+    position: relative;
+    bottom: 40px;
 }
 
 .progressBar{
@@ -13,8 +15,27 @@
 .mastery{
   display: flex;
   justify-content: center;
-  border: 1px solid black;
-  height: 100vh;
+  align-items: center;
+  // border: 1px solid black;
+  height: 900px;
+  width: 450px;
+  background-color: silver
+}
+
+.mastery:hover .overlay {
+  transform: scale(-1);
+}
+
+.mastery-title{
+  font-size: 20pt;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  // border: 1px solid green;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  bottom: 120px;
+  height: 20px;
+  color: #E8F5FB
 }
 .CircularProgressbar {
   /*
@@ -52,15 +73,6 @@
   fill: #d6d6d6;
 }
 
-/*
- * Sample background styles. Use these with e.g.:
- *
- *   <CircularProgressbar
- *     className="CircularProgressbar-inverted"
- *     background
- *     percentage={50}
- *   />
- */
 .CircularProgressbar.CircularProgressbar-inverted .CircularProgressbar-background {
   fill: #3e98c7;
 }

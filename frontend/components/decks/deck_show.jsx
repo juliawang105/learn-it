@@ -87,7 +87,7 @@ class DeckShow extends React.Component{
     
         return(
             <div className="deck_show">
-                <div>
+                <div className="show">
                     <div className="deck_title">{deck.name}</div>
                         {createButton}
                         <br/>

@@ -109,8 +109,6 @@ class StudyCards extends React.Component {
     return (
       <div className="progressBar">
         <div className="mastery">
-          Mastery Score
-         
           <ProgressBar
             scores={this.state.scores}
             fetchDeck={this.props.fetchDeck}
