@@ -39,7 +39,7 @@ class DeckForm extends React.Component{
     }
 
     render(){
-        debugger
+        // debugger
         
         let button;
         if (this.props.formType === 'Create Deck') {

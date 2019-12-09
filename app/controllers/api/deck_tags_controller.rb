@@ -3,7 +3,6 @@ class Api::DeckTagsController < ApplicationController
 
     def create 
         @deck_tag = DeckTag.new(deck_tag_params)
-
         if @deck_tag.save 
             render json: @deck_tag 
         else 
@@ -12,13 +11,16 @@ class Api::DeckTagsController < ApplicationController
     end
 
     def destroy
-        # debugger
         @deck_tag = DeckTag.find(params[:id])
          if @deck_tag.destroy
             render json: ['yay']
          else
             render json: @deck_tag.errors.full_message
         end
-  
+    end
+
+    private 
+    def deck_tag_params 
+        params.require(:deck_tag).permit(:deck_id, :tag_id)
     end
 end
