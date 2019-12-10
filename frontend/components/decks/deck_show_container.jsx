@@ -4,6 +4,7 @@ import {saveDeck, unsaveDeck, fetchSave } from '../../actions/save_actions'
 import DeckShow from './deck_show';
 import { fetchCard, deleteCard } from '../../actions/card_actions';
 import { selectDeckCards } from '../../reducers/selectors';
+import { fetchTag } from '../../actions/tag_actions'
 import { closeModal, openModal } from '../../actions/modal_actions';
 
 
@@ -28,7 +29,8 @@ const mDTP = dispatch => ({
     fetchCard: cardId => dispatch(fetchCard(cardId)),
     closeModal: () => dispatch(closeModal()),
     openModal: (modal, data) => dispatch(openModal(modal, data)),
-    deleteCard: cardId => dispatch(deleteCard(cardId))
+    deleteCard: cardId => dispatch(deleteCard(cardId)),
+    fetchTag: tagId => dispatch(fetchTag(tagId))
 
 });
 

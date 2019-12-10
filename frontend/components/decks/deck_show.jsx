@@ -5,12 +5,12 @@ import CreateCardContainer from '../cards/create_card_container';
 import StudyCards from '../study/study_cards';
 import TagForm from '../tags/create_tags_container'
 
-
-
-
 class DeckShow extends React.Component{
     constructor(props){
         super(props);
+        this.state = {
+            tags: []
+        }
         this.handleClick = this.handleClick.bind(this);
         this.fetchDeck = this.props.fetchDeck.bind(this);
           
@@ -18,6 +18,11 @@ class DeckShow extends React.Component{
 
     componentDidMount(){
         this.props.fetchDeck(this.props.match.params.deckId)
+            .then( res => {
+                //debugger
+                this.setState({tags: res.payload.tags})
+               
+            });
     };
 
     componentDidUpdate(oldProps) {
@@ -50,12 +55,11 @@ class DeckShow extends React.Component{
     render(){
         
         let deck = this.props.deck;
-        // debugger
-
         if(!deck) return null;
         
         let cards = this.props.cards;
         if (!cards) return null
+
         let deck_cards = cards.map( (card) => {
             return < CardItem 
                 key={card.id}
@@ -67,6 +71,19 @@ class DeckShow extends React.Component{
                 openModal={this.props.openModal}
                 fetchDeck={this.props.fetchDeck}/>
         });
+
+        let tags = this.state.tags;
+        if (!tags) return null;
+        // debugger
+        let tagNames = tags.map( tag => {
+            return(
+                <ul>
+                    {tag.name}
+                    <br />
+                </ul>
+                
+            )
+        })
         
         let save_array = Object.values(this.props.saves);
             save_array = save_array.map( (save) => {
@@ -89,8 +106,14 @@ class DeckShow extends React.Component{
         return(
             <div className="deck_show">
                 <div className="show">
-                    <div className="deck_title">{deck.name} <TagForm /></div>
-                    
+                    <div className="deck_title">{deck.name} 
+                        
+                         <div>
+                            <TagForm /> 
+                            <div className='tags'>Current Tags: {tagNames}</div>
+                         </div>
+                    </div>
+                        
                         {createButton}
                         <br/>
                         {saveButton}
