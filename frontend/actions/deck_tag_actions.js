@@ -20,12 +20,12 @@ const removeDeckTag = deckTagId => ({
     deckTagId
 })
 
-export const createDeckTag = deckTag => dispatch (
+export const createDeckTag = deckTag => dispatch => (
     DeckTagUtil.createDeckTag(deckTag)
         .then( res => dispatch(receiveDeckTag(res)))
 );
 
-export const deleteDeckTag = deckTagId => dispatch(
+export const deleteDeckTag = deckTagId => dispatch => (
     DeckTagUtil.deleteDeckTag(deckTagId)
         .then( () => dispatch(removeDeckTag(deckTagId)))
 );

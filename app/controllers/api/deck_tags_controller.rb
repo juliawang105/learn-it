@@ -2,6 +2,7 @@ class Api::DeckTagsController < ApplicationController
     before_action :require_login 
 
     def create 
+        # debugger
         @deck_tag = DeckTag.new(deck_tag_params)
         if @deck_tag.save 
             render json: @deck_tag 

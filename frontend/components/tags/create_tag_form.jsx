@@ -1,11 +1,13 @@
 import React from 'react'; 
+import { withRouter } from 'react-router';
 
 class TagForm extends React.Component{
     constructor(props){
         super(props);
 
         this.state = {
-            name: ""
+            name: "",
+            deck: this.props.deck
         }
 
         this.handleClick = this.handleClick.bind(this);
@@ -21,7 +23,16 @@ class TagForm extends React.Component{
         // debugger
         e.preventDefault();
         let tag = this.state
-        this.props.createTag(tag);
+        let deck_id = this.state.deck
+        this.props.createTag(tag)
+            .then( res => {
+                // debugger 
+                let deck_tag = {
+                    tag_id: res.tag.id,
+                    deck_id: deck_id
+                }
+                this.props.createDeckTag(deck_tag)
+            })
     }
 
     render(){
@@ -35,4 +46,4 @@ class TagForm extends React.Component{
     }
 };
 
-export default TagForm; 
+export default withRouter(TagForm); 

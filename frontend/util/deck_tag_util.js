@@ -1,14 +1,14 @@
-export const createDeckTag = deckTag => (
+export const createDeckTag = deck_tag => (
      $.ajax({
            url: `/api/deck_tags`,
            method: `POST`,
-           data: { deckTag }
+           data: { deck_tag }
          })
 );
 
-export const deleteDeckTag = deckTagId => (
+export const deleteDeckTag = deck_tagId => (
     $.ajax({
-        url: `/api/deck_tags/${deckTagId}`,
+        url: `/api/deck_tags/${deck_tagId}`,
         method: `DELETE`
     })
 )
