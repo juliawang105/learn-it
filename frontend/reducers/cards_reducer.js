@@ -3,7 +3,7 @@ import { RECEIVE_DECK, REMOVE_DECK } from '../actions/deck_actions'
 
 export const cardsReducer = (state = {}, action ) => {
     Object.freeze(state);
-    let newState = Object.assign({}, state)
+    let newState = Object.assign({}, state);
 
     
     switch (action.type) {
@@ -19,9 +19,8 @@ export const cardsReducer = (state = {}, action ) => {
             return newState;
     
         case REMOVE_CARD:
-            delete newState[action.cardId]
+            delete newState[action.cardId];
             return newState;
-
         default:
             return state;
     };
