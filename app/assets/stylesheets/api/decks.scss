@@ -74,6 +74,8 @@
 }
 
 .deck_title {
+    display: flex;
+    justify-content: space-between;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     height: 100px;
     text-align: justify;

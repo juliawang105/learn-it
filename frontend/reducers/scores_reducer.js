@@ -20,5 +20,5 @@ export const scoresReducer = (state = {}, action) => {
 
       default:
         return state;
-    }
-}
+    };
+};

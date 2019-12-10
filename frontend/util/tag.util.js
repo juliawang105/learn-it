@@ -12,10 +12,11 @@ export const fetchTag = (tagId) => {
     })
 };
 
-export const createTag = (tag) => (
-  $.ajax({
+export const createTag = (tag) => {
+  console.log(tag.name)
+  return $.ajax({
     url: `/api/tags`,
     method: `POST`,
-    data: { tag }
+    data: { tag } 
   })
-);
+};

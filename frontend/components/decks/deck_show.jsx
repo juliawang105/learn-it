@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import CardItem from '../cards/card_item';
 import CreateCardContainer from '../cards/create_card_container';
 import StudyCards from '../study/study_cards';
+import TagForm from '../tags/create_tags_container'
 
 
 
@@ -88,7 +89,8 @@ class DeckShow extends React.Component{
         return(
             <div className="deck_show">
                 <div className="show">
-                    <div className="deck_title">{deck.name}</div>
+                    <div className="deck_title">{deck.name} <TagForm /></div>
+                    
                         {createButton}
                         <br/>
                         {saveButton}

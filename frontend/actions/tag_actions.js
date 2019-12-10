@@ -8,22 +8,28 @@ const receiveAllTags = tags => ({
     tags
 });
 
-const receiveTag = tag => ({
-    type: RECEIVE_TAG,
-    tag
-});
+const receiveTag = tag => {
+    // debugger
+    return {
+      type: RECEIVE_TAG,
+      tag
+    };
+    
+};
 
-export const fetchTags = () => (
+export const fetchTags = () => dispatch => (
     TagUtil.fetchTags()
         .then( res => dispatch(receiveAllTags(res)))
 );
 
-export const fetchTag = tagId => (
+export const fetchTag = tagId => dispatch => (
     TagUtil.fetchTags(tagId)
         .then(res => dispatch(receiveTag(res)))
 );
 
-export const createTag = tag => (
-    TagUtil.createTag(tag)
-        .then(dispatch(receiveTag(res)))
-); 
+export const createTag = tag => dispatch => {
+    // debugger
+    return TagUtil.createTag(tag)
+        .then( res => dispatch(receiveTag(res)))
+               // dispatch(receiveTag(res)))
+}; 

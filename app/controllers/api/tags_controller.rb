@@ -2,6 +2,7 @@ class Api::TagsController < ApplicationController
     before_action :require_login 
 
     def create 
+        # debugger
         @tag = Tag.new(tag_params)
 
         if @tag.save 
