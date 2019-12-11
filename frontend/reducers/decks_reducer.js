@@ -13,6 +13,7 @@ export const decksReducer = (state = {}, action) => {
             return newState;
     
         case RECEIVE_DECK:
+            // debugger
             deck = action.payload.deck;
             return Object.assign({}, state, { [deck.id]: deck })
         case REMOVE_DECK:

@@ -9,6 +9,36 @@ User.destroy_all
 Deck.destroy_all
 Card.destroy_all
 Save.destroy_all
+Tag.destroy_all
+
+#tags 
+tag1 = Tag.create!(
+    name: 'Literature'
+)
+
+tag2 = Tag.create!(
+    name: 'Math'
+)
+
+tag3 = Tag.create!(
+    name: 'History'
+)
+
+tag4 = Tag.create!(
+    name: 'Science'
+)
+
+tag5 = Tag.create!(
+    name: 'Sports'
+)
+
+tag6 = Tag.create!(
+    name: 'Geography'
+)
+
+tag7 = Tag.create!(
+    name: 'Foreign Language'
+)
 
 #users
 user1 = User.create!(

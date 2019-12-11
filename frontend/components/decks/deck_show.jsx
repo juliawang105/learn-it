@@ -20,17 +20,33 @@ class DeckShow extends React.Component{
 
     componentDidMount(){
         this.props.fetchDeck(this.props.match.params.deckId)
-            .then( res => {
-                //debugger
-                this.setState({tags: res.payload.tags})
+            // .then( res => {
+            //     // debugger
+            //     this.setState({tags: res.payload.tags})
                
-            });
+            // });
+        // this.props.fetchTags()
+        //     .then( res =>)
+        
     };
 
     componentDidUpdate(oldProps) {
         // debugger;
         if (oldProps.match.params.deckId !== this.props.match.params.deckId) {
             this.props.fetchDeck(this.props.match.params.deckId)
+                .then(res => {
+                    //debugger
+                    this.setState({ tags: res.payload.tags })
+
+                });
+        if(Object.keys(oldProps.tags).length !== Object.keys(this.props.tags).length){
+            this.props.fetchDeck(this.props.match.params.deckId)
+                .then(res => {
+                    //debugger
+                    this.setState({ tags: res.payload.tags })
+
+                });
+            }
         };
  
     };
@@ -108,9 +124,8 @@ class DeckShow extends React.Component{
                         
                          <div>
                             <TagForm tags={this.state.tags}
-                            fetchDeck={this.props.fetchDeck}
-                            rerenderParentCallback={this.rerenderParentCallback}/> 
-                            <TagList
+                            fetchDeck={this.props.fetchDeck}/> 
+                            <TagList 
                                 tags={this.props.tags}
                                 deck={this.props.deck}
                                 fetchDeck={this.props.fetchDeck}

@@ -14,6 +14,7 @@ export const tagsReducer = (state = {}, action) => {
         }
         return newState;
       case RECEIVE_ALL_TAGS:
+        // debugger
         newState = action.tags;
         // debugger
         return newState

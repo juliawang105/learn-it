@@ -14,7 +14,9 @@ import { fetchTags } from '../../actions/tag_actions'
 const mSTP = (state, ownProps) => {
   
     let test = selectDeckCards(state.entities.cards, ownProps.match.params.deckId);
+    debugger;
     return {
+        
         deck: state.entities.decks[ownProps.match.params.deckId],
         user: state.session.id,
         cards: test,

@@ -13,7 +13,7 @@ class TagForm extends React.Component{
             update: false
         }
         
-        this.handleClick = this.handleClick.bind(this);
+        //this.handleClick = this.handleClick.bind(this);
     }
 
     update(field){
@@ -23,33 +23,33 @@ class TagForm extends React.Component{
     }
 
 
-    handleClick(e){
+    // handleClick(e){
         
-        e.preventDefault();
-        let name = this.state.name;
-        let deck = this.state.deck;
-        let tag = {
-            name,
-            deck
-        };
-        this.props.createTag(tag)
-            .then( res => {
+    //     e.preventDefault();
+    //     // let name = this.state.name;
+    //     // let deck = this.state.deck;
+    //     // let tag = {
+    //     //     name,
+    //     //     deck
+    //     // };
+    //     // this.props.createTag(tag)
+    //     //     .then( res => {
                 
-                let deck_tag = {
-                    tag_id: res.tag.id,
-                    deck_id: deck
-                }
+    //     //         let deck_tag = {
+    //     //             tag_id: res.tag.id,
+    //     //             deck_id: deck
+    //     //         }
                 
-                this.props.createDeckTag(deck_tag)
+    //             this.props.createDeckTag(deck_tag)
                     
-            })
+    //         })
             
             
-        // this.setState({ tags: this.state.tags.push(this.state.name) })
-        // this.setState({ update: !this.state.update })
+    //     // this.setState({ tags: this.state.tags.push(this.state.name) })
+    //     // this.setState({ update: !this.state.update })
         
         
-    }
+    // }
 
     render(){
         if(!this.state.tags) return null;
