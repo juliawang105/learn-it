@@ -57,7 +57,7 @@ class TagForm extends React.Component{
             <div className='tags'>
                 <div className='add-tag'>Add Tags</div>
                 <input onChange={this.update('name')} type="text" value={this.state.name}/>
-                <button onClick={this.handleClick }>Add Tag</button>
+                <button className="tag-button" onClick={this.handleClick }>Add Tag</button>
                 {/* <TagList
                     tagNames={this.state.tags}
                     fetchDeck={this.props.fetchDeck} /> */}
