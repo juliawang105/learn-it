@@ -4,7 +4,7 @@ import CardItem from '../cards/card_item';
 import CreateCardContainer from '../cards/create_card_container';
 import StudyCards from '../study/study_cards';
 import TagForm from '../tags/create_tags_container';
-// import TagList from '../tags/tag_list';
+import TagList from '../tags/tag_list';
 
 class DeckShow extends React.Component{
     constructor(props){
@@ -110,10 +110,11 @@ class DeckShow extends React.Component{
                             <TagForm tags={this.state.tags}
                             fetchDeck={this.props.fetchDeck}
                             rerenderParentCallback={this.rerenderParentCallback}/> 
-                            {/* <TagList 
-                            tagNames={this.state.tags}
-                            fetchDeck={this.props.fetchDeck}/> */}
-                            {/* <div className='tags'>Current Tags: {tagNames}</div> */}
+                            <TagList
+                                tags={this.props.tags}
+                                deck={this.props.deck}
+                                fetchDeck={this.props.fetchDeck}
+                                update={this.state.update} />
                          </div>
                     </div>
                         

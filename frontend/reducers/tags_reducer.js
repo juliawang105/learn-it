@@ -7,6 +7,7 @@ export const tagsReducer = (state = {}, action) => {
   // debugger
     switch (action.type) {
       case RECEIVE_DECK:
+        newState = {};
         for (let i = 0; i < action.payload.tags.length; i++) {
           newState[action.payload.tags[i].id] = action.payload.tags[i];
         }

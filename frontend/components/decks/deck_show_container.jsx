@@ -18,6 +18,7 @@ const mSTP = (state, ownProps) => {
         user: state.session.id,
         cards: test,
         saves: state.entities.saves,
+        tags: state.entities.tags
     }
     
 };
