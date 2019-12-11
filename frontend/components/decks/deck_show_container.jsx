@@ -17,7 +17,7 @@ const mSTP = (state, ownProps) => {
         deck: state.entities.decks[ownProps.match.params.deckId],
         user: state.session.id,
         cards: test,
-        saves: state.entities.saves
+        saves: state.entities.saves,
     }
     
 };

@@ -3,7 +3,8 @@ import { Link, withRouter } from 'react-router-dom';
 import CardItem from '../cards/card_item';
 import CreateCardContainer from '../cards/create_card_container';
 import StudyCards from '../study/study_cards';
-import TagForm from '../tags/create_tags_container'
+import TagForm from '../tags/create_tags_container';
+// import TagList from '../tags/tag_list';
 
 class DeckShow extends React.Component{
     constructor(props){
@@ -13,6 +14,7 @@ class DeckShow extends React.Component{
         }
         this.handleClick = this.handleClick.bind(this);
         this.fetchDeck = this.props.fetchDeck.bind(this);
+        //this.rerenderParentCallback = this.rerenderParentCallback.bind(this);
           
     }
 
@@ -26,6 +28,7 @@ class DeckShow extends React.Component{
     };
 
     componentDidUpdate(oldProps) {
+        // debugger;
         if (oldProps.match.params.deckId !== this.props.match.params.deckId) {
             this.props.fetchDeck(this.props.match.params.deckId)
         };
@@ -52,6 +55,11 @@ class DeckShow extends React.Component{
         } 
         this.props.saveDeck(save).then( () => this.setState({following: true})); 
     };
+
+    // rerenderParentCallback() {
+    //     this.forceUpdate();
+    // };
+
     render(){
         
         let deck = this.props.deck;
@@ -74,17 +82,7 @@ class DeckShow extends React.Component{
 
         let tags = this.state.tags;
         if (!tags) return null;
-        // debugger
-        let tagNames = tags.map( tag => {
-            return(
-                <ul>
-                    {tag.name}
-                    <br />
-                </ul>
-                
-            )
-        })
-        
+
         let save_array = Object.values(this.props.saves);
             save_array = save_array.map( (save) => {
                 return save.deck_id
@@ -109,8 +107,13 @@ class DeckShow extends React.Component{
                     <div className="deck_title">{deck.name} 
                         
                          <div>
-                            <TagForm /> 
-                            <div className='tags'>Current Tags: {tagNames}</div>
+                            <TagForm tags={this.state.tags}
+                            fetchDeck={this.props.fetchDeck}
+                            rerenderParentCallback={this.rerenderParentCallback}/> 
+                            {/* <TagList 
+                            tagNames={this.state.tags}
+                            fetchDeck={this.props.fetchDeck}/> */}
+                            {/* <div className='tags'>Current Tags: {tagNames}</div> */}
                          </div>
                     </div>
                         
