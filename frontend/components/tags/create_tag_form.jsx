@@ -9,11 +9,18 @@ class TagForm extends React.Component{
         this.state = {
             name: "",
             deck: this.props.deck,
-            tags: this.props.tags,
+            tags: "",
             update: false
         }
         
         //this.handleClick = this.handleClick.bind(this);
+    }
+
+    componentDidMount(){
+        this.props.fetchTags()
+            .then(res => {
+                this.setState({tags: res.tags})
+            })
     }
 
     update(field){
@@ -53,12 +60,18 @@ class TagForm extends React.Component{
 
     render(){
         if(!this.state.tags) return null;
-        //debugger
+
+        let tags = Object.values(this.state.tags).map( tag => {
+            return <li>{tag.name}</li>
+        })
+
+       // debugger
+        debugger
         return(
             <div className='tags'>
-                <div className='add-tag'>Add Tags</div>
-                <input onChange={this.update('name')} type="text" value={this.state.name}/>
-                <button className="tag-button" onClick={this.handleClick }>Add Tag</button>
+                <div className='add-tag'>{tags}</div>
+                {/* <input onChange={this.update('name')} type="text" value={this.state.name}/> */}
+                {/* <button className="tag-button" onClick={this.handleClick }>Add Tag</button> */}
                 {/* <TagList
                     tagNames={this.state.tags}
                     fetchDeck={this.props.fetchDeck} /> */}

@@ -20,6 +20,9 @@ class DeckShow extends React.Component{
 
     componentDidMount(){
         this.props.fetchDeck(this.props.match.params.deckId)
+            // .then(() => {
+            //     this.props.fetchTags
+            // })
             // .then( res => {
             //     // debugger
             //     this.setState({tags: res.payload.tags})
@@ -123,7 +126,8 @@ class DeckShow extends React.Component{
                     <div className="deck_title">{deck.name} 
                         
                          <div>
-                            <TagForm tags={this.state.tags}
+                            <TagForm 
+                            fetchTags={this.props.fetchTags}
                             fetchDeck={this.props.fetchDeck}/> 
                             <TagList 
                                 tags={this.props.tags}
