@@ -45,14 +45,15 @@ class TagForm extends React.Component{
             })
             
             
-        this.setState({ tags: this.state.tags.push(this.state.name) })
-        this.setState({ update: !this.state.update })
+        // this.setState({ tags: this.state.tags.push(this.state.name) })
+        // this.setState({ update: !this.state.update })
         
         
     }
 
     render(){
         if(!this.state.tags) return null;
+        //debugger
         return(
             <div className='tags'>
                 <div className='add-tag'>Add Tags</div>

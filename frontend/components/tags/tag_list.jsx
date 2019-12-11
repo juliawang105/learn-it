@@ -11,22 +11,24 @@ class TagList extends React.Component{
         }
     }
     componentDidMount(){
-        // this.props.fetchDeck(this.props.deck.id)
-        //     .then(res => {
-        //         this.setState({ tags: res.payload.tags })
-        //     })
-        // debugger
-        this.setState({tags: this.props.tags})
+        this.props.fetchTags()
+            .then(res => {
+                this.setState({ tags: res.tags })
+            })
+        // // debugger
+        // this.setState({tags: this.props.tags})
     }
 
     componentDidUpdate(oldProps){
     //    debugger
-        if (this.props.tags !== oldProps.tags){
-            // this.props.fetchDeck(this.props.deck.id)
-            //     .then(res => {
-            //         this.setState({tags: res.payload.tags})
-            //     })
-            this.setState({ tags: this.props.tags })
+        if (Object.keys(this.props.tags).length !== Object.keys(oldProps.tags).length){
+            this.props.fetchTags()
+                
+                .then(res => {
+                    // debugger
+                    this.setState({tags: res.tags})
+                })
+            // this.setState({ tags: this.props.tags })
             }
     }
 
@@ -35,6 +37,7 @@ class TagList extends React.Component{
         let tags = this.state.tags;
         // debugger
         if (!tags) return null;
+        // debugger
         let tagNames = Object.values(tags).map( tag => {
             return(
                 <ul key={tag.id}>

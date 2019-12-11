@@ -5,6 +5,11 @@ json.deck do
     
 end
 
+# json.tag do 
+#     json.extract! @deck, :tags 
+
+# end
+
 
 
    

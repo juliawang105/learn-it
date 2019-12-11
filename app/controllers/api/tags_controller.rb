@@ -6,7 +6,7 @@ class Api::TagsController < ApplicationController
         @tag = Tag.new(tag_params)
 
         if @tag.save 
-            render json: @tag
+            render :show
         else  
             render json: @tag.errors.full_messages, status: 422 
         end 
@@ -18,7 +18,7 @@ class Api::TagsController < ApplicationController
     end
 
     def show 
-        @tag = Tag.find(params[:id])
+        @tag = Tag.includes(:deck).find(params[:id])
         render :show 
     end
 

@@ -7,6 +7,7 @@ class Api::DecksController < ApplicationController
     end
 
     def show
+        #debugger
         @deck = Deck.includes(:learners).includes(:creator).includes(:cards).includes(:saves).includes(:tags).find(params[:id])
         render :show 
     end
@@ -24,7 +25,7 @@ class Api::DecksController < ApplicationController
     end
 
     def update
-        @deck = Deck.includes(:learners).includes(:creator).includes(:cards).includes(:saves).find(params[:id])
+        @deck = Deck.includes(:learners).includes(:creator).includes(:cards).includes(:saves).includes(:tags).find(params[:id])
 
         if @deck.update(deck_params) && @deck.creator_id == current_user.id
             render :show 

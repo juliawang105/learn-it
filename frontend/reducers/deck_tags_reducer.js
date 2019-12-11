@@ -6,12 +6,14 @@ export const deckTagsReducer = (state = {}, action ) => {
     let newState = Object.assign({}, state);
 
     switch(action.type){
-        case RECEIVE_DECK:
-            for(let i = 0; i < action.payload.tags.length; i ++ ){
-                newState[action.payload.tags[i].id] = action.payload.tags[i];
-            };
-            return newState; 
+        // case RECEIVE_DECK:
+        //     debugger
+        //     for(let i = 0; i < action.payload.tags.length; i ++ ){
+        //         newState[action.payload.tags[i].id] = action.payload.tags[i];
+        //     };
+        //     return newState; 
         case RECEIVE_DECK_TAG: 
+        // debugger
             newState[action.deckTag.id] = action.deckTag; 
             return newState; 
         

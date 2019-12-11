@@ -114,6 +114,7 @@ class DeckShow extends React.Component{
                                 tags={this.props.tags}
                                 deck={this.props.deck}
                                 fetchDeck={this.props.fetchDeck}
+                                fetchTags={this.props.fetchTags}
                                 update={this.state.update} />
                          </div>
                     </div>

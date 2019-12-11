@@ -5,7 +5,7 @@ class Api::DeckTagsController < ApplicationController
         # debugger
         @deck_tag = DeckTag.new(deck_tag_params)
         if @deck_tag.save 
-            render json: @deck_tag 
+            render :show
         else 
             render json: @deck_tag.errors.full_messages, status: 422
         end
