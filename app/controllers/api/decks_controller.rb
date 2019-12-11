@@ -8,7 +8,9 @@ class Api::DecksController < ApplicationController
 
     def show
         #debugger
-        @deck = Deck.includes(:learners).includes(:creator).includes(:cards).includes(:saves).includes(:tags).find(params[:id])
+        @deck = Deck.includes(:cards).includes(:saves).includes(:tags).find(params[:id])
+        #.includes(:creator)
+        #.includes(:learners)
         render :show 
     end
 

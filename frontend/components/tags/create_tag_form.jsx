@@ -1,6 +1,7 @@
 import React from 'react'; 
 import { withRouter } from 'react-router';
 import TagList from '../tags/tag_list';
+import { ETIME } from 'constants';
 
 class TagForm extends React.Component{
     constructor(props){
@@ -13,7 +14,7 @@ class TagForm extends React.Component{
             update: false
         }
         
-        //this.handleClick = this.handleClick.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
     componentDidMount(){
@@ -30,51 +31,49 @@ class TagForm extends React.Component{
     }
 
 
-    // handleClick(e){
+    handleClick(e){
         
-    //     e.preventDefault();
-    //     // let name = this.state.name;
-    //     // let deck = this.state.deck;
-    //     // let tag = {
-    //     //     name,
-    //     //     deck
-    //     // };
-    //     // this.props.createTag(tag)
-    //     //     .then( res => {
-                
-    //     //         let deck_tag = {
-    //     //             tag_id: res.tag.id,
-    //     //             deck_id: deck
-    //     //         }
-                
-    //             this.props.createDeckTag(deck_tag)
+        e.preventDefault();
+        debugger
+        let deck_tag = {
+            tag_id: e.target.value,
+            deck_id: this.state.deck
+        }
+        debugger
+        this.props.createDeckTag(deck_tag)
                     
-    //         })
-            
+        
             
     //     // this.setState({ tags: this.state.tags.push(this.state.name) })
     //     // this.setState({ update: !this.state.update })
         
         
-    // }
+    }
 
     render(){
         if(!this.state.tags) return null;
 
         let tags = Object.values(this.state.tags).map( tag => {
-            return <li>{tag.name}</li>
+            return <li onClick={this.handleClick}
+                        key={tag.id}
+                        value={tag.id}>
+                        {tag.name}</li>
         })
 
        // debugger
         debugger
         return(
             <div className='tags'>
-                <div className='add-tag'>{tags}</div>
+                <div className='add-tag'>
+                    Add tags
+                    {tags}
+                </div>
                 {/* <input onChange={this.update('name')} type="text" value={this.state.name}/> */}
                 {/* <button className="tag-button" onClick={this.handleClick }>Add Tag</button> */}
                 {/* <TagList
                     tagNames={this.state.tags}
                     fetchDeck={this.props.fetchDeck} /> */}
+                <div>Current Tags</div>
             </div>
         )
     }
