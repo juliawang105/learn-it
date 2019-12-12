@@ -1,6 +1,17 @@
 class Api::DeckTagsController < ApplicationController
     before_action :require_login 
 
+    def index
+        @deck_tags = DeckTag.all
+        render :index 
+    end
+
+    def show 
+        @deck_tag = DeckTag.find(params[:id])
+        render :show 
+    end
+
+    
     def create 
         # debugger
         @deck_tag = DeckTag.new(deck_tag_params)

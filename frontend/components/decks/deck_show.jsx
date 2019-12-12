@@ -3,8 +3,8 @@ import { Link, withRouter } from 'react-router-dom';
 import CardItem from '../cards/card_item';
 import CreateCardContainer from '../cards/create_card_container';
 import StudyCards from '../study/study_cards';
-import TagForm from '../tags/create_tag_form';
-import TagList from '../tags/tag_list';
+import TagForm from '../tags/create_tags_container';
+//import TagList from '../tags/tag_list';
 
 class DeckShow extends React.Component{
     constructor(props){
@@ -117,7 +117,7 @@ class DeckShow extends React.Component{
             saveButton = <button className='card-button' onClick={this.handleClick}>Unsave Deck</button>
         };
     
-        debugger
+        //debugger
         return(
             <div className="deck_show">
                 <div className="show">
@@ -130,8 +130,8 @@ class DeckShow extends React.Component{
                             deck={this.props.deck}
                             tags={this.state.tags}
                             createDeckTag={this.props.createDeckTag}/> 
-                            <TagList 
-                                tags={this.props.tags} />
+                            {/* <TagList 
+                                tags={this.props.tags} /> */}
                                 {/* deck={this.props.deck}
                                 fetchDeck={this.props.fetchDeck}
                                 fetchTags={this.props.fetchTags}

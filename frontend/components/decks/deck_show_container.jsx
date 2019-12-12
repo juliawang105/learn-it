@@ -9,9 +9,6 @@ import { closeModal, openModal } from '../../actions/modal_actions';
 import { fetchTags } from '../../actions/tag_actions';
 import { createDeckTag } from '../../actions/deck_tag_actions'
 
-
-
-
 const mSTP = (state, ownProps) => {
   
     let test = selectDeckCards(state.entities.cards, ownProps.match.params.deckId);

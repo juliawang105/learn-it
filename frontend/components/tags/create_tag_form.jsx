@@ -1,7 +1,7 @@
 import React from 'react'; 
 import { withRouter } from 'react-router';
-import TagList from '../tags/tag_list';
-import { ETIME } from 'constants';
+// import TagList from '../tags/tag_list';
+// import { ETIME } from 'constants';
 
 class TagForm extends React.Component{
     constructor(props){
@@ -11,61 +11,71 @@ class TagForm extends React.Component{
             name: "",
             deck: this.props.deck,
             tags: "",
-            // deckTags: this.props.tags
+            deckTags: this.props.tags,
         }
         
         this.handleClick = this.handleClick.bind(this);
     }
 
     componentDidMount(){
+        debugger;
         this.props.fetchTags()
-            .then(res => {
-                this.setState({tags: res.tags})
-            })
+        this.props.fetchDeckTags()
+            // .then(res => {
+            //     this.setState({tags: res.tags})
+            //     this.setState({deckTags: this.props.tags})
+            // })
     }
 
-    update(field){
-        return(e) => {
-            this.setState({[field]: e.target.value })
-        }
+    componentWillUnmount() {
+        console.log("unmount")
     }
 
+    componentDidUpdate(oldProps){
+        // debugger
+        //this.setState({ deckTags: this.props.tags })
+    }
 
-    handleClick(e){
+    handleClick(e, field){
         
         e.preventDefault();
-        debugger
+        // debugger
         let deck_tag = {
             tag_id: e.target.value,
-            deck_id: this.state.deck
+            deck_id: this.state.deck.id
         }
-        debugger
-        this.props.createDeckTag(deck_tag)
-                    
+        // debugger
+        this.props.createDeckTag(deck_tag);
+        // console.log(this.state.deckTags)
+        console.log(e.target)
+        let copy = this.state.deckTags.slice();
+        let obj = { id: parseInt(e.target.value), name: e.target.name };
         
-            
-    //     // this.setState({ tags: this.state.tags.push(this.state.name) })
-    //     // this.setState({ update: !this.state.update })
-        
-        
+       
+        this.setState({deckTags: copy}, () => {
+            console.log(this.state.deckTags)
+        })
+        // debugger   
     }
 
     render(){
-        if(!this.state.tags) return null;
-        debugger
-        let tags = Object.values(this.state.tags).map( tag => {
+        if(!this.props.tags) return null;
+        // debugger
+        let tags = Object.values(this.props.tags).map( tag => {
             return <li onClick={this.handleClick}
                         key={tag.id}
-                        value={tag.id}>
+                        value={tag.id}
+                        penis={tag.name}>
                         {tag.name}</li>
         })
-        // if (!this.state.deckTags) return null;
-        let deckTags = this.props.tags.map( deckTag => {
-            return <li key={deckTag.id}>{deckTag.name}</li>
-        })
+        if (!this.state.deckTags) return null;
+        console.log(this.props.tags)
+        // let deckTags = this.props.tags.map( deckTag => {
+        //     return <li key={deckTag.id}>{deckTag.name}</li>
+        // })
 
        // debugger
-        debugger
+       
         return(
             <div className='tags'>
                 <div className='add-tag'>
@@ -78,7 +88,7 @@ class TagForm extends React.Component{
                     tagNames={this.state.tags}
                     fetchDeck={this.props.fetchDeck} /> */}
                 <div>Current Tags
-                    {deckTags}
+                    {/* {deckTags} */}
                 </div>
             </div>
         )
