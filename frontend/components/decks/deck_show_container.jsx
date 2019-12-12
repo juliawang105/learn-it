@@ -6,7 +6,8 @@ import { fetchCard, deleteCard } from '../../actions/card_actions';
 import { selectDeckCards } from '../../reducers/selectors';
 import { fetchTag } from '../../actions/tag_actions'
 import { closeModal, openModal } from '../../actions/modal_actions';
-import { fetchTags } from '../../actions/tag_actions'
+import { fetchTags } from '../../actions/tag_actions';
+import { createDeckTag } from '../../actions/deck_tag_actions'
 
 
 
@@ -36,6 +37,7 @@ const mDTP = dispatch => ({
     deleteCard: cardId => dispatch(deleteCard(cardId)),
     fetchTag: tagId => dispatch(fetchTag(tagId)),
     fetchTags: () => dispatch(fetchTags()),
+    createDeckTag: deckTag => dispatch(createDeckTag(deckTag))
 
 });
 

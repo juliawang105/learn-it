@@ -11,7 +11,7 @@ class TagForm extends React.Component{
             name: "",
             deck: this.props.deck,
             tags: "",
-            update: false
+            // deckTags: this.props.tags
         }
         
         this.handleClick = this.handleClick.bind(this);
@@ -52,12 +52,16 @@ class TagForm extends React.Component{
 
     render(){
         if(!this.state.tags) return null;
-
+        debugger
         let tags = Object.values(this.state.tags).map( tag => {
             return <li onClick={this.handleClick}
                         key={tag.id}
                         value={tag.id}>
                         {tag.name}</li>
+        })
+        // if (!this.state.deckTags) return null;
+        let deckTags = this.props.tags.map( deckTag => {
+            return <li key={deckTag.id}>{deckTag.name}</li>
         })
 
        // debugger
@@ -73,7 +77,9 @@ class TagForm extends React.Component{
                 {/* <TagList
                     tagNames={this.state.tags}
                     fetchDeck={this.props.fetchDeck} /> */}
-                <div>Current Tags</div>
+                <div>Current Tags
+                    {deckTags}
+                </div>
             </div>
         )
     }

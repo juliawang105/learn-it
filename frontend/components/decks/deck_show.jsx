@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import CardItem from '../cards/card_item';
 import CreateCardContainer from '../cards/create_card_container';
 import StudyCards from '../study/study_cards';
-import TagForm from '../tags/create_tags_container';
+import TagForm from '../tags/create_tag_form';
 import TagList from '../tags/tag_list';
 
 class DeckShow extends React.Component{
@@ -20,14 +20,11 @@ class DeckShow extends React.Component{
 
     componentDidMount(){
         this.props.fetchDeck(this.props.match.params.deckId)
-            // .then(() => {
-            //     this.props.fetchTags
-            // })
-            // .then( res => {
-            //     // debugger
-            //     this.setState({tags: res.payload.tags})
+            .then( res => {
+                // debugger
+                this.setState({tags: res.payload.tags})
                
-            // });
+            });
         // this.props.fetchTags()
         //     .then( res =>)
         
@@ -120,6 +117,7 @@ class DeckShow extends React.Component{
             saveButton = <button className='card-button' onClick={this.handleClick}>Unsave Deck</button>
         };
     
+        debugger
         return(
             <div className="deck_show">
                 <div className="show">
@@ -128,13 +126,16 @@ class DeckShow extends React.Component{
                          <div>
                             <TagForm 
                             fetchTags={this.props.fetchTags}
-                            fetchDeck={this.props.fetchDeck}/> 
+                            fetchDeck={this.props.fetchDeck}
+                            deck={this.props.deck}
+                            tags={this.state.tags}
+                            createDeckTag={this.props.createDeckTag}/> 
                             <TagList 
-                                tags={this.props.tags}
-                                deck={this.props.deck}
+                                tags={this.props.tags} />
+                                {/* deck={this.props.deck}
                                 fetchDeck={this.props.fetchDeck}
                                 fetchTags={this.props.fetchTags}
-                                update={this.state.update} />
+                                update={this.state.update} /> */}
                          </div>
                     </div>
                         
