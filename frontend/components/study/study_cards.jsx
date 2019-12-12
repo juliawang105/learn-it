@@ -74,7 +74,7 @@ class StudyCards extends React.Component {
     if (this.state.flipped === false) {
       currCard1 = this.state.currentCard.question;
       scoreBar = <div className="tracking">
-                    <div className="scorebar">
+        <div onClick={this.handleClick} className="scorebar">
                       Reveal the Answer
                     </div>
                 </div>;
@@ -84,17 +84,19 @@ class StudyCards extends React.Component {
       scoreBar = (
         <div className="tracking">
           <div className="tracking-message">How well did you know this?</div>
-          <ScoreBar
-            deck={this.props.deck}
-            cards={this.props.cards}
-            currCard={this.state.currentCard}
-            saveScore={this.props.saveScore}
-            updateScore={this.props.updateScore}
-            fetchScore={this.props.fetchScore}
-            user={this.props.user}
-            scores={this.props.scores}
-            fetchDeck={this.props.fetchDeck}
-          />
+          <div onClick={this.handleClick}>
+            <ScoreBar
+              deck={this.props.deck}
+              cards={this.props.cards}
+              currCard={this.state.currentCard}
+              saveScore={this.props.saveScore}
+              updateScore={this.props.updateScore}
+              fetchScore={this.props.fetchScore}
+              user={this.props.user}
+              scores={this.props.scores}
+              fetchDeck={this.props.fetchDeck}
+            />
+          </div>
         </div>
       );
     } else if (this.state.end === true) {
@@ -131,7 +133,7 @@ class StudyCards extends React.Component {
             <div className="back">{endCard}</div>            
         </div>
 
-          <div onClick={this.handleClick}>{scoreBar}</div>
+          <div>{scoreBar}</div>
       </div>
     </div>
     );
