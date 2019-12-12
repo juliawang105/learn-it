@@ -2,7 +2,8 @@ class Api::DeckTagsController < ApplicationController
     before_action :require_login 
 
     def index
-        @deck_tags = DeckTag.all
+        # debugger
+        @deck_tags = DeckTag.all.where(deck_id: params[:deck_id])
         render :index 
     end
 

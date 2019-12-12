@@ -7,6 +7,7 @@ import { fetchDeck, fetchDecks, createDeck, updateDeck, deleteDeck } from './act
 import { saveDeck, unsaveDeck } from './actions/save_actions';
 import { createCard, updateCard, deleteCard } from './actions/card_actions';
 import { saveScore, fetchScore, updateScore } from './actions/score_actions';
+import { fetchDeckTags } from './actions/deck_tag_actions'
 
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("root");
@@ -46,5 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
     window.fetchScore = fetchScore;
     window.updateScore = updateScore;
     window.saveScore = saveScore;
+    window.fetchDeckTags = fetchDeckTags
     ReactDOM.render(< Root store={store} />, root)
 });

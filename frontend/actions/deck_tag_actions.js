@@ -5,7 +5,7 @@ export const RECEIVE_ALL_DECK_TAGS = " RECEIVE_ALL_DECK_TAGS";
 export const RECEIVE_DECK_TAG = "RECEIVE_DECK_TAG";
 export const REMOVE_DECK_TAG = "REMOVE_DECK_TAG"
 
-const receiveAllDeckTags = deckTags => ({
+const receiveAllDeckTags = (deckTags) => ({
     type: RECEIVE_ALL_DECK_TAGS,
     deckTags
 });
@@ -20,8 +20,8 @@ const removeDeckTag = deckTagId => ({
     deckTagId
 })
 
-export const fetchDeckTags = () => dispatch => (
-    DeckTagUtil.fetchDeckTags()
+export const fetchDeckTags = (deck_id) => dispatch => (
+    DeckTagUtil.fetchDeckTags(deck_id)
         .then(res => dispatch(receiveAllDeckTags(res)))
 );
 

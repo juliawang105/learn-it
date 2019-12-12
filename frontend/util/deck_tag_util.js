@@ -1,6 +1,6 @@
-export const fetchDeckTags = () => (
+export const fetchDeckTags = (deck_id) => (
     $.ajax({
-        url: `/api/deck_tags`,
+        url: `/api/deck_tags?deck_id=${deck_id}`,
         method: `GET`
     })
 )

@@ -1,7 +1,5 @@
 import React from 'react'; 
 import { withRouter } from 'react-router';
-// import TagList from '../tags/tag_list';
-// import { ETIME } from 'constants';
 
 class TagForm extends React.Component{
     constructor(props){
@@ -11,30 +9,30 @@ class TagForm extends React.Component{
             name: "",
             deck: this.props.deck,
             tags: "",
-            deckTags: this.props.tags,
+            deckTags: this.props.deckTags,
         }
         
         this.handleClick = this.handleClick.bind(this);
-    }
+    };
 
     componentDidMount(){
-        debugger;
+        // debugger;
         this.props.fetchTags()
-        this.props.fetchDeckTags()
-            // .then(res => {
-            //     this.setState({tags: res.tags})
-            //     this.setState({deckTags: this.props.tags})
-            // })
-    }
+            .then(() => {
+                this.props.fetchDeckTags(Object.keys(this.props.deck))
+                .then(res => {
+                    debugger
+                    // this.setState({tags: res.tags})
+                    this.setState({deckTags: res.deckTags})
+                })
+            })
+    };
 
-    componentWillUnmount() {
-        console.log("unmount")
-    }
 
     componentDidUpdate(oldProps){
         // debugger
         //this.setState({ deckTags: this.props.tags })
-    }
+    };
 
     handleClick(e, field){
         
@@ -60,12 +58,13 @@ class TagForm extends React.Component{
 
     render(){
         if(!this.props.tags) return null;
-        // debugger
+        if(!this.props.deckTags) return null;
+        debugger
         let tags = Object.values(this.props.tags).map( tag => {
             return <li onClick={this.handleClick}
                         key={tag.id}
                         value={tag.id}
-                        penis={tag.name}>
+                        name={tag.name}>
                         {tag.name}</li>
         })
         if (!this.state.deckTags) return null;
