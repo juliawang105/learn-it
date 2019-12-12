@@ -9,7 +9,8 @@ class TagForm extends React.Component{
             name: "",
             deck: this.props.deck,
             tags: "",
-            deckTags: this.props.deckTags,
+            deckTags: [],
+            update: false
         }
         
         this.handleClick = this.handleClick.bind(this);
@@ -21,9 +22,12 @@ class TagForm extends React.Component{
             .then(() => {
                 this.props.fetchDeckTags(Object.keys(this.props.deck))
                 .then(res => {
-                    //debugger
+                    // debugger
+                    let deckTags = Object.values(res.deckTags).map( deckTag => {
+                        return deckTag.tag.name
+                    });
                     // this.setState({tags: res.tags})
-                    this.setState({deckTags: res.deckTags})
+                    this.setState({deckTags: deckTags})
                 })
             })
     };
@@ -31,29 +35,38 @@ class TagForm extends React.Component{
 
     componentDidUpdate(oldProps){
         // debugger
-        //this.setState({ deckTags: this.props.tags })
+        let old = Object.keys(oldProps.deckTags);
+        let newProps = Object.keys(this.props.deckTags);
+       if(old.length !== newProps.length){
+           this.props.fetchDeckTags(Object.keys(this.props.deck))
+               .then(res => {
+                   // debugger
+                   let deckTags = Object.values(res.deckTags).map(deckTag => {
+                       return deckTag.tag.name
+                   });
+                   // this.setState({tags: res.tags})
+                   this.setState({ deckTags: deckTags })
+               });
+        } ; 
     };
 
-    handleClick(e, field){
+    handleClick(e){
         
         e.preventDefault();
         // debugger
         let deck_tag = {
             tag_id: e.target.value,
-            deck_id: this.state.deck.id
+            deck_id: Object.keys(this.state.deck)[0]
         }
-        // debugger
-        this.props.createDeckTag(deck_tag);
-        // console.log(this.state.deckTags)
-        console.log(e.target)
-        let copy = this.state.deckTags.slice();
-        let obj = { id: parseInt(e.target.value), name: e.target.name };
-        
-       
-        this.setState({deckTags: copy}, () => {
-            console.log(this.state.deckTags)
-        })
-        // debugger   
+
+        this.props.createDeckTag(deck_tag)
+            .then( (res) => {
+                // debugger
+                // let name = res.deckTag.tag.name
+                // let copy = this.state.deckTags.push(name);
+                this.setState({update: !this.state.update})
+                // debugger
+            }) 
     }
 
     render(){
@@ -63,17 +76,17 @@ class TagForm extends React.Component{
         let tags = Object.values(this.props.tags).map( tag => {
             return <li onClick={this.handleClick}
                         key={tag.id}
-                        value={tag.id}
-                        name={tag.name}>
+                        value={tag.id}>
                         {tag.name}</li>
         })
         if (!this.state.deckTags) return null;
         
-        let deckTags = Object.values(this.state.deckTags).map( deckTag => {
-            return <li key={deckTag.id}>{deckTag.tag.name}</li>
+        // debugger
+        let deckTags = (this.state.deckTags).map( deckTag => {
+            return <p key={deckTag.id}>{deckTag}</p>
         })
 
-       //debugger
+    //    debugger
        
         return(
             <div className='tags'>
@@ -81,11 +94,6 @@ class TagForm extends React.Component{
                     Add tags
                     {tags}
                 </div>
-                {/* <input onChange={this.update('name')} type="text" value={this.state.name}/> */}
-                {/* <button className="tag-button" onClick={this.handleClick }>Add Tag</button> */}
-                {/* <TagList
-                    tagNames={this.state.tags}
-                    fetchDeck={this.props.fetchDeck} /> */}
                 <div>Current Tags
                     {deckTags}
                 </div>

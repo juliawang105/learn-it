@@ -1,1 +1,1 @@
-json.extract! @deck_tag, :id, :deck 
+json.extract! @deck_tag, :id, :deck, :tag
