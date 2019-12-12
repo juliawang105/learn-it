@@ -34,7 +34,7 @@ class ProgressBar extends React.Component {
       });
 
       if (this.props.currCard.id === this.props.cards[this.props.cards.length-1].id) {
-        debugger;
+        // debugger;
         this.props.fetchDeck(this.props.match.params.deckId).then(res => {
           this.setState({
             scores: res.payload.scores

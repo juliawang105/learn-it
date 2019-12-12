@@ -12,6 +12,7 @@ class StudyCards extends React.Component {
       currentCard: "",
       scores: this.props.scores,
       flipped: false,
+      end: false
    
     };
 
@@ -36,9 +37,10 @@ class StudyCards extends React.Component {
 
     if (this.state.cards[i + 1] === undefined) {
       this.setState({
-        flipped: null
+        flipped: true
       });
-    } else if (flipStatus === false) {
+    }
+    else if (flipStatus === false) {
       this.setState({
         flipped: true
       });
@@ -49,6 +51,14 @@ class StudyCards extends React.Component {
         flipped: false
       });
     }
+
+    if(this.state.cards[i + 1 ] === undefined && this.state.flipped === true) {
+      this.setState({
+        end: true,
+        flipped: null,
+        currentCard: ""
+      });
+    };
   }
 
   render() {
@@ -57,6 +67,7 @@ class StudyCards extends React.Component {
     }
     let currCard1;
     let currCard2;
+    let endCard;
     let scoreBar;
     
 
@@ -86,23 +97,10 @@ class StudyCards extends React.Component {
           />
         </div>
       );
-    } else if (this.state.flipped === null) {
-      currCard1 = this.state.currentCard.answer;
+    } else if (this.state.end === true) {
+      endCard = "You've reached the end of all the cards"
       scoreBar = (
-        <div className="tracking">
-          <div className="tracking-message">You've reached the end of all the cards</div>
-          <ScoreBar
-            deck={this.props.deck}
-            cards={this.props.cards}
-            currCard={this.state.currentCard}
-            saveScore={this.props.saveScore}
-            updateScore={this.props.updateScore}
-            fetchScore={this.props.fetchScore}
-            user={this.props.user}
-            scores={this.props.scores}
-            fetchDeck={this.props.fetchDeck}
-          />
-        </div>
+        <div className="tracking"></div>
       );
     }
 
@@ -126,14 +124,16 @@ class StudyCards extends React.Component {
           />
         </div>
 
-        <div className="study" onClick={this.handleClick}>
+        <div className="study" >
           <div className="study-card">
             <div className="front">{currCard1}</div>
-            <div className="back">{currCard2}</div>
-          </div>
-          {scoreBar}
+            <div className="back">{currCard2}</div>            
+            <div className="back">{endCard}</div>            
         </div>
+
+          <div onClick={this.handleClick}>{scoreBar}</div>
       </div>
+    </div>
     );
   }
 };

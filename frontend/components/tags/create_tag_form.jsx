@@ -10,50 +10,55 @@ class TagForm extends React.Component{
             deck: this.props.deck,
             tags: "",
             deckTags: [],
-            update: false
+            update: false,
+            open: false
         }
         
         this.handleClick = this.handleClick.bind(this);
+        this.toggleDropdown = this.toggleDropdown.bind(this);
     };
 
     componentDidMount(){
-        // debugger;
         this.props.fetchTags()
             .then(() => {
                 this.props.fetchDeckTags(Object.keys(this.props.deck))
                 .then(res => {
-                    // debugger
+                    
                     let deckTags = Object.values(res.deckTags).map( deckTag => {
                         return deckTag.tag.name
                     });
-                    // this.setState({tags: res.tags})
                     this.setState({deckTags: deckTags})
-                })
             })
+        })
     };
 
 
     componentDidUpdate(oldProps){
-        // debugger
         let old = Object.keys(oldProps.deckTags);
         let newProps = Object.keys(this.props.deckTags);
-       if(old.length !== newProps.length){
+       
+        if(old.length !== newProps.length){
            this.props.fetchDeckTags(Object.keys(this.props.deck))
                .then(res => {
-                   // debugger
+                   
                    let deckTags = Object.values(res.deckTags).map(deckTag => {
                        return deckTag.tag.name
                    });
-                   // this.setState({tags: res.tags})
+                  
                    this.setState({ deckTags: deckTags })
                });
         } ; 
     };
 
+    toggleDropdown() {
+        let s = !this.state.open;
+        this.setState({open: s});
+    }
+
     handleClick(e){
         
         e.preventDefault();
-        // debugger
+      
         let deck_tag = {
             tag_id: e.target.value,
             deck_id: Object.keys(this.state.deck)[0]
@@ -61,11 +66,7 @@ class TagForm extends React.Component{
 
         this.props.createDeckTag(deck_tag)
             .then( (res) => {
-                // debugger
-                // let name = res.deckTag.tag.name
-                // let copy = this.state.deckTags.push(name);
                 this.setState({update: !this.state.update})
-                // debugger
             }) 
     }
 
@@ -81,22 +82,25 @@ class TagForm extends React.Component{
         })
         if (!this.state.deckTags) return null;
         
-        // debugger
         let deckTags = (this.state.deckTags).map( deckTag => {
             return <p key={deckTag.id}>{deckTag}</p>
         })
-
-    //    debugger
        
         return(
             <div className='tags'>
                 <div className='add-tag'>
-                    Add tags
-                    {tags}
+                    <div onClick={this.toggleDropdown}>
+                        Add tags
+                    </div>
+                    {this.state.open && <ul>
+                        {tags}
+                    </ul>}
                 </div>
+
                 <div>Current Tags
                     {deckTags}
                 </div>
+                
             </div>
         )
     }
