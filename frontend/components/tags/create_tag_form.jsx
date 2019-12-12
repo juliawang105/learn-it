@@ -21,7 +21,7 @@ class TagForm extends React.Component{
             .then(() => {
                 this.props.fetchDeckTags(Object.keys(this.props.deck))
                 .then(res => {
-                    debugger
+                    //debugger
                     // this.setState({tags: res.tags})
                     this.setState({deckTags: res.deckTags})
                 })
@@ -59,7 +59,7 @@ class TagForm extends React.Component{
     render(){
         if(!this.props.tags) return null;
         if(!this.props.deckTags) return null;
-        debugger
+        //debugger
         let tags = Object.values(this.props.tags).map( tag => {
             return <li onClick={this.handleClick}
                         key={tag.id}
@@ -68,12 +68,12 @@ class TagForm extends React.Component{
                         {tag.name}</li>
         })
         if (!this.state.deckTags) return null;
-        console.log(this.props.tags)
-        // let deckTags = this.props.tags.map( deckTag => {
-        //     return <li key={deckTag.id}>{deckTag.name}</li>
-        // })
+        
+        let deckTags = Object.values(this.state.deckTags).map( deckTag => {
+            return <li key={deckTag.id}>{deckTag.tag.name}</li>
+        })
 
-       // debugger
+       //debugger
        
         return(
             <div className='tags'>
@@ -87,7 +87,7 @@ class TagForm extends React.Component{
                     tagNames={this.state.tags}
                     fetchDeck={this.props.fetchDeck} /> */}
                 <div>Current Tags
-                    {/* {deckTags} */}
+                    {deckTags}
                 </div>
             </div>
         )
