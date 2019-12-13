@@ -10,6 +10,7 @@ class DeckIndexItem extends React.Component {
 
     handleClick(){
         event.preventDefault();
+        // this.props.openModal()
         this.props.deleteDeck(this.props.deck.id)
     }
 

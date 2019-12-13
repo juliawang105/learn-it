@@ -17,8 +17,8 @@ end
 json.scores do
     current_user.scores.each do |score|
         json.set! score.id do 
-            json.extract! score, :id, :card_id, :learner_id, :score
-            json.deck_id score.deck.id  
+            json.extract! score, :id, :card_id, :learner_id, :score, :deck
+            #json.deck_id score.deck.id  
         end
     end
 end

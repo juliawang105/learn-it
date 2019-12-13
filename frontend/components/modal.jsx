@@ -39,6 +39,8 @@ class ModalForm extends React.Component{
         case 'edit-deck':
             component =<EditDeckContainer />
             break;
+        case 'delete-warning':
+            component= <DeleteWarningContainer/>
 
         default:
             return null;
