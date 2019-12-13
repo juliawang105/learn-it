@@ -8,6 +8,7 @@ export const modalReducer = (state = "", action) => {
 
     switch(action.type){
         case OPEN_MODAL:
+            // debugger
             return Object.assign( {}, state, { modal: action.modal, data: action.data })
         case CLOSE_MODAL:
             newState = ""

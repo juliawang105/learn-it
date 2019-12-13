@@ -1,0 +1,32 @@
+.delete{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 192px;
+    width: 300px;
+    background-color: #FFFFFF;
+    color: #F08B47;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 14pt;
+
+}
+
+.double-check{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.double-check > button {
+    margin: 10px;
+    height: 35px;
+    font-size: 10pt;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: #4CA5DB;
+    border-radius: 5px;
+    color: #F2FAFD;
+    cursor: pointer;
+}

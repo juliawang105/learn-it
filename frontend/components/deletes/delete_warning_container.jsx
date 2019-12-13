@@ -1,13 +1,18 @@
 import { connect } from 'react-redux';
+import { closeModal } from '../../actions/modal_actions'
 import DeleteWarning from './delete_warning';
 
-const mSTP = (state, ownProps) => {
-    deck: state.entities.decks 
-};
+const mSTP = (state) => {
+    console.log(state.ui.modal.data)
+    return{
+        deck: state.ui.modal.data
+    }
+    
+}
+
 
 const mDTP = dispatch => ({
     closeModal: () => dispatch(closeModal()),
-    openModal: (modal) => dispatch(openModal(modal)),
     deleteDeck: deckId => dispatch(deleteDeck(deckId))
 });
 

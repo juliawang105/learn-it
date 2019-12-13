@@ -7,7 +7,7 @@ import CreateDeckContainer from './decks/create_deck_container';
 import CreateCardContainer from './cards/create_card_container';
 import UpdateCardContainer from './cards/update_card';
 import EditDeckContainer from './decks/edit_deck';
-
+import DeleteWarningContainer from './deletes/delete_warning_container'
 
 class ModalForm extends React.Component{
     constructor(props){
@@ -40,7 +40,8 @@ class ModalForm extends React.Component{
             component =<EditDeckContainer />
             break;
         case 'delete-warning':
-            component= <DeleteWarningContainer/>
+            component = <DeleteWarningContainer/>
+            break;
 
         default:
             return null;
