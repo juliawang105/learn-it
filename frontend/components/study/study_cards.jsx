@@ -17,22 +17,9 @@ class StudyCards extends React.Component {
     };
 
     this.handleClick = this.handleClick.bind(this);
-    //this.restart = this.restart.bind(this);
+    this.goBack = this.goBack.bind(this);
    
   }
-
-  // restart(){
-  //   // event.preventDefault();
-  //   // this.setState({
-  //   //   cards: [],
-  //   //   currentCard: this.state.cards[0],
-  //   //   // scores: this.props.scores,
-  //   //   flipped: false,
-  //   //   end: false
-  //   // })
-  //   window.location.reload(true)
-
-  // }
 
   componentDidMount() {
     this.props.fetchDeck(this.props.match.params.deckId).then(res => {
@@ -43,9 +30,39 @@ class StudyCards extends React.Component {
     });
   }
 
+  goBack(){
+    event.preventDefault();
+    let i = this.state.cards.indexOf(this.state.currentCard);
+    let flipStatus = this.state.flipped;
+
+    if(i === 0 && flipStatus === false){
+      return
+    };
+
+    if (i === 0 && flipStatus === true) {
+      this.setState({
+        flipped: false
+      });
+    };
+
+    if(flipStatus === false){
+      this.setState({
+        currentCard: this.state.cards[i - 1],
+        flipped: false
+      });
+    };
+
+    if(flipStatus === true){
+      this.setState({
+        currentCard: this.state.cards[i],
+        flipped: false
+      });
+    }; 
+  };
+
+
   handleClick() {
     event.preventDefault();
-    // debugger
     let i = this.state.cards.indexOf(this.state.currentCard);
     let flipStatus = this.state.flipped;
 
@@ -79,11 +96,15 @@ class StudyCards extends React.Component {
     if (this.state.cards.length === 0) {
       return null;
     }
+    let goBack;
     let currCard1;
     let currCard2;
     let endCard;
     let scoreBar;
     
+    if(this.state.cards.indexOf(this.state.currentCard) !== 0 || this.state.flipped !== false){
+      goBack = <div onClick={this.goBack}>Go Back To Previous Question</div>
+    }
 
     if (this.state.flipped === false) {
       currCard1 = this.state.currentCard.question;
@@ -145,6 +166,7 @@ class StudyCards extends React.Component {
         </div>
 
         <div className="study" >
+          {goBack}
           <div className="study-card">
             <div className="front">{currCard1}</div>
             <div className="back">{currCard2}</div>            

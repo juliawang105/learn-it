@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { CircularProgressbar, CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
-import { withRouter } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 import ScoreBar from '../scores/scorebar';
 
 class ProgressBar extends React.Component {
@@ -92,6 +92,7 @@ class ProgressBar extends React.Component {
             }
           }}
         />
+        <NavLink id="see-deck" to={`/decks/${this.props.deck.id}`}>See All Cards</NavLink>
       </div>
     );
   }

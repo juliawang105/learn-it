@@ -92,6 +92,20 @@
   background-color: grey;
 }
 
+#see-deck{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #CCDDED;
+  padding: 10px;
+  border: 1px solid #CEDEED;
+  border-radius: 5%;
+  position: relative;
+  top: 128px;
+  left: 37px;
+}
+
+#see-deck:hover{
+  background-color: grey;
+}
 
 .create-deck{
   font-family: Verdana, Geneva, Tahoma, sans-serif;

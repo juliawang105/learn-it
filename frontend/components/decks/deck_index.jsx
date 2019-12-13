@@ -21,14 +21,6 @@ class DeckIndex extends React.Component{
         document.removeEventListener("keydown", this.escFunction);
     }
 
-    // componentDidUpdate(oldProps){
-    //     console.log('hmmmmm')
-    //     // debugger
-    //     // if (oldProps.match.params.deckId === this.props.match.params.deckId) {
-    //     //     this.props.fetchDecks()
-    //     // };
-    // };
-
     escFunction(e) {
         // e.preventDefault();
         if (e.keyCode === 27) {
