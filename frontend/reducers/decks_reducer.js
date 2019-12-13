@@ -9,6 +9,7 @@ export const decksReducer = (state = {}, action) => {
     let deck
     switch(action.type) {
         case RECEIVE_ALL_DECKS:
+            
             newState = action.decks
             return newState;
     

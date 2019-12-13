@@ -13,6 +13,7 @@ class DeckIndex extends React.Component{
 
     componentDidMount(){
         this.props.fetchDecks();
+        this.props.clearAllCards()
         document.addEventListener('keydown', this.escFunction)
     };
 
@@ -21,9 +22,11 @@ class DeckIndex extends React.Component{
     }
 
     componentDidUpdate(oldProps){
-        if (oldProps.match.params.deckId !== this.props.match.params.deckId) {
-            this.props.fetchDecks(this.props.match.params.deckId)
-        };
+        console.log('hmmmmm')
+        // debugger
+        // if (oldProps.match.params.deckId === this.props.match.params.deckId) {
+        //     this.props.fetchDecks()
+        // };
     };
 
     escFunction(e) {

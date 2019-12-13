@@ -15,9 +15,8 @@ class DeckIndexItem extends React.Component {
         event.preventDefault();
         this.props.openModal('delete-warning', deck_id)
         // this.props.deleteDeck(this.props.deck.id)
-        
-        
-    }
+           
+    };
 
     render(){
         let user_id;

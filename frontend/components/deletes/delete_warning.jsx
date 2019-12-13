@@ -24,18 +24,10 @@ class DeleteWarning extends React.Component{
 
     handleDelete(){
         event.preventDefault();
-        if (Object.keys(this.props.cards).length === 0){
-            this.props.deleteDeck(this.props.data)
-                .then(() => {
-                    this.props.closeModal()
-                })
-        } else if (Object.keys(this.props.cards).length !== 0) {
-            this.props.deleteCard(this.props.data)
-                .then(() => {
-                    this.props.closeModal()
-                })
-        }
-         
+        this.props.deleteCard(this.props.data)
+            .then(() => {
+                this.props.closeModal()
+            })       
     }
 
     render(){
@@ -43,7 +35,7 @@ class DeleteWarning extends React.Component{
         return(
             <div className="delete">
                 <div tabIndex="0" onKeyDown={this.escFunction}></div>
-                Are you sure you want to delete this?
+                Are you sure you want to delete this deck?
                  <div onClick={this.props.closeModal} className="close-x-login">×</div>
                 <div className="double-check">
                     <button onClick={this.handleDelete}>Yes, Please Delete</button>

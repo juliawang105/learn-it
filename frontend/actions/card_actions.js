@@ -2,6 +2,7 @@ import * as CardUtil from '../util/card_util';
 
 export const RECEIVE_CARD = 'RECEIVE_CARD';
 export const REMOVE_CARD = 'REMOVE_CARD';
+export const CLEAR_CARD = 'CLEAR_CARD';
 
 const receiveCard = card => ({
     type: RECEIVE_CARD,
@@ -11,6 +12,10 @@ const receiveCard = card => ({
 const removeCard = cardId => ({
     type: REMOVE_CARD,
     cardId
+});
+
+const clearCard = () => ({
+    type: CLEAR_CARD
 });
 
 export const fetchCard = cardId => dispatch => (
@@ -32,5 +37,9 @@ export const deleteCard = cardId => dispatch => (
     CardUtil.deleteCard(cardId)
         .then( ()=> dispatch(removeCard(cardId)))
 ); 
+
+export const clearAllCards = () => dispatch => (
+    dispatch(clearCard())
+);
 
 

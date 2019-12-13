@@ -1,5 +1,5 @@
-import { RECEIVE_CARD, REMOVE_CARD } from '../actions/card_actions'
-import { RECEIVE_DECK, REMOVE_DECK } from '../actions/deck_actions'
+import { RECEIVE_CARD, REMOVE_CARD, CLEAR_CARD } from '../actions/card_actions'
+import { RECEIVE_DECK, REMOVE_DECK, RECEIVE_ALL_DECKS } from '../actions/deck_actions'
 
 export const cardsReducer = (state = {}, action ) => {
     Object.freeze(state);
@@ -7,6 +7,10 @@ export const cardsReducer = (state = {}, action ) => {
 
     
     switch (action.type) {
+        case CLEAR_CARD:
+            newState = {};
+            return newState;
+
         case RECEIVE_DECK:
             for (let i = 0; i < action.payload.cards.length; i++) {
                 newState[action.payload.cards[i].id] = action.payload.cards[i]
