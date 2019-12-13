@@ -18,6 +18,7 @@ class StudyCards extends React.Component {
 
     this.handleClick = this.handleClick.bind(this);
     this.goBack = this.goBack.bind(this);
+    this.restart = this.restart.bind(this);
    
   }
 
@@ -60,6 +61,14 @@ class StudyCards extends React.Component {
     }; 
   };
 
+  restart(){
+    event.preventDefault()
+    this.setState({
+      currentCard: this.state.cards[0],
+      flipped: false,
+      end: false
+    })
+  }
 
   handleClick() {
     event.preventDefault();
@@ -103,7 +112,11 @@ class StudyCards extends React.Component {
     let scoreBar;
     
     if(this.state.cards.indexOf(this.state.currentCard) !== 0 || this.state.flipped !== false){
-      goBack = <div onClick={this.goBack}>Go Back To Previous Question</div>
+      goBack = <div className='go-back' onClick={this.goBack}>Go Back To Previous Question</div>
+    }
+
+    if(this.state.end === true){
+      goBack = <div></div>
     }
 
     if (this.state.flipped === false) {
@@ -138,7 +151,7 @@ class StudyCards extends React.Component {
       endCard = "You've reached the end of all the cards"
       scoreBar = (
         <div className="again">
-          <div onClick={this.handleClick} className="scorebar">
+          <div onClick={this.restart} className="scorebar">
             Study Again?
             </div>
         </div>
