@@ -17,8 +17,22 @@ class StudyCards extends React.Component {
     };
 
     this.handleClick = this.handleClick.bind(this);
+    //this.restart = this.restart.bind(this);
    
   }
+
+  // restart(){
+  //   // event.preventDefault();
+  //   // this.setState({
+  //   //   cards: [],
+  //   //   currentCard: this.state.cards[0],
+  //   //   // scores: this.props.scores,
+  //   //   flipped: false,
+  //   //   end: false
+  //   // })
+  //   window.location.reload(true)
+
+  // }
 
   componentDidMount() {
     this.props.fetchDeck(this.props.match.params.deckId).then(res => {
@@ -102,7 +116,11 @@ class StudyCards extends React.Component {
     } else if (this.state.end === true) {
       endCard = "You've reached the end of all the cards"
       scoreBar = (
-        <div className="tracking"></div>
+        <div className="again">
+          <div onClick={this.handleClick} className="scorebar">
+            Study Again?
+            </div>
+        </div>
       );
     }
 

@@ -8,6 +8,15 @@
 
 }
 
+.again{
+    height: 300px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .scorebar{
     display: flex;
     align-items: center;
