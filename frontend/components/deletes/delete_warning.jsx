@@ -29,7 +29,7 @@ class DeleteWarning extends React.Component{
                 .then(() => {
                     this.props.closeModal()
                 })
-        } else {
+        } else if (Object.keys(this.props.cards).length !== 0) {
             this.props.deleteCard(this.props.data)
                 .then(() => {
                     this.props.closeModal()
