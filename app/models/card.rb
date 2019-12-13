@@ -10,5 +10,5 @@ class Card < ApplicationRecord
         through: :deck, 
         source: :creator
     
-    has_many :scores
+    has_many :scores, dependent: :destroy,
 end
