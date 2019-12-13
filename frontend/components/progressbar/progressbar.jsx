@@ -48,7 +48,8 @@ class ProgressBar extends React.Component {
   render() {
     let sum = 0;
     let total;
-    // debugger
+    let cards = this.props.cards;
+    //debugger
     if (!Object.keys(this.state.scores).length) {
       total = 0;
     } else {
@@ -56,7 +57,7 @@ class ProgressBar extends React.Component {
       for (let i = 0; i < cardScores.length; i++) {
         sum += cardScores[i].score;
       }
-      total = (sum / (5 * cardScores.length)) * 100;
+      total = (sum / (5 * cards.length)) * 100;
     
     }
     
