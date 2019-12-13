@@ -10,10 +10,11 @@ class CardItem extends React.Component{
         // this.escFunction = this.escFunction.bind(this)
     }
 
-    handleClick(){
+    handleClick(cardId){
         event.preventDefault();
-        let cardId = this.props.card.id;
-        this.props.deleteCard(cardId)
+        //let cardId = this.props.card.id;
+        // this.props.deleteCard(cardId)
+        this.props.openModal('delete-warning', cardId)
     }
 
     render(){
@@ -22,7 +23,7 @@ class CardItem extends React.Component{
 
         if(this.props.deck.creator_id === parseInt(this.props.user)){
             button = <button className='card-delete' 
-                        onClick={() => this.handleClick()}>Delete Card
+                        onClick={() => this.handleClick(this.props.card.id)}>Delete Card
                     </button> 
             editButton = <button className="edit-close" 
                         onClick={() => this.props.openModal('edit-card', this.props.card)}>Edit Card

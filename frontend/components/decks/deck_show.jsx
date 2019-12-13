@@ -93,7 +93,8 @@ class DeckShow extends React.Component{
                 user={this.props.user}
                 deck={deck}
                 openModal={this.props.openModal}
-                fetchDeck={this.props.fetchDeck}/>
+                fetchDeck={this.props.fetchDeck}
+                />
         });
 
         let tags = this.state.tags;

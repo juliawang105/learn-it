@@ -1,11 +1,13 @@
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions'
 import DeleteWarning from './delete_warning';
+import { deleteCard } from '../../actions/card_actions'
 
 const mSTP = (state) => {
-    console.log(state.ui.modal.data)
+    // console.log(state.ui.modal.data)
     return{
-        deck: state.ui.modal.data
+        data: state.ui.modal.data,
+        cards: state.entities.cards
     }
     
 }
@@ -13,7 +15,8 @@ const mSTP = (state) => {
 
 const mDTP = dispatch => ({
     closeModal: () => dispatch(closeModal()),
-    deleteDeck: deckId => dispatch(deleteDeck(deckId))
+    deleteDeck: deckId => dispatch(deleteDeck(deckId)),
+    deleteCard: cardId => dispatch(deleteCard(cardId))
 });
 
 export default connect(mSTP, mDTP)(DeleteWarning)

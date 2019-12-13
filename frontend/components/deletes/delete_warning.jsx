@@ -24,14 +24,22 @@ class DeleteWarning extends React.Component{
 
     handleDelete(){
         event.preventDefault();
-         this.props.deleteDeck(this.props.deck)
-            .then( () => {
-                this.props.closeModal()
-            })
+        if (Object.keys(this.props.cards).length === 0){
+            this.props.deleteDeck(this.props.data)
+                .then(() => {
+                    this.props.closeModal()
+                })
+        } else {
+            this.props.deleteCard(this.props.data)
+                .then(() => {
+                    this.props.closeModal()
+                })
+        }
+         
     }
 
     render(){
-        //debugger
+        // debugger
         return(
             <div className="delete">
                 <div tabIndex="0" onKeyDown={this.escFunction}></div>
