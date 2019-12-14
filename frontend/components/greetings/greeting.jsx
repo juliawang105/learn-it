@@ -2,6 +2,7 @@ import GreetingContainer from './greeting_container';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
+import SearchBarContainer from '../searchbar/searchbar_container';
 
 class Greeting extends React.Component {
     constructor(props) {
@@ -24,7 +25,7 @@ class Greeting extends React.Component {
         let logged = this.props.currentUser
         const display = logged ? (
                 <div className="greetings">
-               
+                    <SearchBarContainer />
                     <NavLink id="view-deck" to={"/decks"}>View Decks</NavLink>
                     <div onClick={() => this.props.openModal('deck')} className="create-deck">Create New Deck</div>
                     <div >

@@ -5,7 +5,8 @@ import { savesReducer } from './saves_reducer';
 import { cardsReducer } from './cards_reducer';
 import { scoresReducer } from "./scores_reducer";
 import { tagsReducer } from './tags_reducer';
-import { deckTagsReducer } from './deck_tags_reducer'
+import { deckTagsReducer } from './deck_tags_reducer';
+//import { searchReducer } from './search_reducer';
 
 const entitiesReducer = combineReducers({
     users: usersReducer,
@@ -14,7 +15,8 @@ const entitiesReducer = combineReducers({
     cards: cardsReducer,
     scores: scoresReducer,
     tags: tagsReducer,
-    deckTags: deckTagsReducer
+    deckTags: deckTagsReducer,
+    //search: searchReducer
 });
 
 export default entitiesReducer;

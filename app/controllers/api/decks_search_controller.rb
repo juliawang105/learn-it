@@ -1,10 +1,13 @@
 class Api::DecksSearchController < ApplicationController
     def index
-        @decks = Decks.all.where('name LIKE?', '%#{query}%') || 
+        # debugger
+        @decks = Deck.all.where( ['name LIKE?', "%#{params[:query]}%"])
+        #(name: params[:query]) 
+       
     end
 
     private
     def deck_search_params
-        params.require(:search).permit(:query)
+        params.permit(:query)
     end
 end
