@@ -3,7 +3,7 @@ export const fetchDeckTags = (deck_id) => (
         url: `/api/deck_tags?deck_id=${deck_id}`,
         method: `GET`
     })
-)
+);
 
 export const createDeckTag = deck_tag => (
      $.ajax({

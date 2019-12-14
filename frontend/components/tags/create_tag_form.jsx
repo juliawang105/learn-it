@@ -75,7 +75,7 @@ class TagForm extends React.Component{
         if(!this.props.deckTags) return null;
         //debugger
         let tags = Object.values(this.props.tags).map( tag => {
-            return <li onClick={this.handleClick}
+            return <li className='each-tag' onClick={this.handleClick}
                         key={tag.id}
                         value={tag.id}>
                         {tag.name}</li>
@@ -89,18 +89,19 @@ class TagForm extends React.Component{
         return(
             <div className='tags'>
                 <div className='add-tag'>
-                    <div onClick={this.toggleDropdown}>
-                        Add tags
+                    <div className="all-tags" onClick={this.toggleDropdown}>
+                        Click to See All Tags
                     </div>
-                    {this.state.open && <ul>
+                    {this.state.open && <ul id='taglist'>
+                        Pick from the following to add:
                         {tags}
                     </ul>}
+                   
                 </div>
-
-                <div>Current Tags
+                <div>
+                    <div className="current-tags">Current Tags</div>
                     {deckTags}
                 </div>
-                
             </div>
         )
     }

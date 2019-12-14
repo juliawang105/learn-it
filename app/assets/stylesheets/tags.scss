@@ -1,4 +1,37 @@
 .tags{
     font-size: 10pt;
     display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 400px;
+    height: 100%;
+    
+}
+
+.all-tags{
+    position: relative;
+    bottom: 10px
+}
+
+ #taglist{
+    position: absolute;  
+}
+
+.current-tags{
+    padding-bottom: 10px;
+    text-decoration: underline;   
+}
+
+.each-tag{
+    border: 1px solid;
+    border-radius: 5px;
+    background-color: #5D6368;
+    opacity: 80%;
+    padding: 5px;
+    color: #C6D6E2;
+}
+
+.each-tag:hover{
+   opacity: 90%; 
 }

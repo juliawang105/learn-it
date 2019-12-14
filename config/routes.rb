@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :scores, only: [:create, :show, :update]
     resources :tags, only: [:create, :index, :show]
     resources :deck_tags, only:[:index, :show, :create, :destroy]
+    resources :decks_search, only: [:index]
   end
 
 end
