@@ -8,7 +8,8 @@ class SearchBar extends React.Component{
 
         this.state = {
             input: "",
-            results: ""
+            results: "",
+            loaded: false
         }
 
         this.handleInput = this.handleInput.bind(this);
@@ -16,30 +17,39 @@ class SearchBar extends React.Component{
         this.enterFunction = this.enterFunction.bind(this);
     };
 
-    componentDidMount(){
-        document.addEventListener('keydown', this.enterFunction)
+    componentDidUpdateMount(){
+        // if(this.state.input){
+        //     document.addEventListener('keydown', this.enterFunction)
+        // }
+        
+    }
+
+    componentDidUpdate(oldProps){
+        // debugger
+        
     }
 
     handleInput(){
         event.preventDefault();
         this.setState({input: event.target.value})
+        document.addEventListener('keydown', this.enterFunction)
     }
 
     enterFunction(e) {
         // e.preventDefault();
         if (e.keyCode === 13) {
             this.handleSearch()
-        }
-        
+        }  
     };
 
     handleSearch(){
         this.props.search(this.state.input)
             .then( res => {
-                console.log(res)
+                // console.log(res)
                 let resultIds = Object.keys(res.searchDecks);
                 this.setState({results: resultIds})
                 this.props.history.push(`/searches?ids=${resultIds}`)
+                this.setState({input: ""})
                 
             })
     }
@@ -49,7 +59,7 @@ class SearchBar extends React.Component{
         return(
             <div className="searchbar">
                 <div tabIndex="0" onKeyDown={this.enterFunction}></div>
-                <input onChange={this.handleInput} type="text" value={this.state.input}placeholder='Search by Deck Names'/>   
+                <input onChange={this.handleInput} type="text" value={this.state.input}placeholder="Search For Decks"/>   
             </div>
            
         )

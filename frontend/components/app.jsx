@@ -21,22 +21,19 @@ const App = () => (
             <ModalContainer />
             <header className="navbar">
                 <div className="name"> 
-                    <i className="fa fa-lightbulb-o fa-3x">
+                    <i className="fa fa-lightbulb-o fa-2x">
                     </i>
-                    <span className="name2"> <NavLink className="nav2" to={"/"}>Learn It</NavLink>
-                    </span>
-                    <a className='job' href="https://github.com/juliawang105/fullstack"><i className="fab fa-github fa-2x"></i></a>
-                    <a className='job' href="https://www.linkedin.com/in/julia-wang-b1981231/"><i className="fab fa-linkedin fa-2x"></i></a>
-                        
-                    
-
+                    <NavLink className="nav2" to={"/"}>Learn It</NavLink>
+                   
+                    <div><a className='job' href="https://github.com/juliawang105/fullstack"><i className="fab fa-github fa-2x"></i></a></div>
+                    <div><a className='job' href="https://www.linkedin.com/in/julia-wang-b1981231/"><i className="fab fa-linkedin fa-2x"></i></a></div>
                 </div>
                 <GreetingContainer />
             </header>
 
-            <div className="body">
+            {/* <div className="body">
                 {/* switch statements */}
-            </div>
+            {/* </div> */} 
             
             <Switch>
                 

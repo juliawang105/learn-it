@@ -71,6 +71,9 @@
 .deck_show{
     background-color: #F2F2F2;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
 }
 
 .deck_title {

@@ -46,8 +46,8 @@
   font-size: 16pt;
   padding-right: 33px;
   padding-left: 6px;
-  position: relative;
-  left: -14px;
+  // position: relative;
+  // left: -14px;
   cursor: pointer;
 }
 
@@ -84,8 +84,9 @@
   padding: 10px;
   border: 1px solid #CEDEED;
   border-radius: 5%;
-  position: relative;
-  left: -100px
+  margin:10px
+  // position: relative;
+  // left: -100px
 }
 
 #view-deck:hover{
@@ -98,9 +99,9 @@
   padding: 10px;
   border: 1px solid #CEDEED;
   border-radius: 5%;
-  position: relative;
-  top: 128px;
-  left: 37px;
+  // position: relative;
+  // top: 128px;
+  // left: 37px;
 }
 
 #see-deck:hover{
@@ -113,9 +114,11 @@
   padding: 10px;
   border: 1px solid #CEDEED;
   border-radius: 5%;
-  position: relative;
-  left: -50px;
+  // position: relative;
+  // left: -50px;
   cursor: pointer;
+  margin: 10px;
+  margin-left: 5px;
 }
 
 .create-deck:hover{

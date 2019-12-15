@@ -1,14 +1,17 @@
 .progress{
     width: 200px;
     height: 200px;
-    position: relative;
-    bottom: 40px;
+    // position: relative;
+    // bottom: 40px;
 }
 
 .progressBar{
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
+  width: 100%;
+    overflow: scroll;
   
 }
 

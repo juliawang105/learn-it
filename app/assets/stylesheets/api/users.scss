@@ -26,6 +26,7 @@
 .save-list{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
     margin-bottom: 50px;
 }
@@ -33,4 +34,5 @@
 .user-decks{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }

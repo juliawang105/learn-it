@@ -25,11 +25,11 @@ body{
     
 }
 .name {
-    flex-direction: row;
-    align-items: center;
     margin: 10px;
-    vertical-align: middle;
-    
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    align-items: center; 
 }
 
 .name2{
@@ -67,9 +67,11 @@ i {
     background-size: 50px;
 }
 
-.nav2{
+.nav2 {
     color: #E4E3E0;
     cursor: pointer;
+    font-size: 20pt;
+    
 }
 
 .nav:hover{

@@ -3,8 +3,9 @@
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
+    // overflow: scroll;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
    
 }
