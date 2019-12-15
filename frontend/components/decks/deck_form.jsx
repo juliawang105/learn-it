@@ -35,7 +35,13 @@ class DeckForm extends React.Component{
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.action(this.state).then(this.props.closeModal)
+        //debugger
+        this.props.action(this.state)
+        .then( res => {
+            this.props.history.push(`/decks/${res.payload.id}`)
+            // console.log(res)
+        })
+        .then(this.props.closeModal)
     }
 
     render(){

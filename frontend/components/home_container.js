@@ -10,11 +10,12 @@ class HomeForm extends React.Component{
         return (
             <div className="homepage" >
                 <div className="notes">
-                   <h2>Personalized Notes</h2>
+                    
+                   <span>Personalized Notes</span>
                     <br></br>
-                   <h2>Effective Learning</h2>
+                   <span>Effective Learning</span>
                     <br></br>
-                   <h2>Maximized Time</h2>
+                   <span>Maximized Time</span>
                 </div>  
             </div>
         )

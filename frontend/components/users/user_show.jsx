@@ -17,8 +17,8 @@ class UserShow extends React.Component{
         // for(let i = 0; i < arr.length; i ++){
         //     this.props.fetchSave(arr[i].id)
         // };
-
         this.props.fetchDecks()
+        //this.props.clearAllCards()
         //     .then( res => {
         //         console.log(res)
         //     })
@@ -41,7 +41,12 @@ class UserShow extends React.Component{
                 fetchSave={this.props.fetchSave} 
                 fetchDecks={this.props.fetchDecks}
                 decks={this.props.decks}
-                user={this.props.user}/>
+                // session={this.props.session}
+                // deleteDeck={this.props.deleteDeck}
+                // session={this.props.session}
+                // openModal={this.props.openModal}
+                // closeModal={this.props.closeModal}
+                />
             </div>
         )
          });
@@ -49,12 +54,18 @@ class UserShow extends React.Component{
         let allDecks = Object.values(this.props.decks) 
         
         let created = allDecks.filter( deck => {
-            return deck.creator_id === parseInt(this.props.user.id)
+            return deck.creator_id === parseInt(this.props.session)
         }); 
 
         let createdDecks = created.map( deck => {
             return (<div>
-                <DeckIndexItem key={deck.id} deck={deck} />
+                <DeckIndexItem 
+                    key={deck.id} 
+                    deck={deck} 
+                    deleteDeck={this.props.deleteDeck}
+                    session={this.props.session}
+                    openModal={this.props.openModal}
+                    closeModal={this.props.closeModal}/>
             </div> )
         })
 

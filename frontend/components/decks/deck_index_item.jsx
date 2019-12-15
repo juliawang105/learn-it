@@ -13,7 +13,7 @@ class DeckIndexItem extends React.Component {
 
     handleClick(deck_id){
         event.preventDefault();
-        this.props.openModal('delete-warning', deck_id)
+        this.props.openModal('delete-deck', deck_id)
         // this.props.deleteDeck(this.props.deck.id)
            
     };

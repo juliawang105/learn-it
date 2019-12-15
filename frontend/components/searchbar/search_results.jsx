@@ -18,19 +18,24 @@ class SearchResults extends React.Component{
         });
         
         let result = [];
-
+        
         for(let i = 0; i < idArr.length; i ++ ){
             this.props.fetchDeck(idArr[i])
             .then( res =>{
                 result.push(res.payload.deck)
                 this.setState({ decks: result })
             })
-
+             
         }
+        
     }
 
     componentDidUpdate(oldProps){
-        //debugger
+        // debugger
+        if (this.props.location.search === "?ids="){
+            return;
+        };
+
         if(oldProps.location.search !== this.props.location.search){
            //console.log('it hit')
             let ids = this.props.history.location.search.slice(5);
@@ -45,25 +50,35 @@ class SearchResults extends React.Component{
                     .then(res => {
                         result.push(res.payload.deck)
                         this.setState({ decks: result })
-                 })
+                 })  
             };
         };
     };
 
     render(){
-       
-        if(!this.state.decks) return null; 
-        let matches = this.state.decks.map( deck => {
-            return <DeckItem key={deck.id} 
-                             deck={deck} 
-                             session={this.props.session} 
-                             openModal={this.props.openModal}
-                             closeModal={this.props.closeModal}/>
-        })
-        //debugger
+        if (!this.state.decks) return null;
+        let text;
+        let matches;
+        console.log(this.props.location.search)
+        if (this.props.location.search === "?ids="){
+            text = "Sorry, there are no matches."
+            // matches = <div className="results">{text} </div>
+        } else {
+            text = "Your Search Results"
+            matches = this.state.decks.map(deck => {
+                return  <DeckItem key={deck.id}
+                            deck={deck}
+                            session={this.props.session}
+                            openModal={this.props.openModal}
+                            closeModal={this.props.closeModal}
+                            deleteDeck={this.props.deleteDeck} /> 
+            })
+        }
         return(
-            <div>
+            <div className="search_index"> 
+                <div className="results">{text}</div>
                 {matches}
+                
             </div>
         )
     }

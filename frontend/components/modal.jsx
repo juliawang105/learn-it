@@ -7,7 +7,8 @@ import CreateDeckContainer from './decks/create_deck_container';
 import CreateCardContainer from './cards/create_card_container';
 import UpdateCardContainer from './cards/update_card';
 import EditDeckContainer from './decks/edit_deck';
-import DeleteWarningContainer from './deletes/delete_warning_container'
+import DeleteDeckContainer from './deletes/delete_deck_container';
+import DeleteCardContainer from './deletes/delete_card_container';
 
 class ModalForm extends React.Component{
     constructor(props){
@@ -39,8 +40,11 @@ class ModalForm extends React.Component{
         case 'edit-deck':
             component =<EditDeckContainer />
             break;
-        case 'delete-warning':
-            component = <DeleteWarningContainer/>
+        case 'delete-deck':
+            component = <DeleteDeckContainer/>
+            break;
+        case 'delete-card':
+            component = <DeleteCardContainer />
             break;
 
         default:

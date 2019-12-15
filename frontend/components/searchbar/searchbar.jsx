@@ -17,6 +17,10 @@ class SearchBar extends React.Component{
         this.enterFunction = this.enterFunction.bind(this);
     };
 
+    // componentDidMount(){
+    //     this.props.clearAllCards()
+    // }
+    
     handleInput(){
         event.preventDefault();
         this.setState({input: event.target.value})

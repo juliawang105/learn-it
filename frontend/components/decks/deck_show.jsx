@@ -19,37 +19,36 @@ class DeckShow extends React.Component{
     }
 
     componentDidMount(){
+        //debugger
         this.props.fetchDeck(this.props.match.params.deckId)
-            .then( res => {
-                // debugger
-                this.setState({tags: res.payload.tags})
+            // .then( res => {
+            //     // debugger
+            //     this.setState({tags: res.payload.tags})
                
-            });
-        // this.props.fetchTags()
-        //     .then( res =>)
-        
+            // }); 
     };
 
     componentDidUpdate(oldProps) {
-        // debugger;
+        //debugger;
         if (oldProps.match.params.deckId !== this.props.match.params.deckId) {
             this.props.fetchDeck(this.props.match.params.deckId)
-                .then(res => {
-                    //debugger
-                    this.setState({ tags: res.payload.tags })
+                // .then(res => {
+                //     //debugger
+                //     this.setState({ tags: res.payload.tags })
 
-                });
-        if(Object.keys(oldProps.tags).length !== Object.keys(this.props.tags).length){
-            this.props.fetchDeck(this.props.match.params.deckId)
-                .then(res => {
-                    //debugger
-                    this.setState({ tags: res.payload.tags })
-
-                });
-            }
+                // });
         };
- 
+        // debugger
+        // if(Object.keys(oldProps.tags).length !== Object.keys(this.props.tags).length){
+        //     this.props.fetchDeck(this.props.match.params.deckId)
+        //         .then(res => {
+        //             //debugger
+        //             this.setState({ tags: res.payload.tags })
+
+        //         });
+        //     }
     };
+
    
     handleClick(e) {
         e.preventDefault();
@@ -71,10 +70,6 @@ class DeckShow extends React.Component{
         } 
         this.props.saveDeck(save).then( () => this.setState({following: true})); 
     };
-
-    // rerenderParentCallback() {
-    //     this.forceUpdate();
-    // };
 
     render(){
         
@@ -105,10 +100,13 @@ class DeckShow extends React.Component{
                 return save.deck_id
             })
         let createButton;
+        let deleteButton
         
         if(deck.creator_id === parseInt(this.props.user)){
             createButton = <button className='card-button' 
                 onClick={() => this.props.openModal('card', deck.id)}><i className="fas fa-plus-circle"></i>Add New Card</button>
+            deleteButton = <button className='card-button'
+                onClick={() => this.props.openModal('delete-deck', deck.id)}>Delete Deck</button>
         }
         
         let saveButton;
@@ -124,19 +122,20 @@ class DeckShow extends React.Component{
                 <div className="show">
                     <div className="deck_title">{deck.name} 
                         
-                         <div>
+                         {/* <div>
                             <TagForm 
                             fetchTags={this.props.fetchTags}
                             fetchDeck={this.props.fetchDeck}
                             deck={this.props.deck}
                             tags={this.state.tags}
                             createDeckTag={this.props.createDeckTag}/> 
-                         </div>
+                         </div> */}
                     </div>
                         
                         {createButton}
                         <br/>
                         {saveButton}
+                        {deleteButton}
                     
                         <Link id='study' to={`/decks/${this.props.deck.id}/study`}>Study this Deck!</Link>
                     

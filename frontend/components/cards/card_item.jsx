@@ -12,7 +12,7 @@ class CardItem extends React.Component{
 
     handleClick(cardId){
         event.preventDefault();
-        this.props.openModal('delete-warning', cardId)
+        this.props.openModal('delete-card', cardId)
     }
 
     render(){
