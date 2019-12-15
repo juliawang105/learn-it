@@ -17,18 +17,6 @@ class SearchBar extends React.Component{
         this.enterFunction = this.enterFunction.bind(this);
     };
 
-    componentDidUpdateMount(){
-        // if(this.state.input){
-        //     document.addEventListener('keydown', this.enterFunction)
-        // }
-        
-    }
-
-    componentDidUpdate(oldProps){
-        // debugger
-        
-    }
-
     handleInput(){
         event.preventDefault();
         this.setState({input: event.target.value})
@@ -43,15 +31,20 @@ class SearchBar extends React.Component{
     };
 
     handleSearch(){
-        this.props.search(this.state.input)
-            .then( res => {
-                // console.log(res)
-                let resultIds = Object.keys(res.searchDecks);
-                this.setState({results: resultIds})
-                this.props.history.push(`/searches?ids=${resultIds}`)
-                this.setState({input: ""})
-                
-            })
+        if(this.state.input === ""){
+            return; 
+        } else {
+            this.props.search(this.state.input)
+                .then(res => {
+                    // console.log(res)
+                    let resultIds = Object.keys(res.searchDecks);
+                    this.setState({ results: resultIds })
+                    this.props.history.push(`/searches?ids=${resultIds}`)
+                    this.setState({ input: "" })
+
+                })
+        };
+        
     }
 
     render(){
