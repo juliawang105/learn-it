@@ -23,8 +23,8 @@ const removeDeck = deckId => ({
     deckId
 });
 
-export const fetchDecks = () => dispatch => (
-    DeckUtil.fetchDecks()
+export const fetchDecks = (creator_id) => dispatch => (
+    DeckUtil.fetchDecks(creator_id)
         .then(res => dispatch(receiveAllDecks(res)))
 );
 

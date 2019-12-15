@@ -30,6 +30,7 @@ class SearchResults extends React.Component{
     }
 
     componentDidUpdate(oldProps){
+        debugger
         if(oldProps.history.location.search !== this.props.history.location.search){
             let ids = this.props.history.location.search.slice(5);
             let idArr = ids.split(",").map(id => {
@@ -52,7 +53,11 @@ class SearchResults extends React.Component{
        
         if(!this.state.decks) return null; 
         let matches = this.state.decks.map( deck => {
-            return <DeckItem key={deck.id} deck={deck} />
+            return <DeckItem key={deck.id} 
+                             deck={deck} 
+                             session={this.props.session} 
+                             openModal={this.props.openModal}
+                             closeModal={this.props.closeModal}/>
         })
         //debugger
         return(

@@ -20,8 +20,6 @@ class DeckIndexItem extends React.Component {
 
     render(){
         let user_id;
-       
-
         if (this.props.deck.creator_id) {
             user_id = this.props.deck.creator_id; 
         } else if (this.props.deck.creator.id) {

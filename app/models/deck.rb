@@ -32,4 +32,8 @@ class Deck < ApplicationRecord
     has_many :tags,
         through: :deck_tags,
         source: :tag
+
+    def self.check_id(check_id)
+        self.where("creator_id", check_id[:check_id])
+    end
 end

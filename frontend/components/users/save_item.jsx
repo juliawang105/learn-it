@@ -9,7 +9,7 @@ class SaveItem extends React.Component {
     }
 
     componentDidMount(){
-        this.props.fetchDecks();
+        //this.props.fetchDecks();
         this.props.fetchSave(this.props.save.id)
     }
 
