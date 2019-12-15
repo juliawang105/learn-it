@@ -62,7 +62,7 @@ class UserShow extends React.Component{
         return(
             <div className="user-show">
                 <div className="saved">Your Created Decks</div>
-                <div className="saved-list">{createdDecks}</div>
+                <div className="user-decks">{createdDecks}</div>
                 <div className="saved">Your Saved Decks</div>
                 <div className="save-list">{saves}</div>
                 

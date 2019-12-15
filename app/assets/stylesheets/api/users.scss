@@ -7,14 +7,13 @@
     justify-content: flex-start;
     flex-wrap: wrap;
     background-color: #235173;
-    height: 100vw;
+    min-height: 100%;
 
 }
 
 .saved{
     height: 150px;
     width: 100%;
-    // border: 1px solid black;
     text-align: center;
     color: #F18C4B;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -28,4 +27,10 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    margin-bottom: 50px;
+}
+
+.user-decks{
+    display: flex;
+    flex-wrap: wrap;
 }

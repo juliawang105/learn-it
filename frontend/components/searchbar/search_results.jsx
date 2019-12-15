@@ -30,7 +30,7 @@ class SearchResults extends React.Component{
     }
 
     componentDidUpdate(oldProps){
-        debugger
+        //debugger
         if(oldProps.history.location.search !== this.props.history.location.search){
             let ids = this.props.history.location.search.slice(5);
             let idArr = ids.split(",").map(id => {

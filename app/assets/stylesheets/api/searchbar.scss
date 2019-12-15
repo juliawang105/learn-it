@@ -1,4 +1,14 @@
 .searchbar{
     position: relative;
-    right: 200px;
+    right: 149px;
+}
+
+.searchbar > input {
+    height: 25px;
+    width: 759px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #CEDEED;
+    font-size: 12pt;
+    text-align: center;
 }

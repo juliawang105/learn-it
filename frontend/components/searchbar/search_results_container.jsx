@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchDeck } from '../../actions/deck_actions';
+import { fetchDeck, fetchDecks } from '../../actions/deck_actions';
 import SearchResults from './search_results';
 import { openModal, closeModal } from '../../actions/modal_actions'
 
