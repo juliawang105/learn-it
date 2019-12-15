@@ -26,10 +26,10 @@ class Greeting extends React.Component {
         const display = logged ? (
                 <div className="greetings">
                     <SearchBarContainer />
-                    <NavLink id="view-deck" to={"/decks"}>View Decks</NavLink>
+                    <NavLink id="view-deck" to={"/decks"}>View All Decks</NavLink>
                     <div onClick={() => this.props.openModal('deck')} className="create-deck">Create New Deck</div>
                     <div >
-                    <NavLink className="user-page" to={`/users/${logged.id}`}><h2>Welcome {logged.first_name}</h2></NavLink>
+                    <NavLink className="user-page" to={`/users/${logged.id}`}><h2>Welcome {logged.first_name} <p>Click to See Your Decks</p></h2></NavLink>
                     </div>
                     <div><button id='logoutbutton' onClick={this.handleSubmit}>LOG OUT</button></div>  
                 </div>
