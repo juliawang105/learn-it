@@ -12,6 +12,7 @@ import CreateDeckContainer from './decks/create_deck_container';
 import UsersShowContainer from './users/users_show_container';
 import StudyCardsContainer from './study/study_cards_container';
 import ProgressBarContainer from './progressbar/progressbar_container';
+import SearchResultsContainer from './searchbar/search_results_container'
 
 
 const App = () => (
@@ -46,6 +47,7 @@ const App = () => (
                 <Route exact path ="/decks/:deckId/study" component={StudyCardsContainer} />
                 <Route exact path="/users/:id" component={UsersShowContainer} />
                 <Route exact path="/new" component={CreateDeckContainer } />
+                <Route exact path="/searches" component={SearchResultsContainer} />
                 {/* <Route exact path="/decks/:deckId/progress" component={ ProgressBarContainer} /> */}
 
                 <Route exact path='/' component={HomeFormContainer} />
