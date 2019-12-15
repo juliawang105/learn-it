@@ -1,7 +1,8 @@
 class Api::DecksSearchController < ApplicationController
     def index
         # debugger
-        @decks = Deck.all.where( ['name LIKE?', "%#{params[:query]}%"])
+        search_name = params[:query].downcase
+        @decks = Deck.all.where( ['lower(name) LIKE?', "%#{search_name}%"])
         #(name: params[:query]) 
        
     end

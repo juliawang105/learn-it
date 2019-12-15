@@ -5,7 +5,7 @@ export const searchReducer = (state = {}, action) => {
     let newState = Object.assign({}, state)
     switch(action.type){
         case RECEIVE_SEARCH_RESULTS:
-            debugger
+           // debugger
             newState = action.searchDecks;
             return newState;
         default:
