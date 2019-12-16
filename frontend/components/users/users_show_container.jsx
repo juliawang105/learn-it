@@ -14,9 +14,9 @@ const mSTP = state => ({
 const mDTP = dispatch => ({
     fetchSave: saveId => dispatch(fetchSave(saveId)),
     fetchDecks: () => dispatch(fetchDecks()),
-    // closeModal: () => dispatch(closeModal()),
-    // openModal: (modal, data) => dispatch(openModal(modal, data)),
-    // deleteDeck: deckId => dispatch(deleteDeck(deckId)),
+    closeModal: () => dispatch(closeModal()),
+    openModal: (modal, data) => dispatch(openModal(modal, data)),
+    deleteDeck: deckId => dispatch(deleteDeck(deckId)),
     // clearAllCards: () => dispatch(clearAllCards())
 })
 

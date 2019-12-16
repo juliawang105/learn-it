@@ -41,11 +41,11 @@ class UserShow extends React.Component{
                 fetchSave={this.props.fetchSave} 
                 fetchDecks={this.props.fetchDecks}
                 decks={this.props.decks}
-                // session={this.props.session}
-                // deleteDeck={this.props.deleteDeck}
-                // session={this.props.session}
-                // openModal={this.props.openModal}
-                // closeModal={this.props.closeModal}
+                session={this.props.session}
+                deleteDeck={this.props.deleteDeck}
+                session={this.props.session}
+                openModal={this.props.openModal}
+                closeModal={this.props.closeModal}
                 />
             </div>
         )

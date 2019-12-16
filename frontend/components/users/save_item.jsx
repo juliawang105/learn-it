@@ -37,7 +37,14 @@ class SaveItem extends React.Component {
         }
 
         let displays = display.map( (display) => {
-            return  <DeckIndexItem deck={display}/>
+            return  <DeckIndexItem 
+                deck={display}
+                decks={this.props.decks}
+                session={this.props.session}
+                deleteDeck={this.props.deleteDeck}
+                session={this.props.session}
+                openModal={this.props.openModal}
+                closeModal={this.props.closeModal}/>
         });
 
         return (

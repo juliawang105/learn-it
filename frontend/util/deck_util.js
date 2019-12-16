@@ -1,10 +1,7 @@
-export const fetchDecks = (creator_id) => (
+export const fetchDecks = () => (
     $.ajax({
         url: `/api/decks`,
         method: `GET`,
-        data: {
-            check_id: creator_id
-        }
     })
 );
 

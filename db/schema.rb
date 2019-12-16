@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_09_212056) do
+ActiveRecord::Schema.define(version: 2019_12_16_081252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 2019_12_09_212056) do
     t.integer "learner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "deck_id"
     t.index ["learner_id", "card_id"], name: "index_scores_on_learner_id_and_card_id", unique: true
   end
 

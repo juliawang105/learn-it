@@ -1,6 +1,10 @@
 class Api::ScoresController < ApplicationController
     before_action :require_login 
 
+    def index
+        @score = Score.all.where("deck_id": params[:deck_id]).where("learner_id:")
+    end
+
     def create 
         @score = Score.create(score_params)
        
@@ -31,6 +35,6 @@ class Api::ScoresController < ApplicationController
     private 
     
     def score_params
-        params.require(:score).permit(:learner_id, :card_id, :score)
+        params.require(:score).permit(:learner_id, :card_id, :score, :deck_id)
     end
 end

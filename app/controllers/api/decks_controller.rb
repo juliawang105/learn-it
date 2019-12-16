@@ -3,8 +3,9 @@ class Api::DecksController < ApplicationController
 
     def index
         #debugger
-        decks = check_id ? Deck.all.where(creator_id: params[:check_id]) : Deck.all
-        @decks = decks
+        # decks = check_id ? Deck.all.where(creator_id: params[:check_id]) : Deck.all
+        # @decks = decks
+        @decks = Deck.all
         render :index 
     end
 
@@ -55,7 +56,7 @@ class Api::DecksController < ApplicationController
         params.require(:deck).permit(:name, :creator_id);
     end
 
-    def check_id
-        params[:check_id]
-    end
+    # def check_id
+    #     params[:check_id]
+    # end
 end

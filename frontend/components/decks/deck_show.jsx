@@ -120,9 +120,10 @@ class DeckShow extends React.Component{
         return(
             <div className="deck_show">
                 <div className="show">
-                    <div className="deck_title">{deck.name} 
+                    <div className="deck_title">{deck.name} <Link id="study" to={`/decks/${this.props.deck.id}/study`}>Study this Deck!</Link> 
                         
-                         {/* <div>
+
+                        {/* <div>
                             <TagForm 
                             fetchTags={this.props.fetchTags}
                             fetchDeck={this.props.fetchDeck}
@@ -131,16 +132,16 @@ class DeckShow extends React.Component{
                             createDeckTag={this.props.createDeckTag}/> 
                          </div> */}
                     </div>
-                        
-                        {createButton}
-                        <br/>
-                        {saveButton}
-                        {deleteButton}
+                    {saveButton} 
+                    <br />
+                    {createButton}
+                    <br/>
+                    {deleteButton}
+
                     
-                        <Link id='study' to={`/decks/${this.props.deck.id}/study`}>Study this Deck!</Link>
-                    
-                        {deck_cards}
-                        
+
+                    {deck_cards}
+
                 </div>
 
             </div>

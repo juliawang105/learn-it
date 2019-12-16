@@ -11,7 +11,8 @@ class Score < ApplicationRecord
         foreign_key: :card_id,
         class_name: 'Card'
 
-    has_one :deck, 
-        through: :card,
-        source: :deck
+    belongs_to :deck, 
+        primary_key: :id, 
+        foreign_key: :deck_id,
+        class_name: 'Deck'
 end

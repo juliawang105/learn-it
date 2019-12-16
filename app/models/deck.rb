@@ -6,7 +6,7 @@ class Deck < ApplicationRecord
         foreign_key: :creator_id,
         class_name: 'User'
 
-    has_many :saves,
+    has_many :saves, dependent: :destroy,
         primary_key: :id,
         foreign_key: :deck_id,
         class_name: 'Save'
@@ -20,9 +20,11 @@ class Deck < ApplicationRecord
         foreign_key: :deck_id,
         class_name: 'Card'
 
-    has_many :scores,
-        through: :cards,
-        source: :scores 
+    has_many :scores,dependent: :destroy,
+        primary_key: :id, 
+        foreign_key: :deck_id,
+        class_name: 'Score'
+
 
     has_many :deck_tags,
         primary_key: :id,  
@@ -33,7 +35,7 @@ class Deck < ApplicationRecord
         through: :deck_tags,
         source: :tag
 
-    def self.check_id(check_id)
-        self.where("creator_id", check_id[:check_id])
-    end
+    # def self.check_id(check_id)
+    #     self.where("creator_id", check_id[:check_id])
+    # end
 end
