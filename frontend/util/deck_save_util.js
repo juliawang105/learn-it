@@ -19,3 +19,9 @@ export const fetchSave = (saveId) => (
         method: `GET`
     })
 );
+
+export const fetchSaves = (learner_id) =>
+  $.ajax({
+    url: `/api/saves/?learner_id=${learner_id}`,
+    method: `GET`
+  });

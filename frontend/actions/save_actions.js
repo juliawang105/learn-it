@@ -2,7 +2,8 @@ import * as DECKSAVEAPIUTIL from '../util/deck_save_util';
 
 export const FOLLOW_DECK = 'FOLLOW_DECK';
 export const UNFOLLOW_DECK = 'UNFOLLOW_DECK';
-export const RECEIVE_SAVE = 'RECEIVE_SAVE'
+export const RECEIVE_SAVE = 'RECEIVE_SAVE';
+export const RECEIVE_ALL_SAVES = "RECEIVE_ALL_SAVES";
 
 const followDeck = save => ({
     type: FOLLOW_DECK,
@@ -19,6 +20,11 @@ const receiveSave = saveId => ({
     saveId
 })
 
+const receiveAllSaves = saves => ({
+    type: RECEIVE_ALL_SAVES,
+    saves
+})
+
 export const saveDeck = save => dispatch => (
     DECKSAVEAPIUTIL.saveDeck(save)
         .then((res) => dispatch(followDeck(res)))
@@ -33,3 +39,8 @@ export const fetchSave = saveId => dispatch => (
     DECKSAVEAPIUTIL.fetchSave(saveId)
         .then( (res) => dispatch(receiveSave(res)))
 );
+
+export const fetchSaves = learner_id => dispatch =>
+         DECKSAVEAPIUTIL.fetchSaves(learner_id).then(res =>
+           dispatch(receiveAllSaves(res))
+         );

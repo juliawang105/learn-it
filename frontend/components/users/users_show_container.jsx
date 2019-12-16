@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import UserShow from './user_show';
-import { fetchSave } from '../../actions/save_actions';
+import { fetchSave, fetchSaves } from '../../actions/save_actions';
 import { fetchDecks, deleteDeck  } from '../../actions/deck_actions';
 import { closeModal, openModal } from '../../actions/modal_actions';
 import { clearAllCards } from '../../actions/card_actions' 
@@ -17,6 +17,8 @@ const mDTP = dispatch => ({
     closeModal: () => dispatch(closeModal()),
     openModal: (modal, data) => dispatch(openModal(modal, data)),
     deleteDeck: deckId => dispatch(deleteDeck(deckId)),
+    fetchSaves: learnerId => dispatch(fetchSaves(learnerId))
+
     // clearAllCards: () => dispatch(clearAllCards())
 })
 

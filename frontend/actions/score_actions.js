@@ -31,4 +31,4 @@ export const updateScore = score => dispatch => (
 export const fetchScores = (deck_id, learner_id) => dispatch =>
     ScoreUtil.fetchScores(deck_id, learner_id).then(res =>
         dispatch(receiveScores(res))
-    );
+);

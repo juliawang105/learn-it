@@ -8,17 +8,16 @@ class HomeForm extends React.Component{
 
     render(){
         return (
-            <div className="homepage" >
-                <div className="notes">
-                    
-                   <span>Personalized Notes</span>
-                    <br></br>
-                   <span>Effective Learning</span>
-                    <br></br>
-                   <span>Maximized Time</span>
-                </div>  
+          <div className="homepage fadeInDown">
+            <div className="notes">
+              <span>Personalized Notes</span>
+              <br></br>
+              <span>Effective Learning</span>
+              <br></br>
+              <span>Maximized Time</span>
             </div>
-        )
+          </div>
+        );
     }
 };
 

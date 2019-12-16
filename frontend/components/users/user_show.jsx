@@ -6,23 +6,21 @@ import DeckIndexItem from '../decks/deck_index_item';
 class UserShow extends React.Component{
     constructor(props){
         super(props)
-        // this.state={
-        //     userDecks: ""
-        // }
+        this.state={
+            saves: ""
+        }
         
     };
 
     componentDidMount(){
-        // let arr = this.props.saves; 
-        // for(let i = 0; i < arr.length; i ++){
-        //     this.props.fetchSave(arr[i].id)
-        // };
-        this.props.fetchDecks()
-        //this.props.clearAllCards()
-        //     .then( res => {
-        //         console.log(res)
-        //     })
-        // // debugger;
+        this.props.fetchDecks();
+        this.props.fetchSaves(this.props.session)
+            .then( res => {
+                this.setState({
+                    saves: res.saves
+                })
+            })
+        
     };
 
 

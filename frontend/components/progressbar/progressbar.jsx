@@ -10,7 +10,8 @@ class ProgressBar extends React.Component {
     this.state = {
       scores: this.props.scores,
       total: 0,
-      update: false
+      update: false,
+      
     };
   }
 
@@ -65,7 +66,7 @@ class ProgressBar extends React.Component {
       total = (sum / (5 * cards.length)) * 100;
     
     }
-    
+    //debugger
     return (
       <div className="progress">
         <div className="mastery-title">
@@ -99,7 +100,7 @@ class ProgressBar extends React.Component {
             }}
           />
           </div> 
-        <NavLink id="see-deck" to={`/decks/${this.props.deck.id}`}>See All Cards</NavLink>
+        <NavLink id="see-deck" to={`/decks/${this.props.match.params.deckId}`}>See All Cards</NavLink>
       </div>
     );
   }

@@ -1,10 +1,10 @@
 class Api::SavesController < ApplicationController
     before_action :require_login 
 
-    # def index 
-    #     @saves = Save.where(learner_id: params[:user_id]);
-    #     render 'api/u'
-    # end
+    def index 
+        @saves = Save.all.where(learner_id: current_user.id)
+        render :index
+    end
 
     def create 
         # debugger

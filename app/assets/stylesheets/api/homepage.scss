@@ -1,4 +1,4 @@
-.homepage{
+.homepage {
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
@@ -11,7 +11,7 @@
     
 };
 
-.notes{
+.notes {
   //border: 1px solid black;
   height: 100px;
   width: 100%;
@@ -21,6 +21,11 @@
   justify-content: space-evenly;
   align-items: center;
 }
+
+// .fadeInDown {
+//   -webkit-animation-name: fadeInDown;
+//   animation-name: fadeInDown;
+// }
 
 .notes > span{
     font-size: 30px;

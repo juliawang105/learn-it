@@ -85,42 +85,34 @@
 }
 
 .card-button{
-    position: relative;
-    margin: 1px;
-    top: -55px;
-    right: -39px;
+    
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background: #4CA5DB;
-    height: 39px;
-    width: 164px;
+    width: 90%;
     border-radius: 5px;
-    padding: 0px;
-    margin-top: 14px;
-    padding-top: -2px;
-    margin-left: 0px;
-    font-size: 10pt;
-    color: #F2FAFD;
+    font-size: 80%;
     cursor: pointer;
-}
-
-#study{
-    //position: relative;
-    margin: 1px;
-    top: -2px;
-    right: 126px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background: #4CA5DB;
-    border-radius: 5px;
-    margin-top: 14px;
-    margin-left: 0px;
-    font-size: 10pt;
-    color: #F2FAFD;
-    padding: 11px;
-    padding-right: 26px;
-    padding-left: 26px;
+    margin: 10px;
+    text-align: center;
+    padding: 2%;
     cursor: pointer;
+    border: 1px solid #CEDEED;
+    color: #CCDDED;
+    background-color: inherit
 }
 
 .card-button:hover{
-    background-color: #53AFDF;
+    background-color: grey;
+}
+
+#study{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 5px;
+    font-size: 10pt;
+    color: #F2FAFD;
+    cursor: pointer;
+    padding-bottom: 7px
+}
+
+#study:hover{
+    color:grey;
 }

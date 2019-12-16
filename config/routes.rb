@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     end
 
     resources :cards, only: [:update, :show, :destroy]
-    resources :saves, only: [:destroy, :create, :show]
+    resources :saves, only: [:index, :destroy, :create, :show]
     resources :scores, only: [:index, :create, :show, :update]
     resources :tags, only: [:create, :index, :show]
     resources :deck_tags, only:[:index, :show, :create, :destroy]
