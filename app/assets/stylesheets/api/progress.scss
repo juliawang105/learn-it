@@ -11,7 +11,7 @@
   align-items: center;
   height: 100%;
   width: 100%;
-    overflow: scroll;
+  // overflow: scroll;
   
 }
 
@@ -20,9 +20,10 @@
   justify-content: center;
   align-items: center;
   // border: 1px solid black;
-  height: 900px;
+  height: 100vh;
   width: 450px;
-  background-color: #324154
+  background-color: #324154;
+  margin-top: 160px;
 }
 
 .mastery:hover .overlay {

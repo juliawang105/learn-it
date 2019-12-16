@@ -5,6 +5,7 @@ import {
   buildStyles
 } from "react-circular-progressbar";
 import { withRouter } from 'react-router-dom';
+import ProgressBar from '../progressbar/progressbar'
 
 class ScoreBar extends React.Component {
   constructor(props) {
@@ -12,26 +13,37 @@ class ScoreBar extends React.Component {
 
     this.state = {
       score: "",
-      scores: ""
+      scores: this.props.scores
     };
 
     this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
-    // debugger
-    // this.props.fetchDeck(this.props.match.params.deckId).then(res => {
-    //   // debugger
-    //   this.setState({
-    //     scores: res.payload.scores
-    //   });
-    // });
-    //debugger
+   
     this.props.fetchScores(this.props.match.params.deckId, this.props.user)
       .then(res => {
         this.setState({scores: res.scores})
       })
   }
+
+  // componentDidUpdate(oldProps) {
+  //   // debugger;
+  //   if (oldProps.currCard.id !== this.props.currCard.id) {
+  //     this.props.fetchScores(this.props.match.params.deckId, this.props.user)
+  //       .then(res => {
+  //         this.setState({ scores: res.scores })
+  //       });
+
+  //     if (this.props.currCard.id === this.props.cards[this.props.cards.length - 1].id) {
+  //       // debugger;
+  //       this.props.fetchScores(this.props.match.params.deckId, this.props.user)
+  //         .then(res => {
+  //           this.setState({ scores: res.scores })
+  //         })
+  //     }
+  //   }
+  // }
 
   handleClick(e) {
     e.preventDefault();
@@ -43,28 +55,32 @@ class ScoreBar extends React.Component {
       card_id: this.props.currCard.id,
       score: parseInt(e.target.value)
     };
-    //debugger
+    // debugger
     let scores = Object.values(this.state.scores).map(score => {
       return score.card_id;
     });
     // debugger
     if (Object.keys(this.state.scores).length === 0) {
       this.props.saveScore(score);
+      return
     }
-    if (!scores.includes(score.card_id)) {
+    if (!scores.includes(score.card_id) && Object.keys(this.state.scores).length > 0) {
       this.props.saveScore(score);
+      return
     }
 
     if (scores.includes(score.card_id)) {
       this.props.updateScore(score);
+      return
+    } else if (!scores.includes(score.card_id)) {
+      this.props.saveScore(score);
+      return
     }
-    
-    // window.location.reload(true)
-    
   }
 
   render() {
-    //   debugger
+    if(!this.state.scores) return null;
+    debugger
     return (
       <div className="scorebar">
         <button onClick={this.handleClick} className="score" value="1">

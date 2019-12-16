@@ -10,6 +10,7 @@ Deck.destroy_all
 Card.destroy_all
 Save.destroy_all
 Tag.destroy_all
+Score.destroy_all
 
 #tags 
 tag1 = Tag.create!(

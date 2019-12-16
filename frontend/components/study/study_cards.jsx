@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import ScoreBar from '../scores/scorebar';
-import ProgressBar from '../progressbar/progressbar'
+import ProgressBarContainer from '../progressbar/progressbar_container'
 
 
 class StudyCards extends React.Component {
@@ -10,7 +10,7 @@ class StudyCards extends React.Component {
     this.state = {
       cards: [],
       currentCard: "",
-      scores: this.props.scores,
+      scores: "",
       flipped: false,
       end: false
    
@@ -34,6 +34,16 @@ class StudyCards extends React.Component {
         this.setState({ scores: res.scores })
       });
   }
+
+  // componentDidUpdate(oldProps){
+  //   debugger
+  //   // if (oldProps.currCard.id !== this.props.currCard.id) {
+  //   //   this.props.fetchScores(this.props.match.params.deckId, this.props.user)
+  //   //     .then(res => {
+  //   //       this.setState({ scores: res.scores })
+  //   //     });
+  //   //   }
+  // }
 
   goBack(){
     event.preventDefault();
@@ -145,7 +155,7 @@ class StudyCards extends React.Component {
               updateScore={this.props.updateScore}
               fetchScore={this.props.fetchScore}
               user={this.props.user}
-              // scores={this.props.scores}
+              //scores={this.state.scores}
               fetchDeck={this.props.fetchDeck}
               fetchScores={this.props.fetchScores}
             />
@@ -166,21 +176,21 @@ class StudyCards extends React.Component {
     return (
       <div className="progressBar">
         <div className="mastery">
-          <ProgressBar
-            scores={this.state.scores}
-            fetchDeck={this.props.fetchDeck}
-            deck={this.props.deck}
-            cards={this.props.cards}
-            currCard={this.state.currentCard}
-            saveScore={this.props.saveScore}
-            updateScore={this.props.updateScore}
-            fetchScore={this.props.fetchScore}
-            user={this.props.user}
-            // scores={this.props.scores}
-            fetchScores={this.props.fetchScores}
-            fetchDeck={this.props.fetchDeck}
-            update={this.state.update}
-            flipped={this.state.flipped}
+          <ProgressBarContainer
+            // scores={this.state.scores}
+            // fetchDeck={this.props.fetchDeck}
+            // deck={this.props.deck}
+            // cards={this.props.cards}
+            // currCard={this.state.currentCard}
+            // saveScore={this.props.saveScore}
+            // updateScore={this.props.updateScore}
+            // fetchScore={this.props.fetchScore}
+            // user={this.props.user}
+            // // scores={this.props.scores}
+            // fetchScores={this.props.fetchScores}
+            // fetchDeck={this.props.fetchDeck}
+            // update={this.state.update}
+            // flipped={this.state.flipped}
           />
         </div>
 

@@ -15,48 +15,50 @@ class ProgressBar extends React.Component {
   }
 
   componentDidMount() {
-    // debugger
-    // this.props.fetchDeck(this.props.match.params.deckId).then(res => {
-    //   // debugger
-    //   this.setState({
-    //     scores: res.payload.scores
-    //   });
-    // });
-    // debugger
+   
     this.props.fetchScores(this.props.match.params.deckId, this.props.user)
       .then(res => {
         this.setState({ scores: res.scores })
       })
   }
 
-  componentDidUpdate(oldProps) {
-    // debugger;
-    if ( oldProps.currCard.id !== this.props.currCard.id ) {
-      this.props.fetchScores(this.props.match.params.deckId, this.props.user)
-        .then(res => {
-          this.setState({ scores: res.scores })
-      });
-
-      if (this.props.currCard.id === this.props.cards[this.props.cards.length-1].id) {
-        // debugger;
-        this.props.fetchScores(this.props.match.params.deckId, this.props.user)
-          .then(res => {
-            this.setState({ scores: res.scores })
-          })
-      }
-    }
+  // componentDidUpdate(oldProps) {
     
-  }
+  //   if ( oldProps.currCard.id !== this.props.currCard.id ) {
+  //     this.props.fetchScores(this.props.match.params.deckId, this.props.user)
+  //       .then(res => {
+  //         this.setState({ scores: res.scores })
+  //     });
+
+  //     if (this.props.currCard.id === this.props.cards[this.props.cards.length-1].id) {
+  //       // debugger;
+  //       this.props.fetchScores(this.props.match.params.deckId, this.props.user)
+  //         .then(res => {
+  //           this.setState({ scores: res.scores })
+  //         })
+  //     }
+
+  //     if(this.props.currCard === ""){
+  //       this.props.fetchScores(this.props.match.params.deckId, this.props.user)
+  //         .then(res => {
+  //           this.setState({ scores: res.scores })
+  //         })
+  //     }
+  //   }
+    
+  // }
 
   render() {
+    //if(!this.props.scores) return null;
+    //debugger
     let sum = 0;
     let total;
     let cards = this.props.cards;
-    //debugger
-    if (!Object.keys(this.state.scores).length) {
-      total = 0;
+    // debugger
+    if (!Object.keys(this.props.scores).length) {
+      total = sum;
     } else {
-      let cardScores = Object.values(this.state.scores);
+      let cardScores = Object.values(this.props.scores);
       for (let i = 0; i < cardScores.length; i++) {
         sum += cardScores[i].score;
       }

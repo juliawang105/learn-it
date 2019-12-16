@@ -1,15 +1,22 @@
-// import { connect } from 'react-redux';
-// import ProgressBar from './progressbar';
-// import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import ProgressBar from './progressbar';
+import { withRouter } from 'react-router-dom';
+import {fetchScores} from '../../actions/score_actions'
 
-// const mSTP = (state, ownProps) => {
-//     const deckId = ownProps.match.params.deckId;
-//     const deck = state.entities.decks[deckId];
+const mSTP = (state, ownProps) => {
+    // const deckId = ownProps.match.params.deckId;
+    // const deck = state.entities.decks[deckId];
+    //debugger
+    return{
+        cards: Object.values(state.entities.cards),
+        deck: state.entities.decks,
+        user: state.session.id,
+        scores: state.entities.scores
+    };
+};
 
-//     return{
-//         numCards: Object.keys(state.entities.cards).length,
-//         deck
-//     };
-// };
+const mDTP = dispatch => ({
+    fetchScores: (deckId, learnerId) => dispatch(fetchScores(deckId, learnerId))
+})
 
-// export default connect(mSTP, null)(ProgressBar)
+export default connect(mSTP, mDTP)(ProgressBar)
