@@ -71,32 +71,34 @@ class ProgressBar extends React.Component {
         <div className="mastery-title">
           Mastery Score
           </div>
-        <CircularProgressbar
-          value={total}
-          text={` ${Math.floor(total)}%`}
-          styles={{
-            path: {
-              stroke: `rgba(62, 152, 199, ${total/ 100})`,
-              strokeLinecap: "butt",
-              transition: "stroke-dashoffset 0.5s ease 0s",
-              transform: "rotate(0.25turn)",
-              transformOrigin: "center center"
-            },
-            trail: {
-              stroke: "#d6d6d6",
-              strokeLinecap: "butt",
-              transform: "rotate(0.25turn)",
-              transformOrigin: "center center"
-            },
-            text: {
-              fontSize: "16px",
-              fontFamily: "Verdana, Geneva, Tahoma, sans-serif"
-            },
-            background: {
-              fill: "#3e98c7"
-            }
-          }}
-        />
+        <div>
+          <CircularProgressbar
+            value={total}
+            text={` ${Math.floor(total)}%`}
+            styles={{
+              path: {
+                stroke: `rgba(62, 152, 199, ${total / 100})`,
+                strokeLinecap: "butt",
+                transition: "stroke-dashoffset 0.5s ease 0s",
+                transform: "rotate(0.25turn)",
+                transformOrigin: "center center"
+              },
+              trail: {
+                stroke: "#d6d6d6",
+                strokeLinecap: "butt",
+                transform: "rotate(0.25turn)",
+                transformOrigin: "center center"
+              },
+              text: {
+                fontSize: "16px",
+                fontFamily: "Verdana, Geneva, Tahoma, sans-serif"
+              },
+              background: {
+                fill: "#3e98c7"
+              }
+            }}
+          />
+          </div> 
         <NavLink id="see-deck" to={`/decks/${this.props.deck.id}`}>See All Cards</NavLink>
       </div>
     );

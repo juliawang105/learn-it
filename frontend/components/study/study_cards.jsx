@@ -129,8 +129,12 @@ class StudyCards extends React.Component {
       goBack = <div className='go-back' onClick={this.goBack}>Go Back To Previous Question</div>
     }
 
+    if (this.state.cards.indexOf(this.state.currentCard) === 0 || this.state.flipped !== false) {
+      goBack = <div className='go-back'></div>
+    }
+
     if(this.state.end === true){
-      goBack = <div></div>
+      goBack = <div className='go-back'></div>
     }
 
     if (this.state.flipped === false) {
@@ -176,22 +180,7 @@ class StudyCards extends React.Component {
     return (
       <div className="progressBar">
         <div className="mastery">
-          <ProgressBarContainer
-            // scores={this.state.scores}
-            // fetchDeck={this.props.fetchDeck}
-            // deck={this.props.deck}
-            // cards={this.props.cards}
-            // currCard={this.state.currentCard}
-            // saveScore={this.props.saveScore}
-            // updateScore={this.props.updateScore}
-            // fetchScore={this.props.fetchScore}
-            // user={this.props.user}
-            // // scores={this.props.scores}
-            // fetchScores={this.props.fetchScores}
-            // fetchDeck={this.props.fetchDeck}
-            // update={this.state.update}
-            // flipped={this.state.flipped}
-          />
+          <div className='m-nav'><ProgressBarContainer /></div>
         </div>
 
         <div className="study" >

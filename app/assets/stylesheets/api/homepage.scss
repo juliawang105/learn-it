@@ -2,15 +2,13 @@
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
-    height: 101%;
-    width: 101%;
-    // border: 1px solid black;
-    margin-left: -3px;
-    margin-top: -79px;
+    height: 100%;
+    width: 100%;
     background: image_url("notetaker.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     overflow-y: hidden;
+    
 };
 
 .notes{
@@ -118,9 +116,12 @@
   padding: 10px;
   border: 1px solid #CEDEED;
   border-radius: 5%;
-  // position: relative;
-  // top: 128px;
-  // left: 37px;
+  text-align: center;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-left: 39px;
 }
 
 #see-deck:hover{

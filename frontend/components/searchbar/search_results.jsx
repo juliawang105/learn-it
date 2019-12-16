@@ -77,7 +77,7 @@ class SearchResults extends React.Component{
         return(
             <div className="search_index"> 
                 <div className="results">{text}</div>
-                {matches}
+                <div className="card-results">{matches}</div>
                 
             </div>
         )

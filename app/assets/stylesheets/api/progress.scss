@@ -1,8 +1,9 @@
 .progress{
-    width: 200px;
+    width: 300px;
     height: 200px;
-    // position: relative;
-    // bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around
 }
 
 .progressBar{
