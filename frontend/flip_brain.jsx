@@ -6,7 +6,7 @@ import { login, logout, signup } from './actions/session_actions';
 import { fetchDeck, fetchDecks, createDeck, updateDeck, deleteDeck } from './actions/deck_actions';
 import { saveDeck, unsaveDeck } from './actions/save_actions';
 import { createCard, updateCard, deleteCard } from './actions/card_actions';
-import { saveScore, fetchScore, updateScore } from './actions/score_actions';
+import { fetchScores, saveScore, fetchScore, updateScore } from './actions/score_actions';
 import { fetchDeckTags } from './actions/deck_tag_actions';
 import { search } from './actions/search_actions';
 
@@ -50,5 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
     window.saveScore = saveScore;
     window.fetchDeckTags = fetchDeckTags
     window.search = search;
+    window.fetchScores = fetchScores
     ReactDOM.render(< Root store={store} />, root)
 });

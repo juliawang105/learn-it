@@ -33,6 +33,7 @@ class ScoreBar extends React.Component {
     this.setState({ score: e.target.value });
     // debugger
     let score = {
+      deck_id: this.props.deck.id,
       learner_id: this.props.user,
       card_id: this.props.currCard.id,
       score: parseInt(e.target.value)
