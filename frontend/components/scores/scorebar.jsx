@@ -12,7 +12,7 @@ class ScoreBar extends React.Component {
 
     this.state = {
       score: "",
-      scores: this.props.scores,
+      scores: ""
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -20,12 +20,17 @@ class ScoreBar extends React.Component {
 
   componentDidMount() {
     // debugger
-    this.props.fetchDeck(this.props.match.params.deckId).then(res => {
-      // debugger
-      this.setState({
-        scores: res.payload.scores
-      });
-    });
+    // this.props.fetchDeck(this.props.match.params.deckId).then(res => {
+    //   // debugger
+    //   this.setState({
+    //     scores: res.payload.scores
+    //   });
+    // });
+    //debugger
+    this.props.fetchScores(this.props.match.params.deckId, this.props.user)
+      .then(res => {
+        this.setState({scores: res.scores})
+      })
   }
 
   handleClick(e) {
@@ -39,11 +44,11 @@ class ScoreBar extends React.Component {
       score: parseInt(e.target.value)
     };
     //debugger
-    let scores = Object.values(this.props.scores).map(score => {
+    let scores = Object.values(this.state.scores).map(score => {
       return score.card_id;
     });
     // debugger
-    if (Object.keys(this.props.scores).length === 0) {
+    if (Object.keys(this.state.scores).length === 0) {
       this.props.saveScore(score);
     }
     if (!scores.includes(score.card_id)) {

@@ -2,7 +2,7 @@ class Api::ScoresController < ApplicationController
     before_action :require_login 
 
     def index
-        debugger
+        #debugger
         @scores = Score.all.where(deck_id: params[:deck_id]).where(learner_id: current_user.id)
        
         # @scores = Score.all 

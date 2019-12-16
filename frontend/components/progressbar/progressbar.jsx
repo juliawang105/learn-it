@@ -16,30 +16,33 @@ class ProgressBar extends React.Component {
 
   componentDidMount() {
     // debugger
-    this.props.fetchDeck(this.props.match.params.deckId).then(res => {
-      // debugger
-      this.setState({
-        scores: res.payload.scores
-      });
-    });
+    // this.props.fetchDeck(this.props.match.params.deckId).then(res => {
+    //   // debugger
+    //   this.setState({
+    //     scores: res.payload.scores
+    //   });
+    // });
+    // debugger
+    this.props.fetchScores(this.props.match.params.deckId, this.props.user)
+      .then(res => {
+        this.setState({ scores: res.scores })
+      })
   }
 
   componentDidUpdate(oldProps) {
     // debugger;
     if ( oldProps.currCard.id !== this.props.currCard.id ) {
-      this.props.fetchDeck(this.props.match.params.deckId).then(res => {
-        this.setState({
-          scores: res.payload.scores
-        });
+      this.props.fetchScores(this.props.match.params.deckId, this.props.user)
+        .then(res => {
+          this.setState({ scores: res.scores })
       });
 
       if (this.props.currCard.id === this.props.cards[this.props.cards.length-1].id) {
         // debugger;
-        this.props.fetchDeck(this.props.match.params.deckId).then(res => {
-          this.setState({
-            scores: res.payload.scores
-          });
-        });
+        this.props.fetchScores(this.props.match.params.deckId, this.props.user)
+          .then(res => {
+            this.setState({ scores: res.scores })
+          })
       }
     }
     

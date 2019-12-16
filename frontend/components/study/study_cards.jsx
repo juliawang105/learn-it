@@ -29,6 +29,10 @@ class StudyCards extends React.Component {
         currentCard: res.payload.cards[0]
       });
     });
+    this.props.fetchScores(this.props.match.params.deckId, this.props.user)
+      .then(res => {
+        this.setState({ scores: res.scores })
+      });
   }
 
   goBack(){
@@ -141,8 +145,9 @@ class StudyCards extends React.Component {
               updateScore={this.props.updateScore}
               fetchScore={this.props.fetchScore}
               user={this.props.user}
-              scores={this.props.scores}
+              // scores={this.props.scores}
               fetchDeck={this.props.fetchDeck}
+              fetchScores={this.props.fetchScores}
             />
           </div>
         </div>
@@ -171,7 +176,8 @@ class StudyCards extends React.Component {
             updateScore={this.props.updateScore}
             fetchScore={this.props.fetchScore}
             user={this.props.user}
-            scores={this.props.scores}
+            // scores={this.props.scores}
+            fetchScores={this.props.fetchScores}
             fetchDeck={this.props.fetchDeck}
             update={this.state.update}
             flipped={this.state.flipped}
