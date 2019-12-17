@@ -3,7 +3,8 @@ import StudyCard from './study_cards';
 import { fetchDeck, } from '../../actions/deck_actions';
 import { fetchCard} from '../../actions/card_actions';
 import { selectDeckCards, selectScores } from '../../reducers/selectors';
-import {fetchScore, saveScore, updateScore, fetchScores } from '../../actions/score_actions'
+import {fetchScore, saveScore, updateScore, fetchScores } from '../../actions/score_actions';
+import { clearALLCards } from '../../actions/card_actions'
 
 const mSTP = (state, ownProps)=> {
     let test = selectDeckCards(state.entities.cards, ownProps.match.params.deckId);
@@ -23,7 +24,8 @@ const mDTP = dispatch => ({
     saveScore: score => dispatch(saveScore(score)), 
     updateScore: score => dispatch(updateScore(score)),
     fetchScore: scoreId => dispatch(fetchScore(scoreId)),
-    fetchScores: (deckId, learner_id ) => dispatch(fetchScores(deckId, learner_id))
+    fetchScores: (deckId, learner_id ) => dispatch(fetchScores(deckId, learner_id)),
+    clearAllCards: () => dispatch(clearAllCards())
 });
 
 export default connect(mSTP, mDTP)(StudyCard)

@@ -11,51 +11,59 @@ class ProgressBar extends React.Component {
       scores: this.props.scores,
       total: 0,
       update: false,
+      cards:[]
       
     };
   }
 
   componentDidMount() {
-   
-    this.props.fetchScores(this.props.match.params.deckId, this.props.user)
+    // this.props.clearAllCards()
+    this.props.fetchDeck(this.props.match.params.deckId)
       .then(res => {
-        this.setState({ scores: res.scores })
+        this.setState({ cards: Object.keys(res.payload.cards) })
       })
+      .then( () => {
+        this.props.fetchScores(this.props.match.params.deckId, this.props.user)
+          .then(res => {
+            this.setState({ scores: res.scores })
+          })
+      }) 
   }
 
-  // componentDidUpdate(oldProps) {
+  componentDidUpdate(oldProps) {
+    //debugger
     
-  //   if ( oldProps.currCard.id !== this.props.currCard.id ) {
-  //     this.props.fetchScores(this.props.match.params.deckId, this.props.user)
-  //       .then(res => {
-  //         this.setState({ scores: res.scores })
-  //     });
+    // if ( oldProps.currCard.id !== this.props.currCard.id ) {
+    //   this.props.fetchScores(this.props.match.params.deckId, this.props.user)
+    //     .then(res => {
+    //       this.setState({ scores: res.scores })
+    //   });
 
-  //     if (this.props.currCard.id === this.props.cards[this.props.cards.length-1].id) {
-  //       // debugger;
-  //       this.props.fetchScores(this.props.match.params.deckId, this.props.user)
-  //         .then(res => {
-  //           this.setState({ scores: res.scores })
-  //         })
-  //     }
+    //   if (this.props.currCard.id === this.props.cards[this.props.cards.length-1].id) {
+    //     // debugger;
+    //     this.props.fetchScores(this.props.match.params.deckId, this.props.user)
+    //       .then(res => {
+    //         this.setState({ scores: res.scores })
+    //       })
+    //   }
 
-  //     if(this.props.currCard === ""){
-  //       this.props.fetchScores(this.props.match.params.deckId, this.props.user)
-  //         .then(res => {
-  //           this.setState({ scores: res.scores })
-  //         })
-  //     }
-  //   }
+    //   if(this.props.currCard === ""){
+    //     this.props.fetchScores(this.props.match.params.deckId, this.props.user)
+    //       .then(res => {
+    //         this.setState({ scores: res.scores })
+    //       })
+    //   }
+    }
     
   // }
 
   render() {
-    //if(!this.props.scores) return null;
+    if(!this.props.scores) return null;
     //debugger
     let sum = 0;
     let total;
-    let cards = this.props.cards;
-    // debugger
+    let cards = this.state.cards
+    //debugger
     if (!Object.keys(this.props.scores).length) {
       total = sum;
     } else {

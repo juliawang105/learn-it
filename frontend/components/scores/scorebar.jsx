@@ -80,7 +80,7 @@ class ScoreBar extends React.Component {
 
   render() {
     if(!this.state.scores) return null;
-    debugger
+    //debugger
     return (
       <div className="scorebar">
         <button onClick={this.handleClick} className="score" value="1">

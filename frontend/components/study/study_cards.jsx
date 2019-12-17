@@ -23,26 +23,27 @@ class StudyCards extends React.Component {
   }
 
   componentDidMount() {
+    //this.props.clearAllCards()
     this.props.fetchDeck(this.props.match.params.deckId).then(res => {
       this.setState({
         cards: res.payload.cards,
         currentCard: res.payload.cards[0]
       });
     });
-    this.props.fetchScores(this.props.match.params.deckId, this.props.user)
-      .then(res => {
-        this.setState({ scores: res.scores })
-      });
+    // this.props.fetchScores(this.props.match.params.deckId, this.props.user)
+    //   .then(res => {
+    //     this.setState({ scores: res.scores })
+    //   });
   }
 
   // componentDidUpdate(oldProps){
   //   debugger
-  //   // if (oldProps.currCard.id !== this.props.currCard.id) {
-  //   //   this.props.fetchScores(this.props.match.params.deckId, this.props.user)
-  //   //     .then(res => {
-  //   //       this.setState({ scores: res.scores })
-  //   //     });
-  //   //   }
+  //   if (oldProps.currentCard.id !== this.props.currentCard.id) {
+  //     this.props.fetchScores(this.props.match.params.deckId, this.props.user)
+  //       .then(res => {
+  //         this.setState({ scores: res.scores })
+  //       });
+  //     }
   // }
 
   goBack(){
