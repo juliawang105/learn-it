@@ -75,6 +75,7 @@
     height: 100%;
     width: 100%;
     overflow: scroll;
+    margin-top: 80px
 }
 
 .deck_title {
@@ -245,8 +246,8 @@
 }
 
 .show{
-    margin-top: 80px;
-    height: 100%;
+    // margin-top: 80px;
+    // height: 100%;
     display: flex;
 }
 

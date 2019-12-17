@@ -140,18 +140,19 @@ class StudyCards extends React.Component {
 
     if (this.state.flipped === false) {
       currCard1 = this.state.currentCard.question;
-      scoreBar = <div className="tracking">
+      scoreBar = 
         <div onClick={this.handleClick} className="scorebar">
                       Reveal the Answer
-                    </div>
+                    
                 </div>;
       
     } else if (this.state.flipped === true) {
       currCard2 = this.state.currentCard.answer;
       scoreBar = (
-        <div className="tracking">
-          <div className="tracking-message">How well did you know this?</div>
-          <div onClick={this.handleClick}>
+       
+         
+          <div className="tracking" onClick={this.handleClick}>
+          <p>How well did you know this?</p>
             <ScoreBar
               deck={this.props.deck}
               cards={this.props.cards}
@@ -165,7 +166,8 @@ class StudyCards extends React.Component {
               fetchScores={this.props.fetchScores}
             />
           </div>
-        </div>
+          
+       
       );
     } else if (this.state.end === true) {
       endCard = "You've reached the end of all the cards"
