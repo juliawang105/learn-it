@@ -18,51 +18,30 @@ class ProgressBar extends React.Component {
 
   componentDidMount() {
     // this.props.clearAllCards()
-    this.props.fetchDeck(this.props.match.params.deckId)
+    // this.props.fetchDeck(this.props.match.params.deckId)
+    //   .then(res => {
+    //     this.setState({ cards: Object.keys(res.payload.cards) })
+    //   })
+    //   .then( () => {
+      this.props.fetchScores(this.props.match.params.deckId, this.props.user)
+        .then(res => {
+          this.setState({ scores: res.scores })
+        })
+      
+    this.props.fetchCards(this.props.match.params.deckId)
       .then(res => {
-        this.setState({ cards: Object.keys(res.payload.cards) })
+        this.setState({ cards: res.scores })
       })
-      .then( () => {
-        this.props.fetchScores(this.props.match.params.deckId, this.props.user)
-          .then(res => {
-            this.setState({ scores: res.scores })
-          })
-      }) 
+  
   }
-
-  componentDidUpdate(oldProps) {
-    //debugger
-    
-    // if ( oldProps.currCard.id !== this.props.currCard.id ) {
-    //   this.props.fetchScores(this.props.match.params.deckId, this.props.user)
-    //     .then(res => {
-    //       this.setState({ scores: res.scores })
-    //   });
-
-    //   if (this.props.currCard.id === this.props.cards[this.props.cards.length-1].id) {
-    //     // debugger;
-    //     this.props.fetchScores(this.props.match.params.deckId, this.props.user)
-    //       .then(res => {
-    //         this.setState({ scores: res.scores })
-    //       })
-    //   }
-
-    //   if(this.props.currCard === ""){
-    //     this.props.fetchScores(this.props.match.params.deckId, this.props.user)
-    //       .then(res => {
-    //         this.setState({ scores: res.scores })
-    //       })
-    //   }
-    }
-    
-  // }
 
   render() {
     if(!this.props.scores) return null;
+    // if(!this.state.cards) return null;
     //debugger
     let sum = 0;
     let total;
-    let cards = this.state.cards
+    let cards = this.props.cards
     //debugger
     if (!Object.keys(this.props.scores).length) {
       total = sum;

@@ -1,6 +1,12 @@
 class Api::CardsController < ApplicationController
     before_action :require_login 
 
+    def index 
+        #debugger
+        @cards = Card.all.where(deck_id: params[:deck_id])
+        render :index
+    end
+
     def create
         # debugger
         @card = Card.new(card_params)

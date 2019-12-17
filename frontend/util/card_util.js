@@ -27,3 +27,9 @@ export const deleteCard = cardId => (
         method: `DELETE`,
     })
 ); 
+
+export const fetchCards = (deck_id) =>
+  $.ajax({
+    url: `/api/cards/?deck_id=${deck_id}`,
+    method: `GET`
+  });
