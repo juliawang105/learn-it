@@ -1,3 +1,4 @@
+
 .homepage {
     display: flex;
     justify-content: flex-start;
@@ -8,7 +9,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     overflow-y: hidden;
-    
+   
 };
 
 .notes {
@@ -20,6 +21,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  // color: red 
 }
 
 // .fadeInDown {
@@ -33,6 +35,32 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     // padding: 35px;
     
+}
+
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  animation-delay: 3000ms;
 }
 
 .modal-background {

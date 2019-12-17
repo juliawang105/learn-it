@@ -273,7 +273,7 @@ card24 = Card.create!(
 )
 
 card25 = Card.create!(
-    question: 'Pick ou the noun: She gives a lot of honest opinions.',
+    question: 'Pick out the noun: She gives a lot of honest opinions.',
     answer: 'opinions',
     deck_id: deck5.id 
 )

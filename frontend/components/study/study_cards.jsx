@@ -186,7 +186,7 @@ class StudyCards extends React.Component {
         <div className="study" >
           {goBack}
           <div className="study-card">
-            <div className="front">{currCard1}</div>
+            <div className="front ">{currCard1}</div>
             <div className="back">{currCard2}</div>            
             <div className="back">{endCard}</div>            
         </div>

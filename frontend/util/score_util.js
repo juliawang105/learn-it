@@ -23,7 +23,7 @@ export const updateScore = (score) => (
 
 export const fetchScores = (deck_id, learner_id) => (
     $.ajax({
-      url: `/api/scores/?deck_id=${deck_id}learner_id=${learner_id}`,
+      url: `/api/scores/?deck_id=${deck_id}&learner_id=${learner_id}`,
       method: `GET`
     })
 );

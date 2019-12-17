@@ -8,7 +8,7 @@ class HomeForm extends React.Component{
 
     render(){
         return (
-          <div className="homepage fadeInDown">
+          <div className="homepage">
             <div className="notes">
               <span>Personalized Notes</span>
               <br></br>
