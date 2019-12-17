@@ -94,7 +94,7 @@
   bottom: 0;
   right: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.4);
   z-index: 10;
 }
 
@@ -148,6 +148,7 @@
     height: 304px;
     width: 500px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 2%
 }
 
 
@@ -173,6 +174,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
     
 
