@@ -2,6 +2,8 @@
 
 [Live Demo](https://brainscape-learnit.herokuapp.com/#/)
 
+![splash](https://i.pinimg.com/originals/56/68/a8/5668a85e957fc10902bbe7042e44d946.gif)
+
 ## What is Learn It? 
 
 Inspired by Brainscape, Learn It serves as an educational tool to serve learners and educators in their journey of acquiring knowledge and mastering different contents. Built using technologies such as Rails, PostgreSQL, React.js, and Redux, this platform provides the learners the opportunity to create a personalized learning stack of information and to save decks created by others. Continue to read on to see key features and the approaches I used to solve the challenges along the way. 
