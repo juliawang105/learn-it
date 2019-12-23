@@ -22,18 +22,18 @@ Inspired by Brainscape, Learn It serves as an educational tool to serve learners
 	* Users can login in to see their created decks and saved decks for future studying. 
 * Decks
 	* Decks index page displays all decks created by users but deleting ability is restricted to deck creators only.
-	*  Deck show page displays all cards associated with the specific deck.
-	*  Logged in users have the ability to create and browse decks. 
+	* Deck show page displays all cards associated with the specific deck.
+	* Logged in users have the ability to create and browse decks. 
 * Cards
 	* Logged in users can create cards nested under created decks. 
 * Studying 
-	* Logged in users can study any decks of cards. 
+	* Logged in users can study any deck of cards. 
 	* Scores are saved and calculated in real time to help users track their mastery score. 
 * Search 
 	* Logged in users can search for specific decks according to deck names. 
 
 ### Deck and Card CRUD (Creation, Edit, Update Delete)
-Deck and card CRUD features are done through the usage modals. Data is passed into the modals for update functionality so information is pre-filled in. 
+Deck and card CRUD features are done through the usage of modals. Data is passed into the modals for the update functionality, so information is pre-filled in. 
 
 It is crucial that users do not have ability to edit or delete decks and cards that are not created by them. My backend code restricted this access, but I also wanted to eliminate potential errors on the frontend and achieved this by writing code that providing conditionals for the appearance of certain functional buttons. 
 
@@ -77,7 +77,7 @@ It is crucial that users do not have ability to edit or delete decks and cards t
 ```
 
 ### Deck Studying 
-Users can study decks by going through the cards and rating how well they knows the answers for each card. The scores update live via the progress bar and that displays the most current mastery score percentages. Scores are unique to user and deck and scores update according to specific cards. Percentages for the scores are calculated based on total number of cards per deck and the total number of points where 5 is the max per card. Here are the backend and frontend codes that displays score updates. 
+Users can study decks by going through the cards and rating how well they knows the answers for each card. The scores update live via the progress bar and that displays the most current mastery score percentages. Scores are unique to user and deck, and they update according to specific cards. Percentages for the scores are calculated based on total number of cards per deck, and each card has the maximum of 5 points. Here are the backend and frontend codes that displays score updates. 
 
 ![study](https://i.pinimg.com/originals/0f/6f/85/0f6f8505ab6dccc6fa177a46f1c6c43d.gif)
 ```javascript
