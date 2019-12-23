@@ -17,18 +17,13 @@ class SearchBar extends React.Component{
         this.enterFunction = this.enterFunction.bind(this);
     };
 
-    // componentDidMount(){
-    //     this.props.clearAllCards()
-    // }
-    
     handleInput(){
         event.preventDefault();
         this.setState({input: event.target.value})
         document.addEventListener('keydown', this.enterFunction)
-    }
+    };
 
     enterFunction(e) {
-        // e.preventDefault();
         if (e.keyCode === 13) {
             this.handleSearch()
         }  
@@ -40,16 +35,13 @@ class SearchBar extends React.Component{
         } else {
             this.props.search(this.state.input)
                 .then(res => {
-                    // console.log(res)
                     let resultIds = Object.keys(res.searchDecks);
                     this.setState({ results: resultIds })
                     this.props.history.push(`/searches?ids=${resultIds}`)
                     this.setState({ input: "" })
-
                 })
-        };
-        
-    }
+        };   
+    };
 
     render(){
         

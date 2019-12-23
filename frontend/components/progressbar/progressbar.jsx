@@ -17,12 +17,6 @@ class ProgressBar extends React.Component {
   }
 
   componentDidMount() {
-    // this.props.clearAllCards()
-    // this.props.fetchDeck(this.props.match.params.deckId)
-    //   .then(res => {
-    //     this.setState({ cards: Object.keys(res.payload.cards) })
-    //   })
-    //   .then( () => {
       this.props.fetchScores(this.props.match.params.deckId, this.props.user)
         .then(res => {
           this.setState({ scores: res.scores })
@@ -37,12 +31,11 @@ class ProgressBar extends React.Component {
 
   render() {
     if(!this.props.scores) return null;
-    // if(!this.state.cards) return null;
-    //debugger
+   
     let sum = 0;
     let total;
     let cards = this.props.cards
-    //debugger
+   
     if (!Object.keys(this.props.scores).length) {
       total = sum;
     } else {
@@ -53,7 +46,7 @@ class ProgressBar extends React.Component {
       total = (sum / (5 * cards.length)) * 100;
     
     }
-    //debugger
+
     return (
       <div className="progress">
         <div className="mastery-title">

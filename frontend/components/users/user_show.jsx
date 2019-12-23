@@ -23,7 +23,6 @@ class UserShow extends React.Component{
         
     };
 
-
     render(){
         // debugger
         if(!this.props.decks) return null; 

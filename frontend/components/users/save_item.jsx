@@ -14,9 +14,6 @@ class SaveItem extends React.Component {
     }
 
     render(){
-        // debugger
-        
-
         let decks = Object.values(this.props.decks);
         
         if (!this.props.decks) {

@@ -18,8 +18,6 @@ const mDTP = dispatch => ({
     openModal: (modal, data) => dispatch(openModal(modal, data)),
     deleteDeck: deckId => dispatch(deleteDeck(deckId)),
     fetchSaves: learnerId => dispatch(fetchSaves(learnerId))
-
-    // clearAllCards: () => dispatch(clearAllCards())
 })
 
 export default connect(mSTP, mDTP)(UserShow)

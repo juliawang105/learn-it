@@ -27,48 +27,27 @@ class ScoreBar extends React.Component {
       })
   }
 
-  // componentDidUpdate(oldProps) {
-  //   // debugger;
-  //   if (oldProps.currCard.id !== this.props.currCard.id) {
-  //     this.props.fetchScores(this.props.match.params.deckId, this.props.user)
-  //       .then(res => {
-  //         this.setState({ scores: res.scores })
-  //       });
-
-  //     if (this.props.currCard.id === this.props.cards[this.props.cards.length - 1].id) {
-  //       // debugger;
-  //       this.props.fetchScores(this.props.match.params.deckId, this.props.user)
-  //         .then(res => {
-  //           this.setState({ scores: res.scores })
-  //         })
-  //     }
-  //   }
-  // }
-
   handleClick(e) {
     e.preventDefault();
     this.setState({ score: e.target.value });
-    // debugger
+   
     let score = {
       deck_id: this.props.deck.id,
       learner_id: this.props.user,
       card_id: this.props.currCard.id,
       score: parseInt(e.target.value)
     };
-    // debugger
+  
     let scores = Object.values(this.state.scores).map(score => {
       return score.card_id;
     });
-    // debugger
+
     if (Object.keys(this.state.scores).length === 0) {
       this.props.saveScore(score);
       return
     }
-    if (!scores.includes(score.card_id) && Object.keys(this.state.scores).length > 0) {
-      this.props.saveScore(score);
-      return
-    }
-
+    
+    debugger
     if (scores.includes(score.card_id)) {
       this.props.updateScore(score);
       return
@@ -76,6 +55,11 @@ class ScoreBar extends React.Component {
       this.props.saveScore(score);
       return
     }
+
+     // if (!scores.includes(score.card_id) && Object.keys(this.state.scores).length > 0) {
+    //   this.props.saveScore(score);
+    //   return
+    // }
   }
 
   render() {

@@ -2,13 +2,11 @@ class Api::CardsController < ApplicationController
     before_action :require_login 
 
     def index 
-        #debugger
         @cards = Card.all.where(deck_id: params[:deck_id])
         render :index
     end
 
     def create
-        # debugger
         @card = Card.new(card_params)
 
         if @card.save && @card.creator.id == current_user.id 
@@ -24,7 +22,6 @@ class Api::CardsController < ApplicationController
     end
 
     def update 
-        
         @card = Card.includes(:deck).includes(:creator).find(params[:id])
         if @card.update(card_params) && @card.creator.id == current_user.id
             render json: @card
@@ -47,4 +44,5 @@ class Api::CardsController < ApplicationController
     def card_params 
         params.require(:card).permit(:question, :answer, :deck_id)
     end
+    
 end
