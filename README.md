@@ -40,39 +40,48 @@ It is crucial that users do not have ability to edit or delete decks and cards t
 ![crud](https://i.pinimg.com/originals/e3/2e/e9/e32ee9ef6f257143cbfdf97d881d26e9.gif)
 
 ``` javascript 
- render(){
-       let button;
-       let editButton;
+ render() {
+    let button;
+    let editButton;
 
-       if(this.props.deck.creator_id === parseInt(this.props.user)){
-           button = <button className='card-delete' 
-                       onClick={() => this.handleClick()}>Delete Card
-                   </button> 
-           editButton = <button className="edit-close" 
-                       onClick={() => this.props.openModal('edit-card', this.props.card)}>
-                       Edit Card
-                   </button>
-           };
+    if (this.props.deck.creator_id === parseInt(this.props.user)) {
+      button = (
+        <button
+          className="card-delete"
+          onClick={() => this.handleClick(this.props.card.id)}
+        >
+          Delete Card
+        </button>
+      );
+      editButton = (
+        <button
+          className="edit-close"
+          onClick={() => this.props.openModal("edit-card", this.props.card)}
+        >
+          Edit Card
+        </button>
+      );
+    }
 
-       return( 
-           <div className="cards">
-               <div className='card-controls'>
-                   {button}
-                   {editButton}
-               </div>
-                   
-               <label>Question
-                   <div className="questions"> {this.props.card.question} </div>
-               </label>
-                   
-               <label>Answer
-                   <div className="answers"> {this.props.card.answer} </div>
-               </label>
-                   
-           </div>
-       );
-   };
-};
+    return (
+      <div className="cards">
+        <div className="card-controls">
+          {button}
+          {editButton}
+        </div>
+
+        <label>
+          Question
+          <div className="questions"> {this.props.card.question} </div>
+        </label>
+
+        <label>
+          Answer
+          <div className="answers"> {this.props.card.answer} </div>
+        </label>
+      </div>
+    );
+  }
     
 ```
 
@@ -98,60 +107,61 @@ end
 
 //score bar component 
 handleClick(e) {
-   e.preventDefault();
-   this.setState({ score: e.target.value });
-  
-   let score = {
-     deck_id: this.props.deck.id,
-     learner_id: this.props.user,
-     card_id: this.props.currCard.id,
-     score: parseInt(e.target.value)
-   };
- 
-   let scores = Object.values(this.state.scores).map(score => {
-     return score.card_id;
-   });
-   
-   if (Object.keys(this.state.scores).length === 0) {
-     this.props.saveScore(score);
-     return
-   };
-   if (scores.includes(score.card_id)) {
-     this.props.updateScore(score);
-     return
-   } else if (!scores.includes(score.card_id)) {
-     this.props.saveScore(score);
-     return
-   };
- };
-   
+  e.preventDefault();
+  this.setState({ score: e.target.value });
+
+  let score = {
+    deck_id: this.props.deck.id,
+    learner_id: this.props.user,
+    card_id: this.props.currCard.id,
+    score: parseInt(e.target.value)
+  };
+
+  let scores = Object.values(this.state.scores).map(score => {
+    return score.card_id;
+  });
+
+  if (Object.keys(this.state.scores).length === 0) {
+    this.props.saveScore(score);
+    return;
+  };
+
+  if (scores.includes(score.card_id)) {
+    this.props.updateScore(score);
+    return;
+  } else if (!scores.includes(score.card_id)) {
+    this.props.saveScore(score);
+    return;
+  };
+};  
 ```
 ### Search 
 Users can search for decks via deck names. To build this feature, I passed in a query string via my AJAX call and checked for similarities using Active Record in the backend. This allows for specific deck id access on the search show page and then React's componentDidMount() function can fetch the appropriate decks. For a user friendly experience, pressing "enter" takes the user to the search show page but only when there is input in the search bar. 
 
 ![search](https://i.pinimg.com/originals/79/24/97/79249763a4ab7c85f7dd03dceaa963b0.gif)
 ```javascript
-handleInput(){
-    event.preventDefault();
-    this.setState({input: event.target.value})
-    document.addEventListener('keydown', this.enterFunction)
+handleInput() {
+  event.preventDefault();
+  this.setState({ input: event.target.value });
+  document.addEventListener("keydown", this.enterFunction);
 };
+
 enterFunction(e) {
-    if (e.keyCode === 13) {
-        this.handleSearch()
-    }  
+  if (e.keyCode === 13) {
+    this.handleSearch();
+  }
 };
-handleSearch(){
-    if(this.state.input === ""){
-        return; 
-    } else {
-        this.props.search(this.state.input)
-            .then(res => {
-                let resultIds = Object.keys(res.searchDecks);
-                this.setState({ results: resultIds })
-                this.props.history.push(`/searches?ids=${resultIds}`)
-                this.setState({ input: "" })
-            })
-    };   
+
+handleSearch() {
+  if (this.state.input === "") {
+    return;
+  } else {
+    this.props.search(this.state.input).then(res => {
+      let resultIds = Object.keys(res.searchDecks);
+      this.setState({ results: resultIds });
+      this.props.history.push(`/searches?ids=${resultIds}`);
+      this.setState({ input: "" });
+    });
+  };
 };
 ```
