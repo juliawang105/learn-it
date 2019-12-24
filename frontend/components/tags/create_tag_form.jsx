@@ -1,110 +1,109 @@
-import React from 'react'; 
-import { withRouter } from 'react-router';
+import React from "react";
+import { withRouter } from "react-router";
 
-class TagForm extends React.Component{
-    constructor(props){
-        super(props);
+class TagForm extends React.Component {
+  constructor(props) {
+    super(props);
 
-        this.state = {
-            name: "",
-            deck: this.props.deck,
-            tags: "",
-            deckTags: [],
-            update: false,
-            open: false
-        }
-        
-        this.handleClick = this.handleClick.bind(this);
-        this.toggleDropdown = this.toggleDropdown.bind(this);
+    this.state = {
+      name: "",
+      deck: this.props.deck,
+      tags: "",
+      deckTags: [],
+      update: false,
+      open: false
     };
 
-    componentDidMount(){
-        this.props.fetchTags()
-            .then(() => {
-                this.props.fetchDeckTags(Object.keys(this.props.deck))
-                .then(res => {
-                    
-                    let deckTags = Object.values(res.deckTags).map( deckTag => {
-                        return deckTag.tag.name
-                    });
-                    this.setState({deckTags: deckTags})
-            })
-        })
+    this.handleClick = this.handleClick.bind(this);
+    this.toggleDropdown = this.toggleDropdown.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.fetchTags().then(() => {
+      this.props.fetchDeckTags(Object.keys(this.props.deck)).then(res => {
+        let deckTags = Object.values(res.deckTags).map(deckTag => {
+          return deckTag.tag.name;
+        });
+        this.setState({ deckTags: deckTags });
+      });
+    });
+  }
+
+  componentDidUpdate(oldProps) {
+    let old = Object.keys(oldProps.deckTags);
+    let newProps = Object.keys(this.props.deckTags);
+
+    if (old.length !== newProps.length) {
+      this.props.fetchDeckTags(Object.keys(this.props.deck)).then(res => {
+        let deckTags = Object.values(res.deckTags).map(deckTag => {
+          return deckTag.tag.name;
+        });
+
+        this.setState({ deckTags: deckTags });
+      });
+    }
+  }
+
+  toggleDropdown() {
+    let s = !this.state.open;
+    this.setState({ open: s });
+  }
+
+  handleClick(e) {
+    e.preventDefault();
+
+    let deck_tag = {
+      tag_id: e.target.value,
+      deck_id: Object.keys(this.state.deck)[0]
     };
 
+    this.props.createDeckTag(deck_tag).then(res => {
+      this.setState({ update: !this.state.update });
+    });
+  }
 
-    componentDidUpdate(oldProps){
-        let old = Object.keys(oldProps.deckTags);
-        let newProps = Object.keys(this.props.deckTags);
-       
-        if(old.length !== newProps.length){
-           this.props.fetchDeckTags(Object.keys(this.props.deck))
-               .then(res => {
-                   
-                   let deckTags = Object.values(res.deckTags).map(deckTag => {
-                       return deckTag.tag.name
-                   });
-                  
-                   this.setState({ deckTags: deckTags })
-               });
-        } ; 
-    };
+  render() {
+    if (!this.props.tags) return null;
+    if (!this.props.deckTags) return null;
+    //debugger
+    let tags = Object.values(this.props.tags).map(tag => {
+      return (
+        <li
+          className="each-tag"
+          onClick={this.handleClick}
+          key={tag.id}
+          value={tag.id}
+        >
+          {tag.name}
+        </li>
+      );
+    });
+    if (!this.state.deckTags) return null;
 
-    toggleDropdown() {
-        let s = !this.state.open;
-        this.setState({open: s});
-    }
+    let deckTags = this.state.deckTags.map(deckTag => {
+      return <p key={deckTag.id}>{deckTag}</p>;
+    });
 
-    handleClick(e){
-        
-        e.preventDefault();
-      
-        let deck_tag = {
-            tag_id: e.target.value,
-            deck_id: Object.keys(this.state.deck)[0]
-        }
+    return (
+      <div className="tags">
+        <div className="add-tag">
+          <div className="all-tags" onClick={this.toggleDropdown}>
+            Click to See All Tags
+          </div>
+          {this.state.open && (
+            <ul id="taglist">
+              Pick from the following to add:
+              {tags}
+            </ul>
+          )}
+        </div>
+        <div>
+          <div className="current-tags">Current Tags</div>
+          {deckTags}
+        </div>
+      </div>
+    );
+  }
+}
 
-        this.props.createDeckTag(deck_tag)
-            .then( (res) => {
-                this.setState({update: !this.state.update})
-            }) 
-    }
-
-    render(){
-        if(!this.props.tags) return null;
-        if(!this.props.deckTags) return null;
-        //debugger
-        let tags = Object.values(this.props.tags).map( tag => {
-            return <li className='each-tag' onClick={this.handleClick}
-                        key={tag.id}
-                        value={tag.id}>
-                        {tag.name}</li>
-        })
-        if (!this.state.deckTags) return null;
-        
-        let deckTags = (this.state.deckTags).map( deckTag => {
-            return <p key={deckTag.id}>{deckTag}</p>
-        })
-       
-        return(
-            <div className='tags'>
-                <div className='add-tag'>
-                    <div className="all-tags" onClick={this.toggleDropdown}>
-                        Click to See All Tags
-                    </div>
-                    {this.state.open && <ul id='taglist'>
-                        Pick from the following to add:
-                        {tags}
-                    </ul>}
-                   
-                </div>
-                <div>
-                    <div className="current-tags">Current Tags</div>
-                    {deckTags}
-                </div>
-            </div>
-        )
-    }
-};
-
-export default withRouter(TagForm); 
+export default withRouter(TagForm);

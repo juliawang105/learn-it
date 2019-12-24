@@ -1,48 +1,48 @@
 class Api::CardsController < ApplicationController
-    before_action :require_login 
+	before_action :require_login 
+	
+	def index 
+			@cards = Card.all.where(deck_id: params[:deck_id])
+			render :index
+	end
 
-    def index 
-        @cards = Card.all.where(deck_id: params[:deck_id])
-        render :index
-    end
+	def create
+			@card = Card.new(card_params)
 
-    def create
-        @card = Card.new(card_params)
+			if @card.save && @card.creator.id == current_user.id 
+					render json: @card
+			else 
+					render json: @card.errors.full_messages,  status: 422 
+			end
+	end
 
-        if @card.save && @card.creator.id == current_user.id 
-            render json: @card
-        else 
-            render json: @card.errors.full_messages,  status: 422 
-        end
-    end
+	def show 
+			@card = Card.includes(:deck).includes(:creator).find(params[:id])
+			render :show 
+	end
 
-    def show 
-        @card = Card.includes(:deck).includes(:creator).find(params[:id])
-        render :show 
-    end
+	def update 
+			@card = Card.includes(:deck).includes(:creator).find(params[:id])
+			if @card.update(card_params) && @card.creator.id == current_user.id
+					render json: @card
+			else 
+					render json: @card.errors.full_messages,  status: 422 
+			end
+	end
 
-    def update 
-        @card = Card.includes(:deck).includes(:creator).find(params[:id])
-        if @card.update(card_params) && @card.creator.id == current_user.id
-            render json: @card
-        else 
-            render json: @card.errors.full_messages,  status: 422 
-        end
-    end
+	def destroy
+			@card = Card.includes(:deck).includes(:creator).find(params[:id])
+			if @card.creator.id == current_user.id
+						@card.destroy
+			else
+					render json: @card.errors.full_messages, status: 422 
+			end
+	end 
 
-    def destroy
-        @card = Card.includes(:deck).includes(:creator).find(params[:id])
-        if @card.creator.id == current_user.id
-             @card.destroy
-        else
-            render json: @card.errors.full_messages, status: 422 
-        end
-    end 
-
-    private 
-    
-    def card_params 
-        params.require(:card).permit(:question, :answer, :deck_id)
-    end
-    
+	private 
+	
+	def card_params 
+			params.require(:card).permit(:question, :answer, :deck_id)
+	end
+	
 end

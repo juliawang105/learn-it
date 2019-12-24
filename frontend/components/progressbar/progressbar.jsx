@@ -1,8 +1,12 @@
-import React from 'react';
-import { render } from 'react-dom';
-import { CircularProgressbar, CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
+import React from "react";
+import { render } from "react-dom";
+import {
+  CircularProgressbar,
+  CircularProgressbarWithChildren,
+  buildStyles
+} from "react-circular-progressbar";
 import { NavLink, withRouter } from "react-router-dom";
-import ScoreBar from '../scores/scorebar';
+import ScoreBar from "../scores/scorebar";
 
 class ProgressBar extends React.Component {
   constructor(props) {
@@ -11,31 +15,29 @@ class ProgressBar extends React.Component {
       scores: this.props.scores,
       total: 0,
       update: false,
-      cards:[]
-      
+      cards: []
     };
   }
 
   componentDidMount() {
-      this.props.fetchScores(this.props.match.params.deckId, this.props.user)
-        .then(res => {
-          this.setState({ scores: res.scores })
-        })
-      
-    this.props.fetchCards(this.props.match.params.deckId)
+    this.props
+      .fetchScores(this.props.match.params.deckId, this.props.user)
       .then(res => {
-        this.setState({ cards: res.scores })
-      })
-  
+        this.setState({ scores: res.scores });
+      });
+
+    this.props.fetchCards(this.props.match.params.deckId).then(res => {
+      this.setState({ cards: res.scores });
+    });
   }
 
   render() {
-    if(!this.props.scores) return null;
-   
+    if (!this.props.scores) return null;
+
     let sum = 0;
     let total;
-    let cards = this.props.cards
-   
+    let cards = this.props.cards;
+
     if (!Object.keys(this.props.scores).length) {
       total = sum;
     } else {
@@ -44,14 +46,11 @@ class ProgressBar extends React.Component {
         sum += cardScores[i].score;
       }
       total = (sum / (5 * cards.length)) * 100;
-    
     }
 
     return (
       <div className="progress">
-        <div className="mastery-title">
-          Mastery Score
-          </div>
+        <div className="mastery-title">Mastery Score</div>
         <div>
           <CircularProgressbar
             value={total}
@@ -79,13 +78,13 @@ class ProgressBar extends React.Component {
               }
             }}
           />
-          </div> 
-        <NavLink id="see-deck" to={`/decks/${this.props.match.params.deckId}`}>See All Cards</NavLink>
+        </div>
+        <NavLink id="see-deck" to={`/decks/${this.props.match.params.deckId}`}>
+          See All Cards
+        </NavLink>
       </div>
     );
   }
-}
+};
 
-export default withRouter(ProgressBar)
-
-
+export default withRouter(ProgressBar);

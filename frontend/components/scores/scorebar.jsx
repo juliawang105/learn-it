@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 import {
   CircularProgressbar,
   CircularProgressbarWithChildren,
   buildStyles
 } from "react-circular-progressbar";
-import { withRouter } from 'react-router-dom';
-import ProgressBar from '../progressbar/progressbar'
+import { withRouter } from "react-router-dom";
+import ProgressBar from "../progressbar/progressbar";
 
 class ScoreBar extends React.Component {
   constructor(props) {
@@ -20,56 +20,55 @@ class ScoreBar extends React.Component {
   }
 
   componentDidMount() {
-   
-    this.props.fetchScores(this.props.match.params.deckId, this.props.user)
+    this.props
+      .fetchScores(this.props.match.params.deckId, this.props.user)
       .then(res => {
-        this.setState({scores: res.scores})
-      })
+        this.setState({ scores: res.scores });
+      });
   }
 
   handleClick(e) {
     e.preventDefault();
     this.setState({ score: e.target.value });
-   
+
     let score = {
       deck_id: this.props.deck.id,
       learner_id: this.props.user,
       card_id: this.props.currCard.id,
       score: parseInt(e.target.value)
     };
-  
+
     let scores = Object.values(this.state.scores).map(score => {
       return score.card_id;
     });
 
     if (Object.keys(this.state.scores).length === 0) {
       this.props.saveScore(score);
-      return
-    }
-    
-    debugger
-    if (scores.includes(score.card_id)) {
-      this.props.updateScore(score);
-      return
-    } else if (!scores.includes(score.card_id)) {
-      this.props.saveScore(score);
-      return
+      return;
     }
 
-     // if (!scores.includes(score.card_id) && Object.keys(this.state.scores).length > 0) {
+    if (scores.includes(score.card_id)) {
+      this.props.updateScore(score);
+      return;
+    } else if (!scores.includes(score.card_id)) {
+      this.props.saveScore(score);
+      return;
+    }
+
+    // if (!scores.includes(score.card_id) && Object.keys(this.state.scores).length > 0) {
     //   this.props.saveScore(score);
     //   return
     // }
   }
 
   render() {
-    if(!this.state.scores) return null;
+    if (!this.state.scores) return null;
     //debugger
     return (
       <div className="scorebar">
         <button onClick={this.handleClick} className="score" value="1">
           1
-          <br/>
+          <br />
           Not At All
         </button>
         <button onClick={this.handleClick} className="score" value="2">
@@ -91,4 +90,4 @@ class ScoreBar extends React.Component {
   }
 }
 
-export default withRouter(ScoreBar)
+export default withRouter(ScoreBar);

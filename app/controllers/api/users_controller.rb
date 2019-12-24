@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-    def create
+  def create
     @user = User.new(user_params)
 
     if @user.save
@@ -8,7 +8,7 @@ class Api::UsersController < ApplicationController
     else  
       render json: @user.errors.full_messages, status: 422 
     end
-  end
+end
 
   def show 
     @user = User.includes(:scores).includes(:saves).includes(:created_decks).includes(:saved_decks).find(params[:id])
@@ -16,7 +16,7 @@ class Api::UsersController < ApplicationController
   end
 
   private 
-  
+
   def user_params
     params.require(:user).permit(:email, :password, :first_name, :last_name)
   end

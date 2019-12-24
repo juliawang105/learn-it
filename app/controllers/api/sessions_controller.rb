@@ -1,5 +1,5 @@
 class Api::SessionsController < ApplicationController
-    def create 
+  def create 
     email = params[:user][:email]
     password = params[:user][:password]
 
