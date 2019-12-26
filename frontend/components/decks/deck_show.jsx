@@ -20,32 +20,16 @@ class DeckShow extends React.Component {
   componentDidMount() {
     //debugger
     this.props.fetchDeck(this.props.match.params.deckId);
-    // .then( res => {
-    //     // debugger
-    //     this.setState({tags: res.payload.tags})
-
-    // });
+    
   };
 
   componentDidUpdate(oldProps) {
     //debugger;
     if (oldProps.match.params.deckId !== this.props.match.params.deckId) {
       this.props.fetchDeck(this.props.match.params.deckId);
-      // .then(res => {
-      //     //debugger
-      //     this.setState({ tags: res.payload.tags })
-
-      // });
+      
     };
-    // debugger
-    // if(Object.keys(oldProps.tags).length !== Object.keys(this.props.tags).length){
-    //     this.props.fetchDeck(this.props.match.params.deckId)
-    //         .then(res => {
-    //             //debugger
-    //             this.setState({ tags: res.payload.tags })
-
-    //         });
-    //     }
+    
   };
 
   handleClick(e) {
@@ -78,9 +62,12 @@ class DeckShow extends React.Component {
     let study_link;
 
     if (cards.length === 0 && deck.creator_id === parseInt(this.props.user)) {
-      deck_cards = <div className="empty-deck">Get Started and Create Some Cards!</div>
+      //deck_cards = <div className="empty-deck">Get Started and Create Some Cards!</div>
+      study_link = <p className="empty-deck">Get Started and Create Some Cards!</p>
     } else if (cards.length === 0 && deck.creator_id !== parseInt(this.props.user)) {
-        deck_cards = <div className="empty-deck">No Cards Available at the Moment</div>
+        //deck_cards = <div className="empty-deck">No Cards Available at the Moment</div>
+      study_link = <p className="empty-deck">This deck has no cards.
+        </p>
       }
     else {deck_cards = cards.map(card => {
       return (
