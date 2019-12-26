@@ -74,9 +74,12 @@ class DeckShow extends React.Component {
     if (!deck) return null;
 
     let cards = this.props.cards;
-    if (!cards) return null;
-
-    let deck_cards = cards.map(card => {
+    let deck_cards;
+    let study_link;
+    
+    if (cards.length === 0) {
+      deck_cards = <div className="empty-deck">Get Started and Create Some Cards!</div>
+    } else {deck_cards = cards.map(card => {
       return (
         <CardItem
           key={card.id}
@@ -89,7 +92,11 @@ class DeckShow extends React.Component {
           fetchDeck={this.props.fetchDeck}
         />
       );
-    });
+    })
+      study_link = <Link id="study" to={`/decks/${this.props.deck.id}/study`}>
+        Study this Deck!
+            </Link>
+  };
 
     let tags = this.state.tags;
     if (!tags) return null;
@@ -150,9 +157,10 @@ class DeckShow extends React.Component {
                     {deck_cards} */}
           <div className="show-nav">
             <div className="deck_title">{deck.name}</div>
-            <Link id="study" to={`/decks/${this.props.deck.id}/study`}>
+            {/* <Link id="study" to={`/decks/${this.props.deck.id}/study`}>
               Study this Deck!
-            </Link>
+            </Link> */}
+            {study_link}
             {saveButton}
             {createButton}
             {deleteButton}
