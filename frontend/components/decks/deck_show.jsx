@@ -76,10 +76,13 @@ class DeckShow extends React.Component {
     let cards = this.props.cards;
     let deck_cards;
     let study_link;
-    
-    if (cards.length === 0) {
+
+    if (cards.length === 0 && deck.creator_id === parseInt(this.props.user)) {
       deck_cards = <div className="empty-deck">Get Started and Create Some Cards!</div>
-    } else {deck_cards = cards.map(card => {
+    } else if (cards.length === 0 && deck.creator_id !== parseInt(this.props.user)) {
+        deck_cards = <div className="empty-deck">No Cards Available at the Moment</div>
+      }
+    else {deck_cards = cards.map(card => {
       return (
         <CardItem
           key={card.id}
