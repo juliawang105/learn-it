@@ -59,14 +59,15 @@ class DeckShow extends React.Component {
 
     let cards = this.props.cards;
     let deck_cards;
+    let no_cards;
     let study_link;
 
     if (cards.length === 0 && deck.creator_id === parseInt(this.props.user)) {
       //deck_cards = <div className="empty-deck">Get Started and Create Some Cards!</div>
-      study_link = <p className="empty-deck">Get Started and Create Some Cards!</p>
+      no_cards= <p className="empty-deck">Get Started and Create Some Cards!</p>
     } else if (cards.length === 0 && deck.creator_id !== parseInt(this.props.user)) {
         //deck_cards = <div className="empty-deck">No Cards Available at the Moment</div>
-      study_link = <p className="empty-deck">This deck has no cards.
+      no_cards = <p className="empty-deck">This deck has no cards.
         </p>
       }
     else {deck_cards = cards.map(card => {
@@ -83,6 +84,7 @@ class DeckShow extends React.Component {
         />
       );
     })
+      // no_cards = null;
       study_link = <Link id="study" to={`/decks/${this.props.deck.id}/study`}>
         Study this Deck!
             </Link>
@@ -147,9 +149,7 @@ class DeckShow extends React.Component {
                     {deck_cards} */}
           <div className="show-nav">
             <div className="deck_title">{deck.name}</div>
-            {/* <Link id="study" to={`/decks/${this.props.deck.id}/study`}>
-              Study this Deck!
-            </Link> */}
+            {no_cards}
             {study_link}
             {saveButton}
             {createButton}
