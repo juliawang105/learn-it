@@ -107,10 +107,12 @@
 #study{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     border-radius: 5px;
-    font-size: 10pt;
+    font-size: 14pt;
     color: #F2FAFD;
     cursor: pointer;
-    padding-bottom: 7px
+    padding-bottom: 7px;
+    animation-name: fadeIn;
+    animation-duration: 3s;
 }
 
 #study:hover{

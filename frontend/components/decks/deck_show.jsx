@@ -9,22 +9,17 @@ import TagForm from "../tags/create_tags_container";
 class DeckShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      tags: []
-    };
+   
     this.handleClick = this.handleClick.bind(this);
     this.fetchDeck = this.props.fetchDeck.bind(this);
-    //this.rerenderParentCallback = this.rerenderParentCallback.bind(this);
+   
   }
 
   componentDidMount() {
-    //debugger
     this.props.fetchDeck(this.props.match.params.deckId);
-    
   };
 
   componentDidUpdate(oldProps) {
-    //debugger;
     if (oldProps.match.params.deckId !== this.props.match.params.deckId) {
       this.props.fetchDeck(this.props.match.params.deckId);
       
@@ -46,31 +41,30 @@ class DeckShow extends React.Component {
       let saved = saves[i]; //saved = pojo
       if (saved.deck_id === this.props.deck.id) {
         this.props.unsaveDeck(saved.id);
-        // .then(() => this.setState({ following: false }))
         return;
       };
     };
-    this.props.saveDeck(save).then(() => this.setState({ following: true }));
+    this.props.saveDeck(save)
   };
 
   render() {
     let deck = this.props.deck;
     if (!deck) return null;
 
-    let cards = this.props.cards;
+    //let cards = this.props.cards;
     let deck_cards;
     let no_cards;
-    let study_link;
-
-    if (cards.length === 0 && deck.creator_id === parseInt(this.props.user)) {
-      //deck_cards = <div className="empty-deck">Get Started and Create Some Cards!</div>
+   
+    if (this.props.cards.length === 0 && deck.creator_id === parseInt(this.props.user)) {
       no_cards= <p className="empty-deck">Get Started and Create Some Cards!</p>
-    } else if (cards.length === 0 && deck.creator_id !== parseInt(this.props.user)) {
-        //deck_cards = <div className="empty-deck">No Cards Available at the Moment</div>
+    } else if (this.props.cards.length === 0 && deck.creator_id !== parseInt(this.props.user)) {
       no_cards = <p className="empty-deck">This deck has no cards.
         </p>
-      }
-    else {deck_cards = cards.map(card => {
+    } 
+    
+    if (this.props.cards.length > 0) {
+      {
+        deck_cards = this.props.cards.map(card => {
       return (
         <CardItem
           key={card.id}
@@ -82,16 +76,13 @@ class DeckShow extends React.Component {
           openModal={this.props.openModal}
           fetchDeck={this.props.fetchDeck}
         />
-      );
-    })
-      // no_cards = null;
-      study_link = <Link id="study" to={`/decks/${this.props.deck.id}/study`}>
-        Study this Deck!
-            </Link>
+        );
+      })
+        no_cards = <Link id="study" to={`/decks/${this.props.deck.id}/study`}>
+          Study this Deck!
+            </Link> 
+    }
   };
-
-    let tags = this.state.tags;
-    if (!tags) return null;
 
     let save_array = Object.values(this.props.saves);
     save_array = save_array.map(save => {
@@ -134,27 +125,18 @@ class DeckShow extends React.Component {
       );
     };
 
-    //debugger
     return (
       <div className="deck_show">
         <div className="show">
-          {/* <div className="deck_title">{deck.name} <Link id="study" to={`/decks/${this.props.deck.id}/study`}>Study this Deck!</Link>
-                    </div> */}
-          {/* 
-                    {saveButton} 
-                    <br />
-                    {createButton}
-                    <br/>
-                    {deleteButton}
-                    {deck_cards} */}
           <div className="show-nav">
             <div className="deck_title">{deck.name}</div>
             {no_cards}
-            {study_link}
             {saveButton}
             {createButton}
             {deleteButton}
+           
           </div>
+
 
           <div className="show-cards">{deck_cards}</div>
         </div>

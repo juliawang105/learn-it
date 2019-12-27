@@ -29,8 +29,7 @@ const App = () => (
             <a
               className="job"
               target="_blank"
-              href="https://github.com/juliawang105/fullstack"
-            >
+              href="https://github.com/juliawang105/fullstack">
               <i className="fab fa-github fa-2x"></i>
             </a>
           </div>
@@ -38,9 +37,16 @@ const App = () => (
             <a
               className="job"
               target="_blank"
-              href="https://www.linkedin.com/in/julia-wang-b1981231/"
-            >
+              href="https://www.linkedin.com/in/julia-wang-b1981231/">
               <i className="fab fa-linkedin fa-2x"></i>
+            </a>
+          </div>
+          <div>
+            <a
+              className="job"
+              target="_blank"
+              href="https://www.julia-w.com">
+              Portfolio
             </a>
           </div>
         </div>
