@@ -11,7 +11,8 @@ class StudyCards extends React.Component {
       currentCard: "",
       scores: "",
       flipped: false,
-      end: false
+      end: false,
+      counter: 0
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -24,25 +25,13 @@ class StudyCards extends React.Component {
     this.props.fetchDeck(this.props.match.params.deckId).then(res => {
       this.setState({
         cards: res.payload.cards,
-        currentCard: res.payload.cards[0]
+        currentCard: res.payload.cards[0],
+        // counter: this.setState({counter, 1})
       });
     });
-    // this.props.fetchScores(this.props.match.params.deckId, this.props.user)
-    //   .then(res => {
-    //     this.setState({ scores: res.scores })
-    //   });
   }
 
-  // componentDidUpdate(oldProps){
-  //   debugger
-  //   if (oldProps.currentCard.id !== this.props.currentCard.id) {
-  //     this.props.fetchScores(this.props.match.params.deckId, this.props.user)
-  //       .then(res => {
-  //         this.setState({ scores: res.scores })
-  //       });
-  //     }
-  // }
-
+ 
   goBack() {
     event.preventDefault();
     let i = this.state.cards.indexOf(this.state.currentCard);
@@ -191,7 +180,8 @@ class StudyCards extends React.Component {
         <div className="study">
           {goBack}
           <div className="study-card">
-            <div className="front ">{currCard1}</div>
+            <div>1</div>
+            <div className="front">{currCard1}</div>
             <div className="back">{currCard2}</div>
             <div className="back">{endCard}</div>
           </div>
