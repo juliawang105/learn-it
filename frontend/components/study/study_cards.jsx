@@ -12,7 +12,6 @@ class StudyCards extends React.Component {
       scores: "",
       flipped: false,
       end: false,
-      counter: 0
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -26,7 +25,6 @@ class StudyCards extends React.Component {
       this.setState({
         cards: res.payload.cards,
         currentCard: res.payload.cards[0],
-        // counter: this.setState({counter, 1})
       });
     });
   }
@@ -50,14 +48,14 @@ class StudyCards extends React.Component {
     if (flipStatus === false) {
       this.setState({
         currentCard: this.state.cards[i - 1],
-        flipped: false
+        flipped: false,
       });
     }
 
     if (flipStatus === true) {
       this.setState({
         currentCard: this.state.cards[i],
-        flipped: false
+        flipped: false,
       });
     }
   }
@@ -67,7 +65,7 @@ class StudyCards extends React.Component {
     this.setState({
       currentCard: this.state.cards[0],
       flipped: false,
-      end: false
+      end: false,
     });
   }
 
@@ -109,7 +107,7 @@ class StudyCards extends React.Component {
     let currCard2;
     let endCard;
     let scoreBar;
-
+    //debugger
     if (
       this.state.cards.indexOf(this.state.currentCard) !== 0 ||
       this.state.flipped !== false
@@ -168,7 +166,7 @@ class StudyCards extends React.Component {
         </div>
       );
     }
-
+    //debugger
     return (
       <div className="progressBar">
         <div className="mastery">
@@ -180,7 +178,7 @@ class StudyCards extends React.Component {
         <div className="study">
           {goBack}
           <div className="study-card">
-            <div>1</div>
+            
             <div className="front">{currCard1}</div>
             <div className="back">{currCard2}</div>
             <div className="back">{endCard}</div>

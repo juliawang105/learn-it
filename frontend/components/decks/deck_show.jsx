@@ -12,6 +12,7 @@ class DeckShow extends React.Component {
    
     this.handleClick = this.handleClick.bind(this);
     this.fetchDeck = this.props.fetchDeck.bind(this);
+    this.goStudy = this.goStudy.bind(this);
    
   }
 
@@ -26,6 +27,11 @@ class DeckShow extends React.Component {
     };
     
   };
+
+  goStudy(e){
+    e.preventDefault();
+    this.props.history.push(`/decks/${this.props.deck.id}/study`)
+  }
 
   handleClick(e) {
     e.preventDefault();
@@ -78,9 +84,13 @@ class DeckShow extends React.Component {
         />
         );
       })
-        no_cards = <Link id="study" to={`/decks/${this.props.deck.id}/study`}>
-          Study this Deck!
-            </Link> 
+        no_cards = (
+          <button className="card-button" onClick={this.goStudy}>
+           
+              Study this Deck!
+            
+        </button>
+        )
     }
   };
 
