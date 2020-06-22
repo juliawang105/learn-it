@@ -53,26 +53,18 @@ const App = () => (
         <GreetingContainer />
       </header>
 
-      {/* <div className="body">
-                {/* switch statements */}
-      {/* </div> */}
-
       <Switch>
-        {/* <AuthRoute path="/login" component={LoginFormContainer} />
-                <AuthRoute path="/signup" component={SignUpFormContainer} /> */}
-        <Route exact path="/decks" component={DeckIndexContainer} />
-        <Route exact path="/decks/:deckId" component={DeckShowContainer} />
-        <Route
+        <AuthRoute exact path="/decks" component={DeckIndexContainer} />
+        <AuthRoute exact path="/decks/:deckId" component={DeckShowContainer} />
+        <AuthRoute
           exact
           path="/decks/:deckId/study"
           component={StudyCardsContainer}
         />
-        <Route exact path="/users/:id" component={UsersShowContainer} />
-        <Route exact path="/new" component={CreateDeckContainer} />
-        <Route exact path="/searches" component={SearchResultsContainer} />
-        {/* <Route exact path="/decks/:deckId/progress" component={ ProgressBarContainer} /> */}
-
-        <Route exact path="/" component={HomeFormContainer} />
+        <AuthRoute exact path="/users/:id" component={UsersShowContainer} />
+        <AuthRoute exact path="/new" component={CreateDeckContainer} />
+        <AuthRoute exact path="/searches" component={SearchResultsContainer} />
+        <Route path="/" component={HomeFormContainer} />
       </Switch>
     </div>
   </div>
