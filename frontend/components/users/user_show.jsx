@@ -53,7 +53,7 @@ class UserShow extends React.Component {
 
     let createdDecks = created.map(deck => {
       return (
-        <div>
+        <div key={deck.id}>
           <DeckIndexItem
             key={deck.id}
             deck={deck}
