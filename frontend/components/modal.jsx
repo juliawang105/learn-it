@@ -9,6 +9,7 @@ import UpdateCardContainer from "./cards/update_card";
 import EditDeckContainer from "./decks/edit_deck";
 import DeleteDeckContainer from "./deletes/delete_deck_container";
 import DeleteCardContainer from "./deletes/delete_card_container";
+import { deleteDeck } from '../actions/deck_actions'
 
 class ModalForm extends React.Component {
   constructor(props) {
@@ -41,6 +42,7 @@ class ModalForm extends React.Component {
         component = <EditDeckContainer />;
         break;
       case "delete-deck":
+        debugger
         component = <DeleteDeckContainer />;
         break;
       case "delete-card":
@@ -65,7 +67,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  closeModal: () => dispatch(closeModal())
+  closeModal: () => dispatch(closeModal()),
+  deleteDeck: (deckId) => dispatch(deleteDeck(deckId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ModalForm);

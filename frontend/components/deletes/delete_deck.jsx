@@ -5,6 +5,7 @@ class DeleteDeck extends React.Component {
   constructor(props) {
     super(props);
 
+    debugger
     this.handleDelete = this.handleDelete.bind(this);
   }
 
@@ -25,13 +26,11 @@ class DeleteDeck extends React.Component {
 
   handleDelete() {
     event.preventDefault();
+    debugger
     this.props.deleteDeck(this.props.data).then(() => {
       this.props.closeModal();
       this.props.history.push(`/users/${this.props.session}`);
     });
-    // .then( () => {
-    //     this.props.history.push(``)
-    // })
   }
 
   render() {

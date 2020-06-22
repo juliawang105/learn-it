@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import { closeModal } from "../../actions/modal_actions";
 import DeleteDeck from "./delete_deck";
 import { deleteCard } from "../../actions/card_actions";
+import { deleteDeck} from "../../actions/deck_actions";
 
 const mSTP = state => {
   // console.log(state.ui.modal.data)
