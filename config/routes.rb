@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     resources :decks_search, only: [:index]
   end
 
-  get '*path', to: 'static_pages#root', constraints: lambda { |req|
+  get '*path', to: redirect('/'), constraints: lambda { |req|
     req.path.exclude? 'rails/active_storage'
   }
 
