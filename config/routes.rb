@@ -18,4 +18,8 @@ Rails.application.routes.draw do
     resources :decks_search, only: [:index]
   end
 
+  get '*all', to: 'application#index', constraints: lambda { |req|
+    req.path.exclude? 'rails/active_storage'
+  }
+
 end
